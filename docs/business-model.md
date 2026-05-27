@@ -1,0 +1,50 @@
+# Business model Entreprise.ai V2
+
+## Phase 1 - MVP
+
+- Gratuit côté entreprise.
+- Gratuit ou quasi gratuit côté prestataire pour être référencé.
+- Commission au succès côté prestataire si une mission est signée.
+- Commission cible : 10 % sur la première mission.
+- Option : 5 % sur les extensions pendant 3 à 6 mois.
+- Paiement uniquement après encaissement par le prestataire.
+- Budget minimum recommandé côté projet : idéalement 5 000 € à 10 000 € minimum.
+
+Objectif : valider la demande, recruter les premiers prestataires, prouver la capacité à qualifier des projets et générer des mises en relation utiles.
+
+## Phase 2 - Monétisation prestataire
+
+- Abonnement prestataire.
+- Badge "Prestataire vérifié".
+- Fiches enrichies.
+- Accès prioritaire à certains leads qualifiés.
+- Mise en avant sponsorisée clairement identifiée.
+- Newsletter B2B sponsorisée.
+- Guides sponsorisés.
+- Rapports de marché sponsorisés.
+
+## Phase 3 - Produits premium et autorité marché
+
+- Cadrage projet payant côté entreprise.
+- Diagnostic IA PME / ETI.
+- Cahier des charges IA.
+- Shortlist premium.
+- Baromètre annuel des prestataires IA en France.
+- Classements sectoriels.
+- Événements et webinars.
+- Partenariats institutionnels ou médias B2B.
+
+## Règles de confiance
+
+Séparer clairement :
+
+- classement éditorial ;
+- prestataires vérifiés ;
+- prestataires sponsorisés ;
+- recommandations de shortlist.
+
+Un prestataire sponsorisé ne doit jamais être présenté comme objectivement meilleur uniquement parce qu'il paie.
+
+## Logique commerciale initiale
+
+La valeur immédiate vient de la qualification : moins de temps perdu côté entreprise, moins de leads hors cible côté prestataire. Le modèle au succès est cohérent tant que la plateforme doit encore prouver sa capacité d'apport d'affaires.

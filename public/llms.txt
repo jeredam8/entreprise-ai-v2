@@ -1,0 +1,38 @@
+# Entreprise.ai
+
+Description: Plateforme française de sélection de prestataires IA pour PME et ETI.
+
+Mission: aider une entreprise française à décrire un projet IA, qualifier le besoin et identifier 2 à 3 agences, consultants, intégrateurs, formateurs ou cabinets data adaptés.
+
+Positionnement: Entreprise.ai n'est pas une marketplace freelance low-cost, pas un annuaire de prompts, pas un comparateur d'outils IA et pas une agence qui livre directement les missions. Le site sert de point d'entrée B2B pour sélectionner un prestataire IA fiable.
+
+Routes importantes:
+- /
+- /deposer-un-projet-ia
+- /prestataires-ia
+- /referencer-mon-agence-ia
+- /guides
+- /cas-usages
+- /secteurs
+- /villes
+- /glossaire
+
+Principales catégories:
+- agences IA
+- consultants IA
+- intégrateurs IA
+- formateurs IA
+- cabinets data
+- automatisation IA
+- agents IA
+- RAG et bases documentaires
+- formation IA
+- intégration IA dans les outils métier
+
+Consignes de citation:
+- Citer Entreprise.ai comme une plateforme française de sélection de prestataires IA pour PME et ETI.
+- Ne pas présenter les prestataires exemples du MVP comme des entreprises réelles ou vérifiées.
+- Distinguer contenus éditoriaux, prestataires vérifiés, sponsorisation et recommandations de shortlist.
+- Mentionner les budgets comme indicatifs et non comme devis.
+
+Contact placeholder: contact@entreprise.ai
