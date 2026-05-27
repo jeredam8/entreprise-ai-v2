@@ -2,7 +2,7 @@ import type { ContentPage } from "@/data/types";
 
 const commonRelated = [
   { label: "Déposer un projet IA", href: "/deposer-un-projet-ia", description: "Faire qualifier un besoin et préparer une shortlist." },
-  { label: "Annuaire des prestataires IA", href: "/prestataires-ia", description: "Comparer les types de prestataires disponibles." }
+  { label: "Types de prestataires IA", href: "/prestataires-ia", description: "Comparer les types de prestataires disponibles." }
 ];
 
 export const guides: ContentPage[] = [

@@ -61,12 +61,12 @@ export function ProjectForm() {
       </FormSection>
 
       <button type="submit" className="btn-primary w-full justify-center sm:w-auto" disabled={status === "submitting"}>
-        {status === "submitting" ? "Enregistrement..." : "Enregistrer la demande locale"}
+        {status === "submitting" ? "Enregistrement..." : "Déposer la demande locale"}
       </button>
 
       {status === "success" ? (
         <p className="rounded-md border border-forest/20 bg-forest/5 p-4 text-sm leading-6 text-forest">
-          Votre demande a bien été enregistrée pour cette version locale. Dans la version finale, Entreprise.ai analysera votre besoin et vous proposera une shortlist de prestataires adaptés.
+          Votre demande a bien été enregistrée pour cette version locale. Entreprise.ai analysera votre besoin et préparera une shortlist de prestataires adaptés.
         </p>
       ) : null}
       {status === "error" ? (
@@ -126,7 +126,7 @@ export function ProviderReferenceForm() {
         <TextInput label="Téléphone" name="phone" type="tel" />
         <label className="flex gap-3 text-sm leading-6 text-muted md:col-span-2">
           <input type="checkbox" name="acceptedTerms" required className="mt-1 h-4 w-4 rounded border-line text-forest" />
-          J'accepte que ces informations soient utilisées pour étudier une demande de référencement dans cette version locale.
+          J'accepte que ces informations soient utilisées pour étudier mon positionnement et les projets auxquels mon profil peut correspondre.
         </label>
       </FormSection>
 

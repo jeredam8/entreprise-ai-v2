@@ -8,7 +8,7 @@ type ProjectCTAProps = {
 
 export function ProjectCTA({
   title = "Vous avez un projet IA mais vous ne savez pas quel prestataire choisir ?",
-  description = "Décrivez le besoin, le budget, les outils existants et les contraintes. La version finale d'Entreprise.ai proposera une shortlist de prestataires adaptés."
+  description = "Décrivez le besoin, le budget, les outils existants et les contraintes. Entreprise.ai vous aide à qualifier le projet et à préparer une shortlist de prestataires adaptés."
 }: ProjectCTAProps) {
   return (
     <section className="mx-auto max-w-7xl px-5 py-12 lg:px-8">

@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const columns = [
   {
-    title: "Plateforme",
+    title: "Matching",
     links: [
-      { label: "Prestataires IA", href: "/prestataires-ia" },
       { label: "Déposer un projet", href: "/deposer-un-projet-ia" },
       { label: "Référencer mon agence", href: "/referencer-mon-agence-ia" },
-      { label: "Comment ça marche", href: "/comment-ca-marche" }
+      { label: "Comment ça marche", href: "/comment-ca-marche" },
+      { label: "Types de prestataires", href: "/prestataires-ia" }
     ]
   },
   {
@@ -49,7 +49,7 @@ export function Footer() {
             <span className="text-lg font-semibold">Entreprise.ai</span>
           </div>
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
-            Plateforme française de référence pour aider les PME et ETI à sélectionner un prestataire IA fiable, avec annuaire qualifié, contenus experts et matching humain.
+            Marketplace de projets IA pour aider les PME et ETI à clarifier leur besoin, comparer les bons types de prestataires et recevoir une shortlist qualifiée.
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -70,7 +70,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-slate-400">
-        MVP local. Les prestataires affichés comme exemples ne sont pas des entreprises vérifiées.
+        MVP local. Matching humain au lancement, sans déploiement live depuis cette version de travail.
       </div>
     </footer>
   );

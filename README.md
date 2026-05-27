@@ -1,12 +1,12 @@
-# Entreprise.ai V2
+# Entreprise.ai V2.1
 
-MVP local de site B2B pour positionner Entreprise.ai comme le "Clutch / DesignRush français des prestataires IA pour PME et ETI".
+MVP local de marketplace B2B pour aider les PME et ETI à clarifier un projet IA et recevoir une shortlist manuelle de prestataires adaptés.
 
 Le projet est volontairement séparé du site existant `07-dev/entreprise-ai`. Aucun déploiement n'est prévu dans ce dossier.
 
 ## Statut de publication
 
-Ce dépôt est publié pour revue et analyse externe du MVP V2. Il ne constitue pas le site public officiel d'Entreprise.ai.
+Ce dépôt est publié pour revue et analyse externe du MVP V2.1. Il ne constitue pas encore le site public officiel d'Entreprise.ai.
 
 ## Stack
 

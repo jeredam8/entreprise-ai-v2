@@ -5,11 +5,11 @@ import { ArrowRight, Menu } from "lucide-react";
 import { useState } from "react";
 
 const nav = [
-  { label: "Prestataires IA", href: "/prestataires-ia" },
+  { label: "Comment ça marche", href: "/comment-ca-marche" },
+  { label: "Guides", href: "/guides" },
   { label: "Cas d'usage", href: "/cas-usages" },
   { label: "Secteurs", href: "/secteurs" },
-  { label: "Guides", href: "/guides" },
-  { label: "Comment ça marche", href: "/comment-ca-marche" }
+  { label: "Référencer son agence", href: "/referencer-mon-agence-ia" }
 ];
 
 export function Header() {

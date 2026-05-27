@@ -113,7 +113,7 @@ export default async function ProviderPage({ params }: ProviderPageProps) {
           </ul>
         </div>
       </section>
-      <ProjectCTA title="Votre projet ressemble à ce profil ?" description="Décrivez votre besoin. La version finale d'Entreprise.ai cherchera 2 à 3 prestataires réellement vérifiés et adaptés à votre contexte." />
+      <ProjectCTA title="Votre projet ressemble à ce profil ?" description="Décrivez votre besoin. Entreprise.ai qualifiera le projet et préparera une shortlist de prestataires adaptés à votre contexte." />
     </>
   );
 }
