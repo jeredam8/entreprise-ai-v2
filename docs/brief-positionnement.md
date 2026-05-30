@@ -2,7 +2,7 @@
 
 ## Positionnement
 
-Entreprise.ai V2 doit devenir une marketplace française de projets IA pour PME et ETI, avec matching humain en beta.
+Entreprise.ai V2 doit devenir le point d'entrée français de qualification des projets IA pour PME et ETI, avec matching humain en beta.
 
 La plateforme aide une entreprise française à :
 
@@ -25,14 +25,14 @@ Variantes :
 
 ## Ce que le site doit être
 
-- Plateforme française de référence pour sélectionner un prestataire IA fiable.
+- Service français de référence pour sélectionner un prestataire IA fiable.
 - Point d'entrée B2B pour les projets IA des PME et ETI.
-- Contenus experts, dépôt de projet, référencement prestataire et matching humain.
+- Contenus experts, dépôt de projet, étude des profils prestataires et matching humain.
 - Surface de confiance pour dirigeants, DSI, DAF, DRH, directions commerciales, marketing et métiers.
 
 ## Ce que le site ne doit pas être
 
-- Marketplace freelance low-cost.
+- Plateforme freelance self-service.
 - Site pour entrepreneurs solos.
 - Annuaire de prompts.
 - Comparateur d'outils IA.

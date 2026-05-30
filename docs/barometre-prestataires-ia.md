@@ -42,7 +42,7 @@ Le baromètre doit analyser :
 
 ## Garde-fous
 
-Les classements doivent afficher leurs critères. Les sponsorisations doivent être identifiées. Les données déclaratives doivent être distinguées des données vérifiées.
+Les classements doivent afficher leurs critères. Les contenus partenaires doivent être identifiés comme tels. Les données déclaratives doivent être distinguées des données vérifiées.
 
 ## Opportunité stratégique
 

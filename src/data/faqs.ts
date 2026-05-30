@@ -30,9 +30,9 @@ export const providerFaqs: FaqItem[] = [
       "Le référencement est gratuit au lancement pour constituer un réseau qualifié, avec une logique future de commission au succès si une mission est signée."
   },
   {
-    question: "Un prestataire sponsorisé sera-t-il mieux classé ?",
+    question: "Les shortlists sont-elles influencées par un paiement prestataire ?",
     answer:
-      "Non par défaut. La V2 doit séparer clairement l'éditorial, la vérification, la sponsorisation et les recommandations de shortlist."
+      "Non. Pendant la beta, aucune mise en avant payante n'est utilisée pour construire les shortlists. Le premier critère reste l'adéquation entre le projet et la capacité réelle du prestataire."
   },
   {
     question: "Quels prestataires sont recherchés ?",

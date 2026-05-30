@@ -4,7 +4,7 @@ Date : 30/05/2026
 
 ## Décision
 
-La V1 est abandonnée comme site principal. La V2 devient l'axe public : marketplace de projets IA avec matching humain.
+La V1 est abandonnée comme site principal. La V2 devient l'axe public : qualification de projets IA et matching humain.
 
 ## Offre beta
 
@@ -30,6 +30,6 @@ Le risque principal de la V2 n'est pas technique. Le test porte sur trois signau
 ## Garde-fous
 
 - Pas d'annuaire public de prestataires tant que les profils ne sont pas vérifiés.
-- Pas de sponsorisation confondue avec recommandation.
+- Pas de classement payant dans les shortlists de la beta.
 - Pas de promesse de prestataire imposé : l'entreprise garde le choix.
 - Pas de paiement en ligne pendant la beta.

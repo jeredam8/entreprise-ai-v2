@@ -13,7 +13,7 @@ export const mainRoutes = [
   "/consultants-ia",
   "/integrateurs-ia",
   "/formations-ia",
-  "/referencer-mon-agence-ia",
+  "/referencer-un-prestataire-ia",
   "/comment-ca-marche",
   "/a-propos",
   "/contact",

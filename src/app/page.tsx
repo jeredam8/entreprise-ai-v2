@@ -71,8 +71,8 @@ export default function HomePage() {
                 Déposer un projet IA
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/referencer-mon-agence-ia" className="btn-secondary">
-                Référencer mon agence IA
+              <Link href="/referencer-un-prestataire-ia" className="btn-secondary">
+                Référencer un prestataire IA
               </Link>
             </div>
             <p className="mt-5 text-sm font-medium text-muted">

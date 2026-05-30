@@ -48,4 +48,4 @@ Indicateurs :
 
 ## Discipline de marque
 
-Le marketing doit rester rationnel : pas de promesse "10x", pas de faux témoignages, pas de classement sponsorisé ambigu.
+Le marketing doit rester rationnel : pas de promesse "10x", pas de faux témoignages, pas de classement payant ambigu.

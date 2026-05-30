@@ -18,7 +18,7 @@ export default function HowItWorksPage() {
         <div className="mt-8 max-w-4xl">
           <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">Comment ça marche</h1>
           <p className="mt-5 text-lg leading-8 text-muted">
-            Entreprise.ai fonctionne comme une marketplace de projets IA : on part du besoin de l'entreprise, on qualifie le projet, puis on prépare une shortlist de prestataires adaptés.
+            Entreprise.ai fonctionne comme un service de qualification et de matching humain : on part du besoin de l'entreprise, on qualifie le projet, puis on prépare une shortlist de prestataires adaptés.
           </p>
         </div>
       </div>
@@ -40,6 +40,23 @@ export default function HowItWorksPage() {
             </div>
           ))}
         </div>
+        <div className="mt-8 rounded-md border border-line bg-white p-6">
+          <h2 className="text-2xl font-semibold text-ink">Critères utilisés pour préparer une shortlist</h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {[
+              "Nature du besoin IA",
+              "Budget et maturité du projet",
+              "Données, outils et contraintes SI",
+              "Secteur et niveau de risque",
+              "Disponibilité et spécialité du prestataire"
+            ].map((item) => (
+              <div key={item} className="rounded-md bg-soft p-4 text-sm font-semibold leading-6 text-ink">{item}</div>
+            ))}
+          </div>
+          <p className="mt-5 text-sm leading-6 text-muted">
+            Pendant la beta, aucune mise en avant payante n'est utilisée pour construire les shortlists. Le premier filtre reste l'adéquation entre le projet décrit et la capacité réelle du prestataire.
+          </p>
+        </div>
       </section>
       <section className="section pt-0">
         <div className="rounded-md border border-line bg-white p-6 md:flex md:items-center md:justify-between md:gap-8">
@@ -49,7 +66,7 @@ export default function HowItWorksPage() {
               Le référencement sert à intégrer le réseau mobilisable pour des projets qualifiés, pas à remplir un annuaire de volume.
             </p>
           </div>
-          <Link href="/referencer-mon-agence-ia" className="btn-secondary mt-5 md:mt-0">Référencer mon agence IA</Link>
+          <Link href="/referencer-un-prestataire-ia" className="btn-secondary mt-5 md:mt-0">Proposer un profil prestataire</Link>
         </div>
       </section>
       <ProjectCTA />

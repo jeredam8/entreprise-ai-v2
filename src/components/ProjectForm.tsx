@@ -9,7 +9,7 @@ const companySizes = ["1-9", "10-49", "50-249", "250-999", "1000+"];
 const requesterRoles = ["Direction générale", "DSI", "DAF", "DRH", "Direction marketing", "Direction commerciale", "Direction opérationnelle", "Autre"];
 const projectTypes = ["Audit IA", "Automatisation IA", "Agent IA interne", "Chatbot", "RAG / base documentaire", "Formation IA", "Intégration CRM / ERP", "Reporting / data", "Traitement documentaire", "Autre"];
 const urgencies = ["Moins de 1 mois", "1 à 3 mois", "3 à 6 mois", "Pas encore défini"];
-const budgets = ["Moins de 5 000 €", "5 000 à 10 000 €", "10 000 à 25 000 €", "25 000 à 50 000 €", "50 000 €+", "Je ne sais pas"];
+const budgets = ["Budget à cadrer", "5 000 à 10 000 €", "10 000 à 25 000 €", "25 000 à 50 000 €", "50 000 €+"];
 
 export function ProjectForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -119,7 +119,7 @@ export function ProviderReferenceForm() {
       <FormSection title="Positionnement">
         <TextArea label="Spécialités" name="specialties" required />
         <TextArea label="Secteurs d'intervention" name="sectors" required />
-        <SelectInput label="Budget minimum" name="minBudget" options={["Moins de 5 000 €", "5 000 à 10 000 €", "10 000 à 25 000 €", "25 000 €+"]} required />
+        <SelectInput label="Budget minimum" name="minBudget" options={["5 000 à 10 000 €", "10 000 à 25 000 €", "25 000 €+"]} required />
         <TextArea label="Exemples de missions" name="missions" required />
         <TextArea label="Références clients" name="references" />
       </FormSection>
@@ -135,7 +135,7 @@ export function ProviderReferenceForm() {
       </FormSection>
 
       <button type="submit" className="btn-primary w-full justify-center sm:w-auto" disabled={status === "submitting"}>
-        {status === "submitting" ? "Enregistrement..." : "Demander le référencement"}
+        {status === "submitting" ? "Enregistrement..." : "Proposer mon profil"}
       </button>
       {status === "success" ? (
         <p className="rounded-md border border-forest/20 bg-forest/5 p-4 text-sm leading-6 text-forest">

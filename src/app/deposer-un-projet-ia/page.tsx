@@ -25,7 +25,10 @@ export default function SubmitProjectPage() {
           <div className="mt-6 rounded-md border border-line bg-soft p-5">
             <p className="text-sm font-semibold text-ink">Bêta de lancement</p>
             <p className="mt-2 text-sm leading-6 text-muted">
-              Gratuit côté entreprise au lancement. Réponse cible : qualification et prochaines étapes sous 72 h ouvrées lorsque le projet est assez précis.
+              Gratuit côté entreprise au lancement. La beta priorise les PME et ETI avec un projet concret, un décideur identifié et une enveloppe réaliste, souvent à partir de 5 000 €.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Réponse cible : qualification et prochaines étapes sous 72 h ouvrées lorsque le besoin est assez précis. Si le sujet est trop tôt, Entreprise.ai pourra recommander un cadrage avant shortlist.
             </p>
           </div>
           <div className="mt-6 space-y-3">

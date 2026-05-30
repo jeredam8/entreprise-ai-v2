@@ -1,6 +1,6 @@
-# Entreprise.ai V2.1
+# Entreprise.ai V2 beta
 
-Site V2 d'Entreprise.ai : marketplace de projets IA avec matching humain. Une PME ou ETI décrit son besoin, Entreprise.ai qualifie le projet puis prépare une shortlist manuelle de 2 à 3 prestataires adaptés.
+Site V2 d'Entreprise.ai : qualification de projets IA et matching humain. Une PME ou ETI décrit son besoin, Entreprise.ai qualifie le projet puis prépare une shortlist manuelle de 2 à 3 prestataires adaptés.
 
 Le projet est volontairement séparé de l'ancien site `07-dev/entreprise-ai`.
 
@@ -59,7 +59,7 @@ Modifier `src/data/providers.ts` et ajouter un objet avec :
 - `description`
 - `verificationLevel`
 
-Les fiches prestataires fictives restent hors sitemap et noindex. Le lancement public met en avant le dépôt de projet, le référencement prestataire et les contenus de cadrage.
+Les fiches prestataires fictives restent hors sitemap et noindex. Le lancement public met en avant le dépôt de projet, l'étude des profils prestataires et les contenus de cadrage.
 
 ## Ajouter une page secteur
 
@@ -80,9 +80,8 @@ Ajouter une entrée dans `src/data/useCases.ts`. La route `/cas-usages/[slug]` g
 
 ## Prochaines étapes
 
-- Remplacer les prestataires exemples par des fiches vérifiées.
+- Construire la base de prestataires vérifiés hors surface publique.
 - Connecter un stockage de leads.
 - Ajouter un dashboard admin.
-- Créer les premiers templates téléchargeables.
-- Ajouter une méthode de vérification des prestataires.
+- Ajouter une méthode publique courte de qualification et de matching.
 - Connecter analytics et Search Console avant tout lancement public.

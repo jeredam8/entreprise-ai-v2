@@ -9,7 +9,7 @@ const nav = [
   { label: "Guides", href: "/guides" },
   { label: "Cas d'usage", href: "/cas-usages" },
   { label: "Secteurs", href: "/secteurs" },
-  { label: "Référencer son agence", href: "/referencer-mon-agence-ia" }
+  { label: "Prestataires IA", href: "/referencer-un-prestataire-ia" }
 ];
 
 export function Header() {

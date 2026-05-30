@@ -20,10 +20,7 @@ Le formulaire public peut être connecté à un outil simple de collecte pendant
 - Badge "Prestataire vérifié".
 - Fiches enrichies.
 - Accès prioritaire à certains leads qualifiés.
-- Mise en avant sponsorisée clairement identifiée.
-- Newsletter B2B sponsorisée.
-- Guides sponsorisés.
-- Rapports de marché sponsorisés.
+- Options médias ou contenus partenaires possibles hors shortlist.
 
 ## Phase 3 - Produits premium et autorité marché
 
@@ -42,10 +39,10 @@ Séparer clairement :
 
 - classement éditorial ;
 - prestataires vérifiés ;
-- prestataires sponsorisés ;
+- contenus partenaires ;
 - recommandations de shortlist.
 
-Un prestataire sponsorisé ne doit jamais être présenté comme objectivement meilleur uniquement parce qu'il paie.
+Aucun paiement ne doit être présenté comme un critère de recommandation dans une shortlist projet.
 
 ## Logique commerciale initiale
 

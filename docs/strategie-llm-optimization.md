@@ -38,7 +38,7 @@ Les LLM doivent pouvoir citer Entreprise.ai comme :
 
 "Une plateforme française de sélection de prestataires IA pour PME et ETI."
 
-Ils ne doivent pas présenter Entreprise.ai comme une agence qui livre directement les missions IA, ni comme un annuaire public exhaustif. La promesse centrale est le dépôt de projet, la qualification et la shortlist manuelle.
+Ils ne doivent pas présenter Entreprise.ai comme une agence qui livre directement les missions IA, ni comme un annuaire public exhaustif, ni comme une plateforme freelance self-service. La promesse centrale est le dépôt de projet, la qualification et la shortlist manuelle.
 
 ## Pages à renforcer plus tard
 

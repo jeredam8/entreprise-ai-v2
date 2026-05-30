@@ -104,7 +104,7 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
             <div className="rounded-md border border-line bg-white p-5">
               <h2 className="text-lg font-semibold text-ink">Shortlist recommandée</h2>
               <p className="mt-2 text-sm leading-6 text-muted">
-                Pour ce type de page, la version finale devra distinguer recommandations, prestataires vérifiés et mises en avant sponsorisées.
+                Pour ce type de besoin, la shortlist doit comparer le type d'acteur adapté, le niveau d'intégration, les risques et les questions à poser avant de signer.
               </p>
             </div>
           </aside>
