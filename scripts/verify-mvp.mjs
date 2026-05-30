@@ -9,6 +9,7 @@ const requiredFiles = [
   "docs/business-model.md",
   "docs/strategie-seo.md",
   "docs/strategie-llm-optimization.md",
+  "docs/lancement-beta-2026-05-30.md",
   "docs/roadmap-marketing.md",
   "docs/barometre-prestataires-ia.md",
   "docs/backlog-produit.md",
@@ -17,7 +18,6 @@ const requiredFiles = [
   "src/app/deposer-un-projet-ia/page.tsx",
   "src/app/referencer-mon-agence-ia/page.tsx",
   "src/app/prestataires-ia/page.tsx",
-  "src/app/prestataires-ia/[slug]/page.tsx",
   "src/app/guides/[slug]/page.tsx",
   "src/app/cas-usages/[slug]/page.tsx",
   "src/app/secteurs/[slug]/page.tsx",
@@ -51,4 +51,4 @@ if (providerCount < 8) {
   process.exit(1);
 }
 
-console.log("Verification MVP locale OK : fichiers structurants presents et donnees prestataires suffisantes.");
+console.log("Verification V2 beta OK : fichiers structurants presents et base prestataires interne suffisante.");

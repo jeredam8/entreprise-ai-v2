@@ -3,6 +3,8 @@
 import { useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkokwzqb";
+
 const companySizes = ["1-9", "10-49", "50-249", "250-999", "1000+"];
 const requesterRoles = ["Direction générale", "DSI", "DAF", "DRH", "Direction marketing", "Direction commerciale", "Direction opérationnelle", "Autre"];
 const projectTypes = ["Audit IA", "Automatisation IA", "Agent IA interne", "Chatbot", "RAG / base documentaire", "Formation IA", "Intégration CRM / ERP", "Reporting / data", "Traitement documentaire", "Autre"];
@@ -16,13 +18,14 @@ export function ProjectForm() {
     event.preventDefault();
     setStatus("submitting");
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    formData.append("_subject", "Entreprise.ai V2 - nouveau projet IA");
+    formData.append("form_kind", "project_submission");
 
     try {
-      const response = await fetch("/api/project-submissions", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: formData,
+        headers: { Accept: "application/json" }
       });
       if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
@@ -61,17 +64,17 @@ export function ProjectForm() {
       </FormSection>
 
       <button type="submit" className="btn-primary w-full justify-center sm:w-auto" disabled={status === "submitting"}>
-        {status === "submitting" ? "Enregistrement..." : "Déposer la demande locale"}
+        {status === "submitting" ? "Envoi..." : "Déposer le projet IA"}
       </button>
 
       {status === "success" ? (
         <p className="rounded-md border border-forest/20 bg-forest/5 p-4 text-sm leading-6 text-forest">
-          Votre demande a bien été enregistrée pour cette version locale. Entreprise.ai analysera votre besoin et préparera une shortlist de prestataires adaptés.
+          Votre demande a bien été transmise. Entreprise.ai analysera le besoin et reviendra vers vous avec les prochaines étapes de qualification.
         </p>
       ) : null}
       {status === "error" ? (
         <p className="rounded-md border border-burgundy/20 bg-burgundy/5 p-4 text-sm text-burgundy">
-          La soumission locale n'a pas pu être enregistrée. Le formulaire reste un prototype local sans envoi réel.
+          L'envoi a échoué. Réessayez ou contactez directement contact@entreprise.ai.
         </p>
       ) : null}
     </form>
@@ -85,13 +88,14 @@ export function ProviderReferenceForm() {
     event.preventDefault();
     setStatus("submitting");
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    formData.append("_subject", "Entreprise.ai V2 - demande de référencement prestataire");
+    formData.append("form_kind", "provider_submission");
 
     try {
-      const response = await fetch("/api/provider-submissions", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: formData,
+        headers: { Accept: "application/json" }
       });
       if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
@@ -135,12 +139,12 @@ export function ProviderReferenceForm() {
       </button>
       {status === "success" ? (
         <p className="rounded-md border border-forest/20 bg-forest/5 p-4 text-sm leading-6 text-forest">
-          Votre demande a bien été enregistrée pour cette version locale. Aucun email ni CRM réel n'est connecté dans ce MVP.
+          Votre demande a bien été transmise. Entreprise.ai l'étudiera avant toute intégration dans le réseau de prestataires mobilisables.
         </p>
       ) : null}
       {status === "error" ? (
         <p className="rounded-md border border-burgundy/20 bg-burgundy/5 p-4 text-sm text-burgundy">
-          La soumission locale n'a pas pu être enregistrée. Le formulaire reste un prototype local.
+          L'envoi a échoué. Réessayez ou contactez directement contact@entreprise.ai.
         </p>
       ) : null}
     </form>

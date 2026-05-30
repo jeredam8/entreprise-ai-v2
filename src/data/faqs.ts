@@ -9,12 +9,12 @@ export const projectFaqs: FaqItem[] = [
   {
     question: "Le dépôt de projet est-il payant pour l'entreprise ?",
     answer:
-      "Dans le modèle MVP, le dépôt de projet est gratuit côté entreprise. Une offre de cadrage payant pourra être ajoutée plus tard pour les projets complexes."
+      "Pendant la beta de lancement, le dépôt de projet est gratuit côté entreprise. Une offre de cadrage payant pourra être ajoutée plus tard pour les projets complexes."
   },
   {
-    question: "Les prestataires du MVP sont-ils réels ?",
+    question: "Les prestataires sont-ils affichés publiquement ?",
     answer:
-      "Non. Les prestataires affichés dans cette version locale sont des exemples clairement marqués comme tels. Ils servent à tester l'annuaire, les filtres et les fiches."
+      "Non au lancement. Entreprise.ai privilégie une shortlist manuelle plutôt qu'un annuaire public de fiches prestataires. Les profils réels seront intégrés uniquement après vérification."
   },
   {
     question: "Quel budget faut-il prévoir pour un projet IA B2B ?",
@@ -27,7 +27,7 @@ export const providerFaqs: FaqItem[] = [
   {
     question: "Le référencement prestataire est-il payant au lancement ?",
     answer:
-      "Le scénario MVP prévoit un référencement gratuit ou quasi gratuit pour constituer une base qualifiée, avec une commission au succès si une mission est signée."
+      "Le référencement est gratuit au lancement pour constituer un réseau qualifié, avec une logique future de commission au succès si une mission est signée."
   },
   {
     question: "Un prestataire sponsorisé sera-t-il mieux classé ?",

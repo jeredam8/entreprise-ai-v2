@@ -2,7 +2,7 @@
 
 ## Positionnement
 
-Entreprise.ai V2 doit devenir le "Clutch / DesignRush français des prestataires IA pour PME et ETI".
+Entreprise.ai V2 doit devenir une marketplace française de projets IA pour PME et ETI, avec matching humain en beta.
 
 La plateforme aide une entreprise française à :
 
@@ -27,7 +27,7 @@ Variantes :
 
 - Plateforme française de référence pour sélectionner un prestataire IA fiable.
 - Point d'entrée B2B pour les projets IA des PME et ETI.
-- Annuaire qualifié, contenus experts, dépôt de projet et matching humain.
+- Contenus experts, dépôt de projet, référencement prestataire et matching humain.
 - Surface de confiance pour dirigeants, DSI, DAF, DRH, directions commerciales, marketing et métiers.
 
 ## Ce que le site ne doit pas être
@@ -60,6 +60,20 @@ Variantes :
 - Particuliers.
 - Créateurs de contenu.
 - Demandes floues sans budget ni projet.
+
+## Offre beta verrouillée au 30/05/2026
+
+Promesse :
+
+> Décrivez votre projet IA. Entreprise.ai qualifie le besoin et revient vers vous avec les prochaines étapes pour préparer une shortlist de 2 à 3 prestataires adaptés.
+
+Règles de beta :
+
+- gratuit côté entreprise au lancement ;
+- réponse cible : 72 h ouvrées si le projet est assez précis ;
+- projet accepté en priorité si budget indicatif supérieur ou égal à 5 000 € ;
+- projets flous, particuliers, solos ou curiosité IA générale à filtrer ;
+- pas d'annuaire public de fiches prestataires tant que les profils ne sont pas vérifiés.
 
 ## Ton éditorial
 

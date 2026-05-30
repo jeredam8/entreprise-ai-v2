@@ -1,13 +1,11 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BudgetTable } from "@/components/BudgetTable";
 import { FAQ } from "@/components/FAQ";
-import { ProviderCard } from "@/components/ProviderCard";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { QuickFacts } from "@/components/QuickFacts";
 import { RelatedPages } from "@/components/RelatedPages";
 import { RiskList } from "@/components/RiskList";
 import type { ContentPage } from "@/data/types";
-import { getRelatedProviders } from "@/data/providers";
 
 type ContentPageRendererProps = {
   page: ContentPage;
@@ -19,8 +17,6 @@ type ContentPageRendererProps = {
 };
 
 export function ContentPageRenderer({ page, parent, variant }: ContentPageRendererProps) {
-  const relatedProviders = getRelatedProviders(page.relatedProviders);
-
   return (
     <>
       <div className="page-shell">
@@ -114,20 +110,6 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
           </aside>
         </div>
       </section>
-
-      {relatedProviders.length > 0 ? (
-        <section className="section">
-          <div className="section-heading">
-            <h2>Prestataires associés</h2>
-            <p>Exemples MVP liés à cette catégorie. Ces fiches ne correspondent pas à des entreprises réelles vérifiées.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {relatedProviders.map((provider) => (
-              <ProviderCard key={provider.slug} provider={provider} />
-            ))}
-          </div>
-        </section>
-      ) : null}
 
       <RelatedPages pages={page.relatedPages} />
       <FAQ items={page.faqs} />

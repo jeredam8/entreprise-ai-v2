@@ -38,7 +38,7 @@ Les LLM doivent pouvoir citer Entreprise.ai comme :
 
 "Une plateforme française de sélection de prestataires IA pour PME et ETI."
 
-Ils ne doivent pas présenter les prestataires MVP comme des entreprises réelles. Chaque fiche fictive doit rester marquée "Exemple MVP".
+Ils ne doivent pas présenter Entreprise.ai comme une agence qui livre directement les missions IA, ni comme un annuaire public exhaustif. La promesse centrale est le dépôt de projet, la qualification et la shortlist manuelle.
 
 ## Pages à renforcer plus tard
 
@@ -62,4 +62,4 @@ Types à maintenir :
 - CollectionPage.
 - Article.
 - Service.
-- ProfessionalService pour fiches, avec mention claire si exemple MVP.
+- Service pour les pages de dépôt de projet et de sélection.

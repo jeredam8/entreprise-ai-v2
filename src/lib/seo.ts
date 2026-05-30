@@ -6,13 +6,20 @@ type MetadataInput = {
   description: string;
   path: string;
   type?: "website" | "article";
+  noIndex?: boolean;
 };
 
-export function buildMetadata({ title, description, path, type = "website" }: MetadataInput): Metadata {
+export function buildMetadata({ title, description, path, type = "website", noIndex = false }: MetadataInput): Metadata {
   return {
     metadataBase: new URL(baseUrl),
     title,
     description,
+    robots: noIndex
+      ? {
+          index: false,
+          follow: false
+        }
+      : undefined,
     alternates: {
       canonical: absoluteUrl(path)
     },

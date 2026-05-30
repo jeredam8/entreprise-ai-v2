@@ -70,7 +70,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-slate-400">
-        MVP local. Matching humain au lancement, sans déploiement live depuis cette version de travail.
+        © {new Date().getFullYear()} TAC Digital EURL — Entreprise.ai.
       </div>
     </footer>
   );

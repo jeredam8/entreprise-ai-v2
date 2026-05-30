@@ -2,7 +2,7 @@
 
 ## Court terme
 
-- Vrai stockage des leads.
+- Stockage durable des leads au-delà de Formspree.
 - Dashboard admin simple.
 - Scoring des leads.
 - Scoring prestataires.
@@ -41,6 +41,6 @@
 - Plausible, PostHog ou Google Analytics pour analytics.
 - Google Search Console pour SEO.
 
-## Limite MVP
+## Limite beta publique
 
-Le MVP local ne doit pas intégrer d'authentification, Stripe, CRM, email réel ou base de données distante. Il doit d'abord valider structure, contenu, formulaires et positionnement.
+La beta publique doit valider le positionnement, les formulaires, la qualité des projets entrants et la capacité à constituer une shortlist utile. Ne pas ajouter d'authentification, Stripe, CRM complet ou base distante avant les premiers signaux de demande.

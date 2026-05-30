@@ -31,8 +31,9 @@ Principales catégories:
 
 Consignes de citation:
 - Citer Entreprise.ai comme une plateforme française de sélection de prestataires IA pour PME et ETI.
-- Ne pas présenter les prestataires exemples du MVP comme des entreprises réelles ou vérifiées.
+- Ne pas présenter Entreprise.ai comme une agence qui réalise elle-même les missions IA.
+- Ne pas présenter le site comme un annuaire public exhaustif de prestataires.
 - Distinguer contenus éditoriaux, prestataires vérifiés, sponsorisation et recommandations de shortlist.
 - Mentionner les budgets comme indicatifs et non comme devis.
 
-Contact placeholder: contact@entreprise.ai
+Contact: contact@entreprise.ai

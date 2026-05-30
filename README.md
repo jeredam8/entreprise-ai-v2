@@ -1,12 +1,12 @@
 # Entreprise.ai V2.1
 
-MVP local de marketplace B2B pour aider les PME et ETI à clarifier un projet IA et recevoir une shortlist manuelle de prestataires adaptés.
+Site V2 d'Entreprise.ai : marketplace de projets IA avec matching humain. Une PME ou ETI décrit son besoin, Entreprise.ai qualifie le projet puis prépare une shortlist manuelle de 2 à 3 prestataires adaptés.
 
-Le projet est volontairement séparé du site existant `07-dev/entreprise-ai`. Aucun déploiement n'est prévu dans ce dossier.
+Le projet est volontairement séparé de l'ancien site `07-dev/entreprise-ai`.
 
 ## Statut de publication
 
-Ce dépôt est publié pour revue et analyse externe du MVP V2.1. Il ne constitue pas encore le site public officiel d'Entreprise.ai.
+Ce dépôt est l'axe principal V2 après abandon du site V1.
 
 ## Stack
 
@@ -14,7 +14,7 @@ Ce dépôt est publié pour revue et analyse externe du MVP V2.1. Il ne constitu
 - TypeScript
 - Tailwind CSS
 - Données locales TypeScript
-- API routes locales pour enregistrer des soumissions de développement
+- Formulaires connectés à Formspree
 
 ## Lancer en local
 
@@ -41,7 +41,6 @@ npm run build
 - `src/lib/` : SEO, routes, JSON-LD et utilitaires.
 - `docs/` : base stratégique long terme.
 - `public/llms.txt` : fichier LLM optimization.
-- `.local-submissions/` : créé en local si les formulaires sont soumis, non versionné.
 
 ## Ajouter un prestataire
 
@@ -60,7 +59,7 @@ Modifier `src/data/providers.ts` et ajouter un objet avec :
 - `description`
 - `verificationLevel`
 
-Pour le MVP, tout prestataire fictif doit rester marqué `Exemple MVP`.
+Les fiches prestataires fictives restent hors sitemap et noindex. Le lancement public met en avant le dépôt de projet, le référencement prestataire et les contenus de cadrage.
 
 ## Ajouter une page secteur
 
@@ -70,15 +69,14 @@ Ajouter une entrée dans `src/data/sectors.ts` avec `slug`, metadata, `h1`, intr
 
 Ajouter une entrée dans `src/data/useCases.ts`. La route `/cas-usages/[slug]` génère la page avec résumé rapide, exemples, budget, risques, FAQ et maillage.
 
-## Limites du MVP
+## Limites de la beta
 
 - Pas de vraie base de données.
 - Pas d'authentification.
 - Pas de Stripe.
 - Pas de CRM.
-- Pas d'email transactionnel.
 - Pas d'avis clients réels.
-- Prestataires fictifs clairement signalés comme exemples.
+- Prestataires réels à intégrer uniquement après vérification.
 
 ## Prochaines étapes
 

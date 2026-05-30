@@ -19,12 +19,7 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: "Entreprise.ai",
     url: baseUrl,
-    inLanguage: "fr-FR",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${baseUrl}/prestataires-ia?search={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+    inLanguage: "fr-FR"
   };
 }
 

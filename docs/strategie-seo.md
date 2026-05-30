@@ -8,7 +8,8 @@ Construire une architecture capable de devenir la référence française sur la 
 
 Piliers :
 
-- annuaire prestataires IA ;
+- dépôt de projet IA ;
+- comparaison des types de prestataires IA ;
 - pages catégories : agences, consultants, intégrateurs, formations ;
 - pages cas d'usage ;
 - pages secteurs ;
@@ -48,7 +49,7 @@ Secteurs :
 - Title et meta description uniques.
 - URLs courtes et explicites.
 - Breadcrumbs.
-- Maillage interne par guides, cas d'usage, secteurs, villes et prestataires.
+- Maillage interne par guides, cas d'usage, secteurs, villes et dépôt de projet.
 - FAQ structurées.
 - Tableaux comparatifs.
 - Données structurées JSON-LD.
@@ -73,7 +74,7 @@ Secteurs :
 - "les meilleurs" sans critères ;
 - promesses de productivité non sourcées ;
 - faux avis ;
-- fiches prestataires inventées non signalées.
+- fiches prestataires inventées publiées ou indexables.
 
 Préférer :
 

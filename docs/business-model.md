@@ -1,9 +1,9 @@
 # Business model Entreprise.ai V2
 
-## Phase 1 - MVP
+## Phase 1 - beta publique
 
 - Gratuit côté entreprise.
-- Gratuit ou quasi gratuit côté prestataire pour être référencé.
+- Gratuit côté prestataire pour être référencé pendant la beta.
 - Commission au succès côté prestataire si une mission est signée.
 - Commission cible : 10 % sur la première mission.
 - Option : 5 % sur les extensions pendant 3 à 6 mois.
@@ -11,6 +11,8 @@
 - Budget minimum recommandé côté projet : idéalement 5 000 € à 10 000 € minimum.
 
 Objectif : valider la demande, recruter les premiers prestataires, prouver la capacité à qualifier des projets et générer des mises en relation utiles.
+
+Le formulaire public peut être connecté à un outil simple de collecte pendant la beta. Une base distante et un CRM complet ne deviennent nécessaires qu'après premiers projets sérieux.
 
 ## Phase 2 - Monétisation prestataire
 

@@ -1,10 +1,9 @@
 import { cities } from "@/data/cities";
 import { guides } from "@/data/guides";
-import { providers } from "@/data/providers";
 import { sectors } from "@/data/sectors";
 import { useCases } from "@/data/useCases";
 
-export const baseUrl = "https://www.entreprise.ai";
+export const baseUrl = "https://entreprise.ai";
 
 export const mainRoutes = [
   "/",
@@ -30,7 +29,6 @@ export const mainRoutes = [
 export function getAllRoutes() {
   return [
     ...mainRoutes,
-    ...providers.map((provider) => `/prestataires-ia/${provider.slug}`),
     ...guides.map((guide) => `/guides/${guide.slug}`),
     ...useCases.map((useCase) => `/cas-usages/${useCase.slug}`),
     ...sectors.map((sector) => `/secteurs/${sector.slug}`),
