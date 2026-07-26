@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -19,6 +20,11 @@ export const metadata: Metadata = {
     siteName: "Entreprise.ai",
     locale: "fr_FR",
     type: "website"
+  },
+  // Propriété Search Console « https://entreprise.ai » (compte jertpl8@gmail.com),
+  // créée le 26/07/2026. Ne pas retirer : la validation serait perdue.
+  verification: {
+    google: "5f4stuYEE85Ebzm5f_f796MkYVjWCsht7r227dtUleE"
   }
 };
 
@@ -31,6 +37,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <Header />
         <main>{children}</main>
         <Footer />
+        {/* Vercel Web Analytics : mesure sans cookie ni identifiant persistant,
+            donc aucun bandeau de consentement requis (contrairement à GA4). */}
+        <Analytics />
       </body>
     </html>
   );
