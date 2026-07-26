@@ -2,14 +2,15 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ClipboardList, Search, ShieldCheck, Users, type LucideIcon } from "lucide-react";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { guides } from "@/data/guides";
+import { providers } from "@/data/providers";
 import { sectors } from "@/data/sectors";
 import { useCases } from "@/data/useCases";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Entreprise.ai - Trouver un prestataire IA pour votre projet",
+  title: "Entreprise.ai — Annuaire des prestataires IA français",
   description:
-    "Entreprise.ai aide les PME et ETI à clarifier leur besoin IA et à recevoir une shortlist manuelle de prestataires adaptés.",
+    "Comparez les agences, consultants, intégrateurs et formateurs IA français. Identité légale vérifiée, spécialités et budgets, filtrables par ville et par besoin.",
   path: "/"
 });
 
@@ -36,47 +37,40 @@ const processSteps: Array<[string, LucideIcon]> = [
   ["Vous choisissez librement", ShieldCheck]
 ];
 
-const shortlistRows = [
-  {
-    label: "Agence IA orientée automatisation",
-    fit: "Bon fit si le projet touche plusieurs outils métier",
-    tags: ["Workflow", "CRM", "Support"]
-  },
-  {
-    label: "Consultant IA senior",
-    fit: "Bon fit si le besoin doit être cadré avec un dirigeant",
-    tags: ["Cadrage", "Budget", "Risques"]
-  },
-  {
-    label: "Intégrateur data / RAG",
-    fit: "Bon fit si le sujet dépend de documents et de données internes",
-    tags: ["RAG", "Sécurité", "SI"]
-  }
-];
 
 export default function HomePage() {
+  const verifies = providers.filter((provider) => provider.legal).length;
+  const villes = new Set(providers.map((provider) => provider.city)).size;
+  const specialites = new Set(providers.flatMap((provider) => provider.specialties)).size;
+  const derniereVerif = providers.map((p) => p.verifiedAt).filter(Boolean).sort().pop();
+  const derniers = [...providers]
+    .sort((a, b) => (b.verifiedAt ?? "").localeCompare(a.verifiedAt ?? "") || a.name.localeCompare(b.name))
+    .slice(0, 3);
+
   return (
     <>
       <section className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1fr_0.86fr] lg:px-8 lg:py-20">
           <div className="flex flex-col justify-center">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-normal text-ink md:text-6xl">
-              Trouvez le bon prestataire IA pour votre projet
+              Comparez les prestataires IA français
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-              Décrivez votre besoin. Entreprise.ai le qualifie, identifie le type de prestataire adapté et prépare une shortlist manuelle de 2 à 3 options à comparer.
+              {providers.length} agences, consultants, intégrateurs et formateurs spécialisés en
+              intelligence artificielle. Chaque fiche est rattachée à une entreprise réelle,
+              vérifiée au répertoire Sirene.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/deposer-un-projet-ia" className="btn-primary">
-                Déposer un projet IA
+              <Link href="/prestataires-ia" className="btn-primary">
+                Explorer l'annuaire
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/referencer-un-prestataire-ia" className="btn-secondary">
-                Référencer un prestataire IA
+              <Link href="/deposer-un-projet-ia" className="btn-secondary">
+                Décrire mon projet
               </Link>
             </div>
             <p className="mt-5 text-sm font-medium text-muted">
-              Gratuit pour les entreprises au lancement. Matching humain. Shortlist qualifiée.
+              Gratuit et indépendant. Aucune position n'est vendue.
             </p>
           </div>
 
@@ -84,34 +78,55 @@ export default function HomePage() {
             <div className="rounded-md bg-white p-5">
               <div className="flex items-center justify-between border-b border-line pb-4">
                 <div>
-                  <p className="text-sm font-semibold text-ink">Livrable Entreprise.ai</p>
-                  <p className="mt-1 text-xs text-muted">Exemple de shortlist manuelle</p>
+                  <p className="text-sm font-semibold text-ink">L'annuaire en chiffres</p>
+                  <p className="mt-1 text-xs text-muted">
+                    Mis à jour le{" "}
+                    {derniereVerif
+                      ? new Date(derniereVerif).toLocaleDateString("fr-FR")
+                      : "—"}
+                  </p>
                 </div>
-                <span className="rounded-md bg-forest/10 px-3 py-1 text-xs font-semibold text-forest">72 h cible</span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-forest/10 px-3 py-1 text-xs font-semibold text-forest">
+                  <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                  Sirene
+                </span>
               </div>
-              <div className="mt-5 space-y-4">
-                {shortlistRows.map((row, index) => (
-                  <div key={row.label} className="rounded-md border border-line p-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-sm font-semibold text-ink">{row.label}</p>
-                        <p className="mt-1 text-xs leading-5 text-muted">{row.fit}</p>
-                      </div>
-                      <span className="text-xs font-semibold text-forest">#{index + 1}</span>
-                    </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {row.tags.map((tag) => (
-                        <span key={tag} className="rounded-md bg-soft px-2 py-1 text-xs text-muted">{tag}</span>
-                      ))}
-                    </div>
+              <dl className="mt-5 grid grid-cols-2 gap-4">
+                {[
+                  ["Prestataires", String(providers.length)],
+                  ["Identités vérifiées", String(verifies)],
+                  ["Villes couvertes", String(villes)],
+                  ["Spécialités", String(specialites)]
+                ].map(([label, valeur]) => (
+                  <div key={label} className="rounded-md bg-soft p-4">
+                    <dt className="text-xs text-muted">{label}</dt>
+                    <dd className="mt-1 text-2xl font-semibold text-ink">{valeur}</dd>
                   </div>
                 ))}
+              </dl>
+              <div className="mt-5 space-y-3">
+                {derniers.map((provider) => (
+                  <Link
+                    key={provider.slug}
+                    href={`/prestataires-ia/${provider.slug}`}
+                    className="flex items-center justify-between gap-4 rounded-md border border-line p-3 transition hover:border-forest/40"
+                  >
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-semibold text-ink">{provider.name}</p>
+                      <p className="mt-0.5 truncate text-xs text-muted">
+                        {provider.type} · {provider.city}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-forest" aria-hidden="true" />
+                  </Link>
+                ))}
               </div>
-              <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs text-muted">
-                <div className="rounded-md bg-soft p-3">Besoin qualifié</div>
-                <div className="rounded-md bg-soft p-3">Budget cadré</div>
-                <div className="rounded-md bg-soft p-3">Risques listés</div>
-              </div>
+              <Link
+                href="/prestataires-ia"
+                className="mt-4 block text-center text-sm font-semibold text-forest"
+              >
+                Voir les {providers.length} prestataires
+              </Link>
             </div>
           </div>
         </div>

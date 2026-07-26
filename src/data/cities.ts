@@ -7,9 +7,9 @@ const defaultFaqs = (city: string) => [
       "La proximité peut aider pour les ateliers de cadrage, mais beaucoup de missions IA se pilotent à distance. Le critère prioritaire reste l'adéquation entre spécialité, budget, secteur et contraintes techniques."
   },
   {
-    question: "Entreprise.ai référence-t-il déjà des prestataires réels dans cette ville ?",
+    question: "Les prestataires référencés dans cette ville sont-ils réels ?",
     answer:
-      "Cette V2 locale utilise des exemples MVP. Les fiches réelles devront être ajoutées après vérification manuelle des prestataires."
+      "Oui. Chaque fiche correspond à une entreprise existante, dont le numéro SIREN a été relevé sur son propre site puis confronté au répertoire Sirene. L'annuaire ne contient aucune fiche d'exemple."
   },
   {
     question: "Quel budget prévoir pour une agence IA locale ?",

@@ -73,9 +73,14 @@ export function ProviderDirectory({ providers, initialType }: ProviderDirectoryP
           Intervention à distance possible
         </label>
       </div>
-      <div className="mt-6 flex items-center justify-between gap-4">
-        <p className="text-sm text-muted">{filtered.length} prestataire(s) exemple(s) affiché(s)</p>
-        <p className="text-sm text-muted">Éditorial · Vérifié · Sponsorisé : séparation prévue pour la V2 publique</p>
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <p className="text-sm text-muted">
+          <span className="font-semibold text-ink">{filtered.length}</span> prestataire
+          {filtered.length > 1 ? "s" : ""} sur {providers.length}
+        </p>
+        <p className="text-sm text-muted">
+          Classement par ordre alphabétique. Aucune position n'est vendue.
+        </p>
       </div>
       <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((provider) => (

@@ -1,13 +1,18 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProjectCTA } from "@/components/ProjectCTA";
+import { ProviderDirectory } from "@/components/ProviderDirectory";
+import { JsonLd } from "@/components/JsonLd";
+import { providers } from "@/data/providers";
 import { buildMetadata } from "@/lib/seo";
+import { itemListJsonLd } from "@/lib/structuredData";
 
 export const metadata = buildMetadata({
-  title: "Comparer les prestataires IA - Agence, consultant, intégrateur",
+  title: `Prestataires IA en France : ${providers.length} agences et consultants vérifiés`,
   description:
-    "Comprendre quel type de prestataire IA choisir selon le projet : agence IA, consultant, intégrateur, formateur, cabinet data ou spécialiste automatisation.",
+    `Comparez ${providers.length} agences, consultants, intégrateurs et formateurs IA français. ` +
+    "Identité légale vérifiée au répertoire Sirene, spécialités et budgets, filtrables par ville et par besoin.",
   path: "/prestataires-ia"
 });
 
@@ -44,51 +49,72 @@ const providerTypes = [
   }
 ];
 
-const matchingCriteria = [
-  "Type de projet et niveau de complexité",
-  "Budget et délai réalistes",
-  "Secteur, contraintes métier et données manipulées",
-  "Outils à connecter et maturité interne",
-  "Besoin de conseil, de production ou d'intégration",
-  "Risques sécurité, RGPD, maintenance et adoption"
-];
-
 export default function ProvidersPage() {
+  const verifies = providers.filter((provider) => provider.legal).length;
+  const villes = new Set(providers.map((provider) => provider.city)).size;
+  const derniereVerif = providers
+    .map((provider) => provider.verifiedAt)
+    .filter(Boolean)
+    .sort()
+    .pop();
+
   return (
     <>
+      <JsonLd
+        data={itemListJsonLd(
+          "Prestataires IA référencés en France",
+          providers.map((provider) => `/prestataires-ia/${provider.slug}`)
+        )}
+      />
       <div className="page-shell">
-        <Breadcrumbs items={[{ label: "Types de prestataires IA", href: "/prestataires-ia" }]} />
+        <Breadcrumbs items={[{ label: "Prestataires IA", href: "/prestataires-ia" }]} />
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.78fr]">
           <div>
             <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">
-              Comparer les types de prestataires IA
+              Les prestataires IA français, vérifiés un par un
             </h1>
             <p className="mt-5 text-lg leading-8 text-muted">
-              Le bon choix n'est pas toujours une agence. Selon le besoin, une PME peut avoir besoin d'un consultant, d'un intégrateur, d'un cabinet data, d'un formateur ou d'un spécialiste automatisation.
+              {providers.length} agences, consultants, intégrateurs, formateurs et cabinets data
+              spécialisés en intelligence artificielle. Chaque fiche est rattachée à une entreprise
+              réelle, contrôlée au répertoire Sirene.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/deposer-un-projet-ia" className="btn-primary">
                 Déposer un projet IA
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/comment-ca-marche" className="btn-secondary">
-                Voir la méthode
+              <Link href="/methodologie" className="btn-secondary">
+                Notre méthodologie
               </Link>
             </div>
           </div>
           <div className="rounded-md border border-line bg-soft p-6">
-            <h2 className="text-xl font-semibold text-ink">Ce qu'Entreprise.ai compare</h2>
-            <ul className="mt-5 space-y-3">
-              {matchingCriteria.map((criterion) => (
-                <li key={criterion} className="flex gap-3 text-sm leading-6 text-muted">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-forest" aria-hidden="true" />
-                  {criterion}
-                </li>
+            <h2 className="text-xl font-semibold text-ink">L'état du référencement</h2>
+            <dl className="mt-5 grid grid-cols-2 gap-4">
+              {[
+                ["Prestataires référencés", String(providers.length)],
+                ["Identités vérifiées", String(verifies)],
+                ["Villes couvertes", String(villes)],
+                [
+                  "Dernière vérification",
+                  derniereVerif ? new Date(derniereVerif).toLocaleDateString("fr-FR") : "—"
+                ]
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="text-sm text-muted">{label}</dt>
+                  <dd className="mt-1 text-2xl font-semibold text-ink">{value}</dd>
+                </div>
               ))}
-            </ul>
+            </dl>
+            <p className="mt-5 text-sm leading-6 text-muted">
+              Référencement gratuit et sans contrepartie. Aucun paiement ne peut influencer une
+              position ou une recommandation.
+            </p>
           </div>
         </div>
       </div>
+
+      <ProviderDirectory providers={providers} />
 
       <section className="section">
         <div className="section-heading">
@@ -113,22 +139,41 @@ export default function ProvidersPage() {
       <section className="border-y border-line bg-soft">
         <div className="section">
           <div className="section-heading">
-            <h2>Pourquoi ne pas partir d'un annuaire brut ?</h2>
+            <h2>Ce que nous vérifions avant de référencer</h2>
             <p>
-              Une liste de prestataires ne dit pas qui est adapté à votre contexte. Entreprise.ai part du projet, puis remonte vers le bon type d'acteur.
+              Une liste de noms ne vaut rien si personne ne l'a contrôlée. Chaque fiche est
+              rattachée à une entreprise identifiée, dont l'activité est cohérente avec une
+              prestation IA.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             {[
-              ["Moins de bruit", "On évite de comparer des acteurs qui ne jouent pas le même rôle."],
-              ["Meilleur cadrage", "Le besoin est traduit en critères de choix, budget et risques."],
-              ["Shortlist actionnable", "L'entreprise reçoit des options à contacter, pas seulement une page à parcourir."]
+              [
+                "Identité légale",
+                "SIREN relevé sur le site du prestataire puis confronté au répertoire Sirene : forme juridique, date de création, effectif et commune du siège."
+              ],
+              [
+                "Activité cohérente",
+                "L'activité déclarée doit correspondre à une prestation numérique. Un homonyme au bon nom mais au mauvais métier est écarté."
+              ],
+              [
+                "Offre IA réelle",
+                "Le site doit présenter une offre IA identifiable, pas une simple mention. Les descriptions sont reformulées à partir de sources publiques."
+              ]
             ].map(([title, text]) => (
               <div key={title} className="rounded-md border border-line bg-white p-6">
                 <h3 className="text-lg font-semibold text-ink">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{text}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link href="/methodologie" className="btn-secondary">
+              Lire la méthodologie complète
+            </Link>
+            <Link href="/referencer-un-prestataire-ia" className="text-sm font-semibold text-forest">
+              Vous dirigez un prestataire IA ? Référencez-vous gratuitement →
+            </Link>
           </div>
         </div>
       </section>

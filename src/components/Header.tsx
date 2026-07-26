@@ -5,11 +5,12 @@ import { ArrowRight, Menu } from "lucide-react";
 import { useState } from "react";
 
 const nav = [
-  { label: "Comment ça marche", href: "/comment-ca-marche" },
+  { label: "Prestataires IA", href: "/prestataires-ia" },
+  { label: "Villes", href: "/villes" },
+  { label: "Secteurs", href: "/secteurs" },
   { label: "Guides", href: "/guides" },
   { label: "Cas d'usage", href: "/cas-usages" },
-  { label: "Secteurs", href: "/secteurs" },
-  { label: "Prestataires IA", href: "/referencer-un-prestataire-ia" }
+  { label: "Méthodologie", href: "/methodologie" }
 ];
 
 export function Header() {

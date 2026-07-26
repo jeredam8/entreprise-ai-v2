@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, MapPin } from "lucide-react";
 import type { Provider } from "@/data/types";
 
 export function ProviderCard({ provider }: { provider: Provider }) {
@@ -10,7 +10,16 @@ export function ProviderCard({ provider }: { provider: Provider }) {
           <h2 className="text-lg font-semibold text-ink">{provider.name}</h2>
           <p className="mt-1 text-sm text-muted">{provider.type}</p>
         </div>
-        <span className="rounded-md border border-amber/30 bg-amber/10 px-2.5 py-1 text-xs font-medium text-amber">
+        <span
+          className={
+            provider.verificationLevel === "Vérifié"
+              ? "inline-flex shrink-0 items-center gap-1 rounded-md border border-forest/30 bg-forest/5 px-2.5 py-1 text-xs font-medium text-forest"
+              : "inline-flex shrink-0 items-center gap-1 rounded-md border border-amber/30 bg-amber/10 px-2.5 py-1 text-xs font-medium text-amber"
+          }
+        >
+          {provider.verificationLevel === "Vérifié" ? (
+            <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
+          ) : null}
           {provider.verificationLevel}
         </span>
       </div>
