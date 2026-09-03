@@ -19,7 +19,7 @@ export default function LegalPage() {
           <li>Forme juridique : EURL</li>
           <li>Siège social : Mandelieu-la-Napoule, France</li>
           <li>Responsable de la publication : Jérémy Tripoli</li>
-          <li>Contact : contact@entreprise.ai</li>
+          <li>Contact : jeremy@entreprise.ai</li>
         </ul>
         <h2>Hébergement</h2>
         <p>Ce site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>

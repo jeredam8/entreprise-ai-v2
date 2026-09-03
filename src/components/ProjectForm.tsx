@@ -74,7 +74,7 @@ export function ProjectForm() {
       ) : null}
       {status === "error" ? (
         <p className="rounded-md border border-burgundy/20 bg-burgundy/5 p-4 text-sm text-burgundy">
-          L'envoi a échoué. Réessayez ou contactez directement contact@entreprise.ai.
+          L'envoi a échoué. Réessayez ou contactez directement jeremy@entreprise.ai.
         </p>
       ) : null}
     </form>
@@ -144,7 +144,7 @@ export function ProviderReferenceForm() {
       ) : null}
       {status === "error" ? (
         <p className="rounded-md border border-burgundy/20 bg-burgundy/5 p-4 text-sm text-burgundy">
-          L'envoi a échoué. Réessayez ou contactez directement contact@entreprise.ai.
+          L'envoi a échoué. Réessayez ou contactez directement jeremy@entreprise.ai.
         </p>
       ) : null}
     </form>

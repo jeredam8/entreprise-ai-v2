@@ -22,8 +22,9 @@ export default function ReferenceProviderPage() {
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">
             Entreprise.ai référence les agences, consultants, intégrateurs et formateurs IA
-            français. Le référencement est gratuit et sans contrepartie : aucune position ni
-            recommandation n'est vendue.
+            français. La fiche de base est gratuite et le restera : aucune position ni
+            recommandation n'est vendue. Les prestataires vérifiés qui le souhaitent peuvent
+            la compléter avec la Fiche complète, 149 € HT par an, signalée comme telle.
           </p>
           <div className="mt-6 space-y-3 rounded-md border border-line bg-soft p-5 text-sm leading-6 text-muted">
             <p>
@@ -41,6 +42,13 @@ export default function ReferenceProviderPage() {
                 méthodologie
               </Link>
               .
+            </p>
+            <p>
+              <strong className="text-ink">Fiche complète, 149 € HT par an.</strong> Réservée aux
+              prestataires vérifiés : présentation détaillée rédigée avec vous, réalisations et
+              références, lien direct vers votre site, logo, mise à jour à la demande. Elle est
+              signalée « complétée par le prestataire » et ne change ni votre position dans
+              l'annuaire ni notre avis.
             </p>
           </div>
           <div className="mt-6 space-y-3">

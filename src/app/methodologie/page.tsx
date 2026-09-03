@@ -66,9 +66,10 @@ const faqs: FaqItem[] = [
   {
     question: "Un prestataire peut-il payer pour être référencé ou mieux placé ?",
     answer:
-      "Non. Le référencement est gratuit et aucune position n'est vendue. Si une offre payante " +
-      "existe un jour, elle sera signalée explicitement sur chaque emplacement concerné et ne " +
-      "modifiera jamais l'ordre éditorial."
+      "Pas pour sa position, jamais. La fiche de base est gratuite et l'ordre de l'annuaire reste " +
+      "éditorial. Depuis septembre 2026, un prestataire vérifié peut souscrire une Fiche complète " +
+      "(149 € HT par an) : présentation détaillée, réalisations, lien direct vers son site, logo. " +
+      "Elle est signalée comme complétée par le prestataire et ne modifie ni sa position ni notre avis."
   },
   {
     question: "D'où viennent les données affichées sur les fiches ?",
@@ -152,13 +153,14 @@ export default function MethodologiePage() {
         </div>
         <div className="max-w-3xl space-y-4 text-base leading-7 text-muted">
           <p>
-            Le référencement est <strong className="text-ink">gratuit et le restera</strong>. Aucun
-            prestataire ne peut acheter sa présence, sa position ou une recommandation.
+            La fiche de base est <strong className="text-ink">gratuite et le restera</strong>. Aucun
+            prestataire ne peut acheter sa position ou une recommandation.
           </p>
           <p>
-            Entreprise.ai pourra à l'avenir être rémunéré sur la mise en relation ou proposer des
-            emplacements identifiés. Le jour où ce sera le cas, ces emplacements seront signalés
-            comme tels sur la page où ils apparaissent, et l'ordre éditorial restera indépendant.
+            Entreprise.ai se rémunère par la Fiche complète (149 € HT par an), proposée aux
+            prestataires vérifiés et signalée comme telle sur chaque fiche concernée, et pourra à
+            l'avenir être rémunéré sur la mise en relation. L'ordre éditorial reste indépendant de
+            ces revenus.
             Les critères de classement seront publiés ici, en clair.
           </p>
           <p>

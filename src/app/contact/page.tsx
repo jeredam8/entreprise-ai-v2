@@ -17,7 +17,7 @@ export default function ContactPage() {
           Pour qualifier un projet IA, le plus efficace est de passer par le formulaire de dépôt de projet. Pour une demande générale, utilisez l'adresse ci-dessous.
         </p>
         <div className="mt-8 rounded-md border border-line bg-soft p-6 text-sm leading-6 text-muted">
-          Contact : contact@entreprise.ai
+          Contact : jeremy@entreprise.ai
         </div>
       </div>
     </div>

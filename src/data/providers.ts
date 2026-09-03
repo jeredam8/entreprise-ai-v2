@@ -3,7 +3,7 @@
 // Régénérer : python3 Projects/entreprise-ai/_outils/annuaire/export_site.py --go
 // Seules les fiches au statut `publiable` sont exportées : SIREN vérifié au
 // répertoire Sirene, unité diffusible, type et description renseignés.
-// Généré le 2026-07-26 — 30 prestataires.
+// Généré le 2026-09-03 — 32 prestataires.
 
 import type { Provider } from "@/data/types";
 
@@ -257,6 +257,38 @@ export const providers: Provider[] = [
       headOfficeCity: "Paris",
       headOfficePostalCode: "75008",
       sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/538250812"
+    }
+  },
+  {
+    slug: "epickone",
+    name: "Epickone",
+    type: "Intégrateur IA",
+    city: "Paris",
+    intervention: "Nationale et locale",
+    minBudgetLabel: "À partir de 5 000 €",
+    teamSize: "6 à 9 personnes",
+    specialties: ["Automatisation des process (e-mails, factures, demandes clients)", "Assistants documentaires et RAG", "Industrialisation de prototypes IA (Lovable, Bolt, Cursor)", "Conformité RGPD et AI Act", "Hébergement en Europe"],
+    sectors: ["Industrie", "E-commerce / Retail", "Immobilier", "Services"],
+    stacks: ["Claude", "ChatGPT", "Make", "n8n", "Lovable", "Cursor"],
+    description: "Intégrateur IA pour PME et ETI, présent à Toulouse et à Paris. Automatise le traitement des e-mails, des factures et des demandes clients, déploie des assistants documentaires (RAG) et industrialise des prototypes générés avec Lovable, Bolt ou Cursor pour les passer en production, avec un cadrage RGPD et AI Act et un hébergement en Europe.",
+    typicalUseCases: ["Automatisation des process (e-mails, factures, demandes clients)", "Assistants documentaires et RAG", "Industrialisation de prototypes IA (Lovable, Bolt, Cursor)"],
+    verificationNote: "Identité vérifiée au répertoire Sirene le 2026-09-03.",
+    relatedUseCases: [],
+    website: "https://epickone.fr",
+    verifiedAt: "2026-09-03",
+    sourceUrl: "https://epickone.fr/agence-ia-toulouse",
+    remote: true,
+    minBudget: 5000,
+    verificationLevel: "Vérifié",
+    legal: {
+      siren: "992951145",
+      legalForm: "SAS",
+      naf: "62.01Z",
+      createdAt: "2025-10-21",
+      headcount: "6 à 9",
+      headOfficeCity: "Paris",
+      headOfficePostalCode: "75008",
+      sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/992951145"
     }
   },
   {
@@ -759,6 +791,38 @@ export const providers: Provider[] = [
       headOfficeCity: "Bordeaux",
       headOfficePostalCode: "33000",
       sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/935391292"
+    }
+  },
+  {
+    slug: "stamina-solutions",
+    name: "Stamina Solutions",
+    type: "Consultant IA",
+    city: "Mulhouse",
+    intervention: "Nationale et locale",
+    minBudgetLabel: "À partir de 5 000 €",
+    teamSize: "1 à 3 personnes",
+    specialties: ["Agents IA et automatisation métier (Claude Agent SDK)", "Audit et cadrage IA avec feuille de route", "IA souveraine et conformité (RGPD, ISO 27001, NIS2, AI Act)", "Applications métier assistées par IA (Next.js, PostgreSQL)", "Infrastructure et sécurisation du SI"],
+    sectors: ["Industrie", "Logistique", "BTP"],
+    stacks: ["Claude", "Next.js", "PostgreSQL", "OVHcloud", "Scaleway"],
+    description: "Consultant IA indépendant installé près de Mulhouse, intervenant dans le Grand Est et à distance partout en France. Conçoit et déploie des écosystèmes d'agents IA (Claude Agent SDK) pour la facturation, l'exploitation, le juridique et le reporting de direction, sur un socle infrastructure et sécurité maîtrisé (Active Directory, Microsoft 365, virtualisation, pare-feu), avec une attention à la souveraineté (OVHcloud, Scaleway) et à la conformité (RGPD, ISO 27001, NIS2, AI Act).",
+    typicalUseCases: ["Agents IA et automatisation métier (Claude Agent SDK)", "Audit et cadrage IA avec feuille de route", "IA souveraine et conformité (RGPD, ISO 27001, NIS2, AI Act)"],
+    verificationNote: "Identité vérifiée au répertoire Sirene le 2026-09-03.",
+    relatedUseCases: [],
+    website: "https://staminasolutions.fr/",
+    verifiedAt: "2026-09-03",
+    sourceUrl: "https://staminasolutions.fr/",
+    remote: true,
+    minBudget: 5000,
+    verificationLevel: "Vérifié",
+    legal: {
+      siren: "821297819",
+      legalForm: "Entrepreneur individuel",
+      naf: "95.11Z",
+      createdAt: "2016-06-01",
+      headcount: "1 à 2",
+      headOfficeCity: "Soultz-Haut-Rhin",
+      headOfficePostalCode: "68360",
+      sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/821297819"
     }
   },
   {

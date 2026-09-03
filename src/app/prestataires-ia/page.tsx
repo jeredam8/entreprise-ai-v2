@@ -107,7 +107,7 @@ export default function ProvidersPage() {
               ))}
             </dl>
             <p className="mt-5 text-sm leading-6 text-muted">
-              Référencement gratuit et sans contrepartie. Aucun paiement ne peut influencer une
+              Fiche de base gratuite, Fiche complète signalée comme telle. Aucun paiement ne peut influencer une
               position ou une recommandation.
             </p>
           </div>

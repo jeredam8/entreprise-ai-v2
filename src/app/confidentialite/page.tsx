@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <h2>Durée de conservation</h2>
         <p>Les données de contact et de qualification sont conservées au maximum 3 ans après le dernier échange, sauf demande de suppression ou obligation légale contraire.</p>
         <h2>Droits</h2>
-        <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à contact@entreprise.ai.</p>
+        <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à jeremy@entreprise.ai.</p>
       </article>
     </div>
   );
