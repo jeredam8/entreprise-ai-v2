@@ -7,6 +7,9 @@ import { ProjectCTA } from "@/components/ProjectCTA";
 import { ProviderCard } from "@/components/ProviderCard";
 import { getCityBySlug, cities } from "@/data/cities";
 import { providers } from "@/data/providers";
+import { absoluteUrl } from "@/lib/routes";
+import { itemListJsonLd } from "@/lib/structuredData";
+import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 
 type CityPageProps = {
@@ -68,6 +71,8 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {locaux.length ? (
+        <>
+        <JsonLd data={itemListJsonLd(`Prestataires IA à ${city.city}`, locaux.map((p) => absoluteUrl(`/prestataires-ia/${p.slug}`)))} />
         <section className="section pt-0">
           <div className="section-heading">
             <h2>
@@ -92,6 +97,7 @@ export default async function CityPage({ params }: CityPageProps) {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </section>
+        </>
       ) : (
         <section className="section pt-0">
           <div className="rounded-md border border-line bg-soft p-6">

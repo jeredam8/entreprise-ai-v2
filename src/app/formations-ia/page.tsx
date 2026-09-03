@@ -1,9 +1,12 @@
 import { ProviderTypePage } from "@/components/ProviderTypePage";
+import { providers } from "@/data/providers";
 import { buildMetadata } from "@/lib/seo";
 
+const n = providers.filter((p) => p.type === "Formateur IA").length;
+
 export const metadata = buildMetadata({
-  title: "Formations IA - Former directions et équipes métier",
-  description: "Prestataires de formation IA pour directions, managers et équipes métier en PME et ETI.",
+  title: `Formateurs IA en France : ${n} formateurs IA vérifiés`,
+  description: `${n} formateurs IA en France vérifiés au répertoire Sirene : acculturation des directions et équipes métier. Spécialités, budgets et villes. Aucune position vendue.`,
   path: "/formations-ia"
 });
 

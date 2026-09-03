@@ -8,7 +8,7 @@ import { useCases } from "@/data/useCases";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Entreprise.ai — Annuaire des prestataires IA français",
+  title: "Annuaire des prestataires IA en France : agences et consultants vérifiés",
   description:
     "Comparez les agences, consultants, intégrateurs et formateurs IA français. Identité légale vérifiée, spécialités et budgets, filtrables par ville et par besoin.",
   path: "/"
@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1fr_0.86fr] lg:px-8 lg:py-20">
           <div className="flex flex-col justify-center">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-normal text-ink md:text-6xl">
-              Comparez les prestataires IA français
+              L'annuaire des prestataires IA en France
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
               {providers.length} agences, consultants, intégrateurs et formateurs spécialisés en
@@ -70,7 +70,10 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="mt-5 text-sm font-medium text-muted">
-              Gratuit et indépendant. Aucune position n'est vendue.
+              Gratuit et indépendant. Aucune position n'est vendue.{" "}
+              <Link href="/barometre-prestataires-ia" className="font-semibold text-forest">
+                Baromètre 2026 des prestataires IA
+              </Link>
             </p>
           </div>
 

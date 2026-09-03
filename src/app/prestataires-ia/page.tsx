@@ -12,7 +12,7 @@ export const metadata = buildMetadata({
   title: `Prestataires IA en France : ${providers.length} agences et consultants vérifiés`,
   description:
     `Comparez ${providers.length} agences, consultants, intégrateurs et formateurs IA français. ` +
-    "Identité légale vérifiée au répertoire Sirene, spécialités et budgets, filtrables par ville et par besoin.",
+    "Identité vérifiée au répertoire Sirene, spécialités, budgets, filtres par ville et par besoin.",
   path: "/prestataires-ia"
 });
 

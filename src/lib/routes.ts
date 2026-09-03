@@ -25,7 +25,8 @@ export const mainRoutes = [
   "/cas-usages",
   "/secteurs",
   "/villes",
-  "/glossaire"
+  "/glossaire",
+  "/barometre-prestataires-ia"
 ];
 
 export function getAllRoutes() {

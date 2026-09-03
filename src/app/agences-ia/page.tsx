@@ -1,9 +1,12 @@
 import { ProviderTypePage } from "@/components/ProviderTypePage";
+import { providers } from "@/data/providers";
 import { buildMetadata } from "@/lib/seo";
 
+const n = providers.filter((p) => p.type === "Agence IA").length;
+
 export const metadata = buildMetadata({
-  title: "Agences IA - Sélectionner une agence IA pour entreprise",
-  description: "Page MVP pour filtrer les agences IA capables d'accompagner des PME et ETI sur des projets concrets.",
+  title: `Agences IA en France : ${n} agences IA vérifiées`,
+  description: `${n} agences IA en France vérifiées au répertoire Sirene : automatisation, agents, RAG, chatbots. Spécialités, budgets de départ et villes. Aucune position vendue.`,
   path: "/agences-ia"
 });
 

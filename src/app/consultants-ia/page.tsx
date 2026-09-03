@@ -1,9 +1,12 @@
 import { ProviderTypePage } from "@/components/ProviderTypePage";
+import { providers } from "@/data/providers";
 import { buildMetadata } from "@/lib/seo";
 
+const n = providers.filter((p) => p.type === "Consultant IA").length;
+
 export const metadata = buildMetadata({
-  title: "Consultants IA - Cadrage, audit et accompagnement PME",
-  description: "Consultants IA pour cadrer, prioriser, former et aider une PME ou ETI à sélectionner le bon projet IA.",
+  title: `Consultants IA en France : ${n} consultants IA vérifiés`,
+  description: `${n} consultants IA en France vérifiés au répertoire Sirene : audit, cadrage, feuille de route, formation. Spécialités, budgets de départ et villes. Aucune position vendue.`,
   path: "/consultants-ia"
 });
 
