@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56" role="img" aria-label="Prestataire IA vérifié sur Entreprise.ai">
+  <rect width="220" height="56" rx="8" fill="#0f4f47"/>
+  <circle cx="28" cy="28" r="14" fill="#ffffff"/>
+  <path d="M21 28.5l5 5 9-10" fill="none" stroke="#0f4f47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="52" y="24" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#d7e6e2">Prestataire IA vérifié</text>
+  <text x="52" y="43" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Entreprise.ai</text>
+</svg>

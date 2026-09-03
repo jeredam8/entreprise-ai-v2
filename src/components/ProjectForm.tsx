@@ -5,6 +5,23 @@ import type { FormEvent, ReactNode } from "react";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkokwzqb";
 
+/** Envoi : d'abord la route du site (base Supabase + alerte Telegram, 03/09/2026),
+ *  Formspree en secours si elle répond mal. */
+async function envoyer(formData: FormData): Promise<Response> {
+  const payload = Object.fromEntries(formData.entries());
+  try {
+    const r = await fetch("/api/formulaire", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (r.ok) return r;
+  } catch {
+    // on retombe sur Formspree
+  }
+  return fetch(FORMSPREE_ENDPOINT, { method: "POST", body: formData, headers: { Accept: "application/json" } });
+}
+
 const companySizes = ["1-9", "10-49", "50-249", "250-999", "1000+"];
 const requesterRoles = ["Direction générale", "DSI", "DAF", "DRH", "Direction marketing", "Direction commerciale", "Direction opérationnelle", "Autre"];
 const projectTypes = ["Audit IA", "Automatisation IA", "Agent IA interne", "Chatbot", "RAG / base documentaire", "Formation IA", "Intégration CRM / ERP", "Reporting / data", "Traitement documentaire", "Autre"];
@@ -22,11 +39,7 @@ export function ProjectForm() {
     formData.append("form_kind", "project_submission");
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
-      });
+      const response = await envoyer(formData);
       if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
       event.currentTarget.reset();
@@ -92,11 +105,7 @@ export function ProviderReferenceForm() {
     formData.append("form_kind", "provider_submission");
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
-      });
+      const response = await envoyer(formData);
       if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
       event.currentTarget.reset();

@@ -279,6 +279,27 @@ export default async function ProviderPage({ params }: PageProps) {
 
       <FAQ items={faqs} />
 
+      <section className="section pt-0">
+        <div className="rounded-md border border-line bg-soft p-6">
+          <h2 className="text-2xl font-semibold text-ink">Vous représentez {provider.name} ?</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
+            Cette fiche de base est gratuite et le restera. Vérifiez-la, demandez une correction si besoin, et
+            affichez le badge sur votre site : il renvoie vers votre fiche vérifiée. La{" "}
+            <Link href="/referencer-un-prestataire-ia" className="font-semibold text-forest">
+              Fiche complète
+            </Link>{" "}
+            (149 € HT par an) ajoute une présentation détaillée, vos réalisations, un lien direct et votre logo.
+          </p>
+          <div className="mt-5 flex flex-wrap items-start gap-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/badge/reference-entreprise-ai.svg" alt="Prestataire IA vérifié sur Entreprise.ai" width={220} height={56} />
+            <pre className="max-w-full overflow-x-auto rounded-md border border-line bg-white p-3 text-xs leading-5 text-ink">
+              <code>{`<a href="${absoluteUrl(`/prestataires-ia/${provider.slug}`)}"><img src="https://entreprise.ai/badge/reference-entreprise-ai.svg" alt="Prestataire IA vérifié sur Entreprise.ai" width="220" height="56"></a>`}</code>
+            </pre>
+          </div>
+        </div>
+      </section>
+
       {similaires.length ? (
         <section className="section">
           <div className="section-heading">
