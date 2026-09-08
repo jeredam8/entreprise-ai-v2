@@ -1,87 +1,30 @@
-# Entreprise.ai V2 beta
+# Entreprise.ai — site actif dans Codex
 
-Site V2 d'Entreprise.ai : qualification de projets IA et matching humain. Une PME ou ETI décrit son besoin, Entreprise.ai qualifie le projet puis prépare une shortlist manuelle de 2 à 3 prestataires adaptés.
+Annuaire de prestataires IA, offre de fiche complète à 149 € HT/an. La stratégie et l’état actuels se trouvent dans `../BUSINESS.md` et `../STATUS.md`. Les documents de `docs/` datés de mai sont historiques ; leurs limites « pas de base » et leur priorité au matching sont dépassées.
 
-Le projet est volontairement séparé de l'ancien site `07-dev/entreprise-ai`.
+## Source et services
 
-## Statut de publication
+- Source unique : `/Users/jeremy_1/codex/businesses/entreprise-ai/site`.
+- Historique Git conservé dans `~/.local/share/entreprise-ai/site.git`, relié par `.git` ; dépôt GitHub existant `jeredam8/entreprise-ai-v2`. Ne pas déployer la racine Codex.
+- Vercel : `entreprise-ai`, `prj_ZXh6F3JjuhjgheI6wGlBD4JV47Ao`, équipe `team_5HmZlYbBVC3xEvrHZEGhYaRU`. `.vercel/project.json` conservé à l’identique.
+- Domaine : https://entreprise.ai ; aucune bascule DNS requise pour cette migration locale.
+- Next.js 16.2.6, React 18, TypeScript, Tailwind ; dépendances verrouillées par package-lock.json.
 
-Ce dépôt est l'axe principal V2 après abandon du site V1.
+## Utilisation
 
-## Stack
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Données locales TypeScript
-- Formulaires connectés à Formspree
-
-## Lancer en local
-
-```bash
-npm install
+```sh
+npm ci --no-audit --no-fund
 npm run dev
 ```
 
-Puis ouvrir `http://localhost:3000`.
+Contrôles depuis le dossier business : `python3 _outils/annuaire/check_annuaire.py` (base + build + SEO + MVP). Depuis `site/` : `npm run lint`. Le build est inclus dans le contrôle annuaire.
 
-## Vérifications
+`src/data/providers.ts` est généré depuis Supabase par `../_outils/annuaire/export_site.py --go`. Ne pas l’éditer manuellement. Les outils utilisent les accès déjà fournis à Codex ou `~/.config/api-keys/keys.env`, jamais Claude. La base doit être `cockpit-perso`, référence `yhozabfbkepsplokwvxh`.
 
-```bash
-npm run verify:mvp
-npm run lint
-npm run build
-```
+## Déploiement
 
-## Structure
+Depuis ce dossier seulement, après les contrôles : `vercel --prod --yes` avec l’authentification locale existante, ou `npx vercel --prod --yes` si la CLI n’est pas installée. Vérifier l’identité du projet liée avant publication. Aucun nouveau projet ni dépôt.
 
-- `src/app/` : routes App Router.
-- `src/components/` : composants réutilisables.
-- `src/data/` : données prestataires, guides, cas d'usage, secteurs, villes, FAQ et glossaire.
-- `src/lib/` : SEO, routes, JSON-LD et utilitaires.
-- `docs/` : base stratégique long terme.
-- `public/llms.txt` : fichier LLM optimization.
+Variables serveur Vercel existantes : `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`. Elles restent chez Vercel et ne sont pas exportées dans le dépôt. Les formulaires passent par `/api/formulaire`, puis `demandes_site` et la notification serveur existante ; Formspree reste un secours côté client. Ne pas envoyer de formulaire réel pendant les tests sans demande autorisant son effet.
 
-## Ajouter un prestataire
-
-Modifier `src/data/providers.ts` et ajouter un objet avec :
-
-- `slug`
-- `name`
-- `type`
-- `city`
-- `intervention`
-- `remote`
-- `minBudget`
-- `specialties`
-- `sectors`
-- `stacks`
-- `description`
-- `verificationLevel`
-
-Les fiches prestataires fictives restent hors sitemap et noindex. Le lancement public met en avant le dépôt de projet, l'étude des profils prestataires et les contenus de cadrage.
-
-## Ajouter une page secteur
-
-Ajouter une entrée dans `src/data/sectors.ts` avec `slug`, metadata, `h1`, introduction, résumé, exemples, budgets, risques, questions, FAQ et prestataires associés. La route dynamique `/secteurs/[slug]` la publie automatiquement.
-
-## Ajouter une page cas d'usage
-
-Ajouter une entrée dans `src/data/useCases.ts`. La route `/cas-usages/[slug]` génère la page avec résumé rapide, exemples, budget, risques, FAQ et maillage.
-
-## Limites de la beta
-
-- Pas de vraie base de données.
-- Pas d'authentification.
-- Pas de Stripe.
-- Pas de CRM.
-- Pas d'avis clients réels.
-- Prestataires réels à intégrer uniquement après vérification.
-
-## Prochaines étapes
-
-- Construire la base de prestataires vérifiés hors surface publique.
-- Connecter un stockage de leads.
-- Ajouter un dashboard admin.
-- Ajouter une méthode publique courte de qualification et de matching.
-- Connecter analytics et Search Console avant tout lancement public.
+La vérification Search Console présente dans layout.tsx et Vercel Analytics sont conservés. Rendu premium prévu au premier paiement, toujours non construit lors de la migration.
