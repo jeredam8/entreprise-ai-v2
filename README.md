@@ -19,7 +19,7 @@ npm run dev
 
 Contrôles depuis le dossier business : `python3 _outils/annuaire/check_annuaire.py` (base + build + SEO + MVP). Depuis `site/` : `npm run lint`. Le build est inclus dans le contrôle annuaire.
 
-`src/data/providers.ts` est généré depuis Supabase par `../_outils/annuaire/export_site.py --go`. Ne pas l’éditer manuellement. Les outils utilisent les accès déjà fournis à Codex ou `~/.config/api-keys/keys.env`, jamais Claude. La base doit être `cockpit-perso`, référence `yhozabfbkepsplokwvxh`.
+`src/data/providers.ts` est généré depuis Supabase par `../_outils/annuaire/export_site.py --go`. Ne pas l’éditer manuellement. Les outils utilisent les accès déjà fournis à Codex ou `~/.config/entreprise-ai/tools.env`, jamais Claude. La base doit être `cockpit-perso`, référence `yhozabfbkepsplokwvxh`.
 
 ## Déploiement
 
