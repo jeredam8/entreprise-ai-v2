@@ -44,7 +44,7 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
 
       <section className="section">
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
-          <article className="content-prose">
+          <article className="content-prose min-w-0">
             {variant === "guide" ? (
               <nav className="rounded-md border border-line bg-white p-5" aria-label="Sommaire">
                 <h2 className="mt-0 text-lg">Sommaire</h2>
