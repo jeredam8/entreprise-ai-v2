@@ -1,3 +1,5 @@
+import { providerResearch, researchDate } from "@/data/providerResearch";
+import { useCaseProviders } from "@/data/editorialLinks";
 import type { MetadataRoute } from "next";
 import { providers } from "@/data/providers";
 import { absoluteUrl, getAllRoutes } from "@/lib/routes";
@@ -21,11 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const estAnnuaire =
       route === "/" || route === "/prestataires-ia" || route.startsWith("/villes");
 
+    const refreshed = route === "/agences-ia" || route === "/guides/comment-choisir-agence-ia" || route === "/guides/combien-coute-projet-ia" || Boolean(providerResearch[route.replace("/prestataires-ia/", "")]) || Boolean(useCaseProviders[route.replace("/cas-usages/", "")]);
     return {
       url: absoluteUrl(route),
       // Les pages nourries par l'annuaire portent sa date de vérification ;
       // les pages éditoriales gardent leur date de publication.
-      lastModified: estFiche || estAnnuaire ? annuaire : editorial,
+      lastModified: refreshed ? new Date(researchDate) : estFiche || estAnnuaire ? annuaire : editorial,
       changeFrequency: estAnnuaire ? "weekly" : "monthly",
       priority:
         route === "/"

@@ -5,8 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 const n = providers.filter((p) => p.type === "Agence IA").length;
 
 export const metadata = buildMetadata({
-  title: `Agences IA en France : ${n} agences IA vérifiées`,
-  description: `${n} agences IA en France vérifiées au répertoire Sirene : automatisation, agents, RAG, chatbots. Spécialités, budgets de départ et villes. Aucune position vendue.`,
+  title: `Agences IA en France : ${n} agences à comparer`,
+  description: `${n} agences IA en France vérifiées au répertoire Sirene : automatisation, agents, RAG, chatbots. Comparez les spécialités et les points à vérifier avant un devis.`,
   path: "/agences-ia"
 });
 

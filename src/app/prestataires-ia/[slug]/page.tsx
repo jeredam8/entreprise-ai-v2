@@ -1,3 +1,4 @@
+import { ProviderResearch } from "@/components/ProviderResearch";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, BadgeCheck, ExternalLink, MapPin } from "lucide-react";
@@ -46,8 +47,8 @@ function faqsFor(provider: Provider): FaqItem[] {
       answer: provider.legal?.headOfficeCity
         ? `Le siège social est déclaré à ${provider.legal.headOfficeCity}` +
           `${provider.legal.headOfficePostalCode ? ` (${provider.legal.headOfficePostalCode})` : ""}. ` +
-          `Le prestataire intervient à distance sur toute la France.`
-        : `${provider.name} est rattaché au bassin de ${provider.city} et intervient à distance.`
+          `Les modalités d’intervention sont à confirmer avec le prestataire.`
+        : `${provider.name} est rattaché au bassin de ${provider.city}. Les modalités d’intervention sont à confirmer.`
     },
     {
       question: `Quelles sont les spécialités IA de ${provider.name} ?`,
@@ -157,7 +158,7 @@ export default async function ProviderPage({ params }: PageProps) {
             </h1>
             <p className="mt-4 flex items-center gap-2 text-sm text-muted">
               <MapPin className="h-4 w-4" aria-hidden="true" />
-              {provider.legal?.headOfficeCity ?? provider.city} · intervention nationale
+              {provider.legal?.headOfficeCity ?? provider.city} · modalités d’intervention à confirmer
             </p>
             <p className="mt-5 text-lg leading-8 text-muted">{provider.description}</p>
 
@@ -277,6 +278,7 @@ export default async function ProviderPage({ params }: PageProps) {
         </section>
       ) : null}
 
+      <ProviderResearch slug={provider.slug} />
       <FAQ items={faqs} />
 
       <section className="section pt-0">

@@ -39,6 +39,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           "@context": "https://schema.org",
           "@type": "Article",
           headline: guide.h1,
+          dateModified: guide.updatedAt,
           description: guide.metaDescription,
           inLanguage: "fr-FR",
           url: absoluteUrl(`/guides/${guide.slug}`),

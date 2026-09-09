@@ -1,3 +1,4 @@
+import { AgencyComparison } from "@/components/AgencyComparison";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -48,6 +49,8 @@ export function ProviderTypePage({ type, title, description, path }: ProviderTyp
           </p>
         </div>
       </div>
+
+      {type === "Agence IA" ? <AgencyComparison /> : null}
 
       {n > 0 ? (
         <section className="section pt-0">

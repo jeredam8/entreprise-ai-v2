@@ -76,6 +76,7 @@ export type BudgetRow = {
 };
 
 export type ContentPage = {
+  updatedAt?: string;
   slug: string;
   title: string;
   metaTitle: string;

@@ -1,6 +1,6 @@
 import type { BudgetRow } from "@/data/types";
 
-export function BudgetTable({ rows }: { rows: BudgetRow[] }) {
+export function BudgetTable({ rows, illustrative = false }: { rows: BudgetRow[]; illustrative?: boolean }) {
   if (!rows || rows.length === 0) return null;
 
   return (
@@ -8,9 +8,9 @@ export function BudgetTable({ rows }: { rows: BudgetRow[] }) {
       <table className="w-full min-w-[720px] text-left text-sm">
         <thead className="bg-soft text-ink">
           <tr>
-            <th className="px-4 py-3 font-semibold">Projet</th>
-            <th className="px-4 py-3 font-semibold">Budget indicatif</th>
-            <th className="px-4 py-3 font-semibold">Complexité</th>
+            <th className="px-4 py-3 font-semibold">{illustrative ? "Poste" : "Projet"}</th>
+            <th className="px-4 py-3 font-semibold">{illustrative ? "Montant hypothétique HT" : "Budget indicatif"}</th>
+            <th className="px-4 py-3 font-semibold">{illustrative ? "Calcul / hypothèse" : "Complexité"}</th>
             <th className="px-4 py-3 font-semibold">Notes</th>
           </tr>
         </thead>
