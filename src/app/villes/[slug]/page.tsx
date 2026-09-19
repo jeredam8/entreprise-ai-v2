@@ -80,7 +80,7 @@ export default async function CityPage({ params }: CityPageProps) {
               {locaux.length > 1 ? "s" : ""} à {city.city}
             </h2>
             <p>
-              Identité légale vérifiée au répertoire Sirene. Ces prestataires interviennent aussi à
+              Offres et sources consultables sur chaque fiche. Ces prestataires interviennent aussi à
               distance ; la proximité facilite le cadrage, elle ne remplace pas la compétence.
             </p>
           </div>

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: `${provider.name} — ${provider.type} à ${provider.city}`,
     description:
       `${provider.name} : ${provider.type.toLowerCase()} basé à ${provider.city}. ` +
-      `Spécialités, identité légale vérifiée et informations pratiques pour un projet IA.`,
+      `Spécialités, offre et informations pratiques pour un projet IA.`,
     path: `/prestataires-ia/${provider.slug}`
   });
 }
@@ -68,7 +68,7 @@ function faqsFor(provider: Provider): FaqItem[] {
   if (provider.minBudget > 0) {
     faqs.push({
       question: `Quel budget prévoir avec ${provider.name} ?`,
-      answer: `Le budget de départ annoncé publiquement est de ${provider.minBudgetLabel.toLowerCase()}. Le montant réel dépend du périmètre.`
+      answer: `${provider.minBudgetLabel}. Le montant réel dépend du périmètre et doit être confirmé par un devis.`
     });
   }
   return faqs;
@@ -97,7 +97,7 @@ export default async function ProviderPage({ params }: PageProps) {
   const faits: [string, string | undefined][] = [
     ["Type", provider.type],
     ["Localisation", provider.legal?.headOfficeCity ?? provider.city],
-    ["Effectif", provider.legal?.headcount ? `${provider.legal.headcount} salariés` : provider.teamSize],
+    ["Équipe", provider.teamSize],
     ["Forme juridique", provider.legal?.legalForm],
     ["Création", provider.legal?.createdAt?.slice(0, 4)],
     ["Budget de départ", provider.minBudget > 0 ? provider.minBudgetLabel : undefined]
@@ -151,7 +151,9 @@ export default async function ProviderPage({ params }: PageProps) {
                   <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
                   Identité vérifiée
                 </span>
-              ) : null}
+              ) : (
+                <span className="rounded-md border border-line px-2.5 py-1 text-xs text-muted">Fiche déclarative</span>
+              )}
             </div>
             <h1 className="mt-4 text-4xl font-semibold tracking-normal text-ink md:text-5xl">
               {provider.name}
@@ -201,7 +203,7 @@ export default async function ProviderPage({ params }: PageProps) {
           <div className="section-heading">
             <h2>Positionnement</h2>
             <p>
-              Relevé sur le site du prestataire
+              {provider.requestedByProvider ? "Informations issues de la demande de référencement et du site, relues" : "Relevé sur le site du prestataire"}
               {provider.verifiedAt ? ` le ${new Date(provider.verifiedAt).toLocaleDateString("fr-FR")}` : ""}.
               Ces éléments sont déclaratifs : ils décrivent l'offre annoncée, pas une évaluation.
             </p>
@@ -237,7 +239,7 @@ export default async function ProviderPage({ params }: PageProps) {
               <p>
                 Données publiques du répertoire Sirene, contrôlées
                 {provider.verifiedAt ? ` le ${new Date(provider.verifiedAt).toLocaleDateString("fr-FR")}` : ""}.
-                Le SIREN a été relevé sur le site du prestataire puis confronté au répertoire.
+                L’identité de la structure a été rapprochée de son site et des informations disponibles au répertoire.
               </p>
             </div>
             <div className="rounded-md border border-line bg-white p-6">
@@ -267,8 +269,9 @@ export default async function ProviderPage({ params }: PageProps) {
               </a>
             </div>
             <p className="mt-4 text-sm leading-6 text-muted">
-              Cette fiche a été constituée à partir de sources publiques et n'a pas été revendiquée
-              par son dirigeant.{" "}
+              {provider.requestedByProvider
+                ? "Référencement demandé par le prestataire. Les informations ont été rapprochées de son site et des sources publiques."
+                : "Cette fiche a été constituée à partir de sources publiques et n'a pas été revendiquée par son dirigeant."}{" "}
               <Link href="/contact" className="font-semibold text-forest">
                 Signaler une erreur ou demander une correction
               </Link>
@@ -279,6 +282,14 @@ export default async function ProviderPage({ params }: PageProps) {
       ) : null}
 
       <ProviderResearch slug={provider.slug} />
+      {!provider.legal && provider.requestedByProvider ? (
+        <section className="section pt-0">
+          <p className="text-sm leading-6 text-muted">
+            Référencement demandé par le prestataire. Cette fiche présente son offre commerciale,
+            relue sur son site. Les informations légales ne sont pas affichées.
+          </p>
+        </section>
+      ) : null}
       <FAQ items={faqs} />
 
       <section className="section pt-0">
@@ -286,19 +297,19 @@ export default async function ProviderPage({ params }: PageProps) {
           <h2 className="text-2xl font-semibold text-ink">Vous représentez {provider.name} ?</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
             Cette fiche de base est gratuite et le restera. Vérifiez-la, demandez une correction si besoin, et
-            affichez le badge sur votre site : il renvoie vers votre fiche vérifiée. La{" "}
+            partagez le lien de votre fiche sur votre site. La{" "}
             <Link href="/referencer-un-prestataire-ia" className="font-semibold text-forest">
               Fiche complète
             </Link>{" "}
             (149 € HT par an) ajoute une présentation détaillée, vos réalisations, un lien direct et votre logo.
           </p>
-          <div className="mt-5 flex flex-wrap items-start gap-5">
+          {provider.legal ? <div className="mt-5 flex flex-wrap items-start gap-5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/badge/reference-entreprise-ai.svg" alt="Prestataire IA vérifié sur Entreprise.ai" width={220} height={56} />
             <pre className="max-w-full overflow-x-auto rounded-md border border-line bg-white p-3 text-xs leading-5 text-ink">
               <code>{`<a href="${absoluteUrl(`/prestataires-ia/${provider.slug}`)}"><img src="https://entreprise.ai/badge/reference-entreprise-ai.svg" alt="Prestataire IA vérifié sur Entreprise.ai" width="220" height="56"></a>`}</code>
             </pre>
-          </div>
+          </div> : null}
         </div>
       </section>
 

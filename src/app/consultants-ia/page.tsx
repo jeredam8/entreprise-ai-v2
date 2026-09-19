@@ -5,8 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 const n = providers.filter((p) => p.type === "Consultant IA").length;
 
 export const metadata = buildMetadata({
-  title: `Consultants IA en France : ${n} consultants IA vérifiés`,
-  description: `${n} consultants IA en France vérifiés au répertoire Sirene : audit, cadrage, feuille de route, formation. Spécialités, budgets de départ et villes. Aucune position vendue.`,
+  title: `Consultants IA en France : ${n} consultants IA référencés`,
+  description: `${n} consultants IA en France : audit, cadrage, feuille de route et formation. Comparez les offres, les sources, les budgets et les villes. Aucune position vendue.`,
   path: "/consultants-ia"
 });
 

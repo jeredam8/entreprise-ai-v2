@@ -29,14 +29,16 @@ const etapes = [
       "Le numéro SIREN est relevé sur le site du prestataire lui-même, puis confronté au répertoire " +
       "Sirene via l'API publique de l'État. Une page de mentions légales cite souvent plusieurs " +
       "sociétés (hébergeur, prestataire technique) : chaque numéro trouvé est rapproché du nom de " +
-      "la structure, et rejeté s'il ne correspond pas."
+      "la structure, et rejeté s'il ne correspond pas. À la demande d'un prestataire dont les données " +
+      "du registre ne sont pas diffusibles, une fiche commerciale peut être présentée sans ces données " +
+      "et sans badge d'identité vérifiée. Elle est signalée comme déclarative."
   },
   {
     titre: "3. Contrôle de cohérence",
     texte:
-      "L'activité déclarée doit être compatible avec une prestation numérique, de conseil ou de " +
-      "formation. Un homonyme parfait dont le métier ne correspond pas est écarté : nous préférons " +
-      "une fiche en moins à une donnée fausse."
+      "L'offre IA doit être identifiable sur le site et rattachée à la bonne structure. Le code " +
+      "d'activité est un indice : un décalage conduit à approfondir le rapprochement, sans assimiler " +
+      "un homonyme à la structure ni présenter une offre déclarée comme une prestation auditée."
   },
   {
     titre: "4. Relevé du positionnement",
@@ -56,10 +58,10 @@ const etapes = [
 
 const exclusions = [
   ["Identité non établie", "Aucun SIREN vérifiable rattaché de façon certaine à la structure."],
-  ["Activité incompatible", "L'activité déclarée n'a pas de rapport avec une prestation numérique."],
+  ["Activité incompatible", "Aucune offre de prestation IA ne peut être rattachée à la structure."],
   ["Pas d'offre IA réelle", "Le site ne présente pas d'offre IA identifiable, seulement une mention."],
   ["Nature différente", "École, média, comparateur, organisme public : ce ne sont pas des prestataires."],
-  ["Droit d'opposition", "Structure non diffusible au répertoire Sirene : ses données ne sont pas publiées."]
+  ["Données non diffusibles", "Les données du registre ne sont pas publiées. Une fiche commerciale demandée par le prestataire reste distincte d'une identité publique vérifiée."]
 ];
 
 const faqs: FaqItem[] = [

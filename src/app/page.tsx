@@ -57,8 +57,8 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
               {providers.length} agences, consultants, intégrateurs et formateurs spécialisés en
-              intelligence artificielle. Chaque fiche est rattachée à une entreprise réelle,
-              vérifiée au répertoire Sirene.
+              intelligence artificielle. Comparez leurs spécialités, leurs offres et leurs budgets
+              à partir de fiches documentées.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/prestataires-ia" className="btn-primary">

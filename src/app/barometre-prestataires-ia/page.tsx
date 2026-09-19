@@ -14,8 +14,8 @@ const ages = ageStats();
 const verif = formatDateFr(lastVerification());
 
 export const metadata = buildMetadata({
-  title: `Baromètre 2026 des prestataires IA en France : ${total} vérifiés`,
-  description: `${total} prestataires IA vérifiés au répertoire Sirene : répartition par type, ville, taille, ancienneté et budgets de départ. Chiffres de l'annuaire au ${verif}.`,
+  title: `Baromètre 2026 des prestataires IA en France : ${total} référencés`,
+  description: `${total} prestataires IA référencés : répartition par type, ville, taille, ancienneté et budgets de départ. Chiffres de l'annuaire au ${verif}.`,
   path: "/barometre-prestataires-ia",
   type: "article"
 });
@@ -32,7 +32,7 @@ export default function BarometrePage() {
           "@context": "https://schema.org",
           "@type": "Dataset",
           name: "Baromètre des prestataires IA en France (Entreprise.ai)",
-          description: `Répartition de ${total} prestataires IA français vérifiés au répertoire Sirene, par type, ville, taille et budget de départ.`,
+          description: `Répartition de ${total} prestataires IA français référencés, par type, ville, taille et budget de départ.`,
           dateModified: lastVerification() ?? undefined,
           creator: { "@type": "Organization", name: "Entreprise.ai", url: "https://entreprise.ai" },
           license: "https://creativecommons.org/licenses/by/4.0/",
@@ -47,7 +47,7 @@ export default function BarometrePage() {
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">
             Ce que dit l'annuaire, chiffres sortis de la base : {total} agences, consultants, intégrateurs,
-            formateurs et cabinets data, chacun rattaché à une entreprise réelle vérifiée au répertoire Sirene.
+            formateurs et cabinets data dont les offres ont été documentées.
             Dernier contrôle le {verif}. Les chiffres se recalculent à chaque mise à jour de l'annuaire, et
             un seul chiffre existe par mesure sur tout le site.
           </p>
@@ -56,7 +56,7 @@ export default function BarometrePage() {
 
       <section className="section pt-0">
         <div className="grid gap-5 md:grid-cols-3">
-          <Chiffre valeur={String(total)} label="prestataires IA vérifiés" />
+          <Chiffre valeur={String(total)} label="prestataires IA référencés" />
           <Chiffre valeur={budgets.known ? formatEuro(budgets.median) : "n. c."} label={`budget de départ médian (${budgets.known} fiches le publient)`} />
           <Chiffre valeur={ages.known ? pct(ages.since2023, ages.known) : "n. c."} label="des structures créées depuis 2023" />
         </div>
@@ -103,8 +103,9 @@ export default function BarometrePage() {
           <h2>Comment lire ces chiffres</h2>
         </div>
         <p className="max-w-3xl text-base leading-7 text-muted">
-          L'annuaire n'est pas un recensement exhaustif : il compte les prestataires dont l'identité légale et l'offre IA
-          ont été vérifiées, selon la <Link href="/methodologie" className="font-semibold text-forest">méthodologie</Link>.
+          L'annuaire n'est pas un recensement exhaustif : il compte les fiches retenues selon notre{" "}
+          <Link href="/methodologie" className="font-semibold text-forest">méthodologie</Link>.
+          Les données légales sont utilisées uniquement lorsqu'elles sont publiques.
           Les fiches proviennent de sources publiques et des demandes de référencement reçues. Un prestataire absent peut{" "}
           <Link href="/referencer-un-prestataire-ia" className="font-semibold text-forest">demander sa fiche</Link>, gratuitement.
           Reprise des chiffres libre avec la mention « Source : Entreprise.ai, baromètre des prestataires IA, {verif} ».

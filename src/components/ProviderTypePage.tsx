@@ -36,11 +36,11 @@ export function ProviderTypePage({ type, title, description, path }: ProviderTyp
         <Breadcrumbs items={[{ label: title, href: path }]} />
         <div className="mt-8 max-w-4xl">
           <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">
-            {title} en France : {n} prestataire{pluriel} vérifié{pluriel}
+            {title} en France : {n} prestataire{pluriel} référencé{pluriel}
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">{description}</p>
           <p className="mt-4 text-sm leading-6 text-muted">
-            {n} fiche{pluriel} rattachée{pluriel} à une entreprise réelle, vérifiée au répertoire Sirene
+            {n} fiche{pluriel} documentée{pluriel} à partir des sites des prestataires
             {verif ? ` (dernier contrôle le ${verif})` : ""}.
             {budgets.known > 0
               ? ` Budget de départ connu pour ${budgets.known} d'entre elles, médiane ${formatEuro(budgets.median)}.`

@@ -9,10 +9,10 @@ import { buildMetadata } from "@/lib/seo";
 import { itemListJsonLd } from "@/lib/structuredData";
 
 export const metadata = buildMetadata({
-  title: `Prestataires IA en France : ${providers.length} agences et consultants vérifiés`,
+  title: `Prestataires IA en France : ${providers.length} agences et consultants`,
   description:
     `Comparez ${providers.length} agences, consultants, intégrateurs et formateurs IA français. ` +
-    "Identité vérifiée au répertoire Sirene, spécialités, budgets, filtres par ville et par besoin.",
+    "Fiches documentées, spécialités, budgets et filtres par ville et par besoin.",
   path: "/prestataires-ia"
 });
 
@@ -71,12 +71,12 @@ export default function ProvidersPage() {
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.78fr]">
           <div>
             <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">
-              Les prestataires IA français, vérifiés un par un
+              Les prestataires IA français, présentés un par un
             </h1>
             <p className="mt-5 text-lg leading-8 text-muted">
               {providers.length} agences, consultants, intégrateurs, formateurs et cabinets data
-              spécialisés en intelligence artificielle. Chaque fiche est rattachée à une entreprise
-              réelle, contrôlée au répertoire Sirene.
+              spécialisés en intelligence artificielle. Retrouvez leurs offres, leurs spécialités
+              et les sources qui permettent de les comparer.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/deposer-un-projet-ia" className="btn-primary">
@@ -150,11 +150,11 @@ export default function ProvidersPage() {
             {[
               [
                 "Identité légale",
-                "SIREN relevé sur le site du prestataire puis confronté au répertoire Sirene : forme juridique, date de création, effectif et commune du siège."
+                "Les identités publiques sont rapprochées du répertoire Sirene. Une fiche commerciale sans données légales publiques est signalée comme déclarative."
               ],
               [
                 "Activité cohérente",
-                "L'activité déclarée doit correspondre à une prestation numérique. Un homonyme au bon nom mais au mauvais métier est écarté."
+                "L'offre IA doit être rattachée à la bonne structure. Un code d'activité différent conduit à vérifier le rapprochement, sans confondre deux homonymes."
               ],
               [
                 "Offre IA réelle",

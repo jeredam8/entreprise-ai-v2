@@ -60,6 +60,8 @@ export type Provider = {
   verifiedAt?: string;
   /** Page d'où le positionnement a été relevé (le texte est reformulé, jamais copié). */
   sourceUrl?: string;
+  /** Demande de référencement reçue ; ne vaut pas audit des prestations. */
+  requestedByProvider?: boolean;
 };
 
 export type ContentSection = {
