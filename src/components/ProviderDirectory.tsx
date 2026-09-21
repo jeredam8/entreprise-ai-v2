@@ -51,14 +51,13 @@ export function ProviderDirectory({
   }
   useEffect(() => {
     if (!ready) return;
+    const url = new URL(window.location.href);
+    for (const [key, value] of Object.entries(f)) {
+      if (value) url.searchParams.set(key, value === true ? "1" : String(value));
+      else url.searchParams.delete(key);
+    }
+    window.history.replaceState(null, "", url);
     const t = setTimeout(() => {
-      const url = new URL(window.location.href);
-      for (const [key, value] of Object.entries(f)) {
-        if (value)
-          url.searchParams.set(key, value === true ? "1" : String(value));
-        else url.searchParams.delete(key);
-      }
-      window.history.replaceState(null, "", url);
       if (Object.values(f).some(Boolean))
         track("directory_filter", {
           has_query: !!f.q,
