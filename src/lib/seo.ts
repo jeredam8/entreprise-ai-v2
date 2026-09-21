@@ -9,7 +9,13 @@ type MetadataInput = {
   noIndex?: boolean;
 };
 
-export function buildMetadata({ title, description, path, type = "website", noIndex = false }: MetadataInput): Metadata {
+export function buildMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+  noIndex = false,
+}: MetadataInput): Metadata {
   return {
     metadataBase: new URL(baseUrl),
     title,
@@ -17,11 +23,11 @@ export function buildMetadata({ title, description, path, type = "website", noIn
     robots: noIndex
       ? {
           index: false,
-          follow: false
+          follow: false,
         }
       : undefined,
     alternates: {
-      canonical: absoluteUrl(path)
+      canonical: absoluteUrl(path),
     },
     openGraph: {
       title,
@@ -29,7 +35,15 @@ export function buildMetadata({ title, description, path, type = "website", noIn
       url: absoluteUrl(path),
       siteName: "Entreprise.ai",
       locale: "fr_FR",
-      type
-    }
+      type,
+      images: [
+        {
+          url: absoluteUrl("/opengraph-image"),
+          width: 1200,
+          height: 630,
+          alt: "Entreprise.ai — Trouvez le bon prestataire IA",
+        },
+      ],
+    },
   };
 }

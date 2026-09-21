@@ -1,251 +1,259 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ClipboardList, Search, ShieldCheck, Users, type LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Workflow,
+  MessagesSquare,
+  GraduationCap,
+  Compass,
+} from "lucide-react";
+import { ProviderCard } from "@/components/ProviderCard";
 import { ProjectCTA } from "@/components/ProjectCTA";
-import { guides } from "@/data/guides";
+import { FAQ } from "@/components/FAQ";
 import { providers } from "@/data/providers";
-import { sectors } from "@/data/sectors";
-import { useCases } from "@/data/useCases";
+import { guides } from "@/data/guides";
 import { buildMetadata } from "@/lib/seo";
-
 export const metadata = buildMetadata({
-  title: "Annuaire des prestataires IA en France : agences et consultants vérifiés",
+  title: "Trouvez votre prestataire IA : agences, consultants et formateurs",
   description:
-    "Comparez les agences, consultants, intégrateurs et formateurs IA français. Identité légale vérifiée, spécialités et budgets, filtrables par ville et par besoin.",
-  path: "/"
+    "Comparez les prestataires IA en France. Explorez leurs offres ou décrivez votre projet pour être orienté. Référencement gratuit pour les prestataires.",
+  path: "/",
 });
-
-const projectTypes = [
-  "Automatisation IA",
-  "Agent IA interne",
-  "Chatbot service client",
-  "RAG / base documentaire",
-  "Formation IA",
-  "Audit IA",
-  "Intégration CRM / ERP",
-  "IA pour reporting",
-  "Traitement documentaire",
-  "Prospection commerciale"
-];
-
-const companyTargets = ["PME", "ETI", "Directions métier", "Directions générales", "DSI", "DAF", "DRH", "Équipes commerciales", "Équipes support"];
-const providerCategories = ["Agences IA", "Consultants IA", "Intégrateurs IA", "Cabinets data", "Formateurs IA", "Experts automatisation", "Spécialistes RAG", "Experts agents IA"];
-const processSteps: Array<[string, LucideIcon]> = [
-  ["Vous décrivez le projet", ClipboardList],
-  ["Nous qualifions le besoin", Search],
-  ["Nous préparons la shortlist", Users],
-  ["Vous comparez les options", ArrowRight],
-  ["Vous choisissez librement", ShieldCheck]
-];
-
-
 export default function HomePage() {
-  const verifies = providers.filter((provider) => provider.legal).length;
-  const villes = new Set(providers.map((provider) => provider.city)).size;
-  const specialites = new Set(providers.flatMap((provider) => provider.specialties)).size;
-  const derniereVerif = providers.map((p) => p.verifiedAt).filter(Boolean).sort().pop();
-  const derniers = [...providers]
-    .sort((a, b) => (b.verifiedAt ?? "").localeCompare(a.verifiedAt ?? "") || a.name.localeCompare(b.name))
+  const recent = [...providers]
+    .sort(
+      (a, b) =>
+        (b.verifiedAt || "").localeCompare(a.verifiedAt || "") ||
+        a.name.localeCompare(b.name),
+    )
     .slice(0, 3);
-
   return (
     <>
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1fr_0.86fr] lg:px-8 lg:py-20">
-          <div className="flex flex-col justify-center">
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-normal text-ink md:text-6xl">
-              L'annuaire des prestataires IA en France
-            </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-              {providers.length} agences, consultants, intégrateurs et formateurs spécialisés en
-              intelligence artificielle. Comparez leurs spécialités, leurs offres et leurs budgets
-              à partir de fiches documentées.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/prestataires-ia" className="btn-primary">
-                Explorer l'annuaire
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link href="/deposer-un-projet-ia" className="btn-secondary">
-                Décrire mon projet
-              </Link>
-            </div>
-            <p className="mt-5 text-sm font-medium text-muted">
-              Gratuit et indépendant. Aucune position n'est vendue.{" "}
-              <Link href="/barometre-prestataires-ia" className="font-semibold text-forest">
-                Baromètre 2026 des prestataires IA
-              </Link>
-            </p>
-          </div>
-
-          <div className="rounded-md border border-line bg-soft p-5 shadow-panel">
-            <div className="rounded-md bg-white p-5">
-              <div className="flex items-center justify-between border-b border-line pb-4">
-                <div>
-                  <p className="text-sm font-semibold text-ink">L'annuaire en chiffres</p>
-                  <p className="mt-1 text-xs text-muted">
-                    Mis à jour le{" "}
-                    {derniereVerif
-                      ? new Date(derniereVerif).toLocaleDateString("fr-FR")
-                      : "—"}
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1 rounded-md bg-forest/10 px-3 py-1 text-xs font-semibold text-forest">
-                  <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                  Sirene
-                </span>
-              </div>
-              <dl className="mt-5 grid grid-cols-2 gap-4">
-                {[
-                  ["Prestataires", String(providers.length)],
-                  ["Identités vérifiées", String(verifies)],
-                  ["Villes couvertes", String(villes)],
-                  ["Spécialités", String(specialites)]
-                ].map(([label, valeur]) => (
-                  <div key={label} className="rounded-md bg-soft p-4">
-                    <dt className="text-xs text-muted">{label}</dt>
-                    <dd className="mt-1 text-2xl font-semibold text-ink">{valeur}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-5 space-y-3">
-                {derniers.map((provider) => (
-                  <Link
-                    key={provider.slug}
-                    href={`/prestataires-ia/${provider.slug}`}
-                    className="flex items-center justify-between gap-4 rounded-md border border-line p-3 transition hover:border-forest/40"
-                  >
-                    <div className="min-w-0">
-                      <p className="truncate text-sm font-semibold text-ink">{provider.name}</p>
-                      <p className="mt-0.5 truncate text-xs text-muted">
-                        {provider.type} · {provider.city}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-forest" aria-hidden="true" />
-                  </Link>
-                ))}
-              </div>
-              <Link
-                href="/prestataires-ia"
-                className="mt-4 block text-center text-sm font-semibold text-forest"
-              >
-                Voir les {providers.length} prestataires
-              </Link>
-            </div>
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1.5fr_0.8fr] lg:gap-16 lg:px-8 lg:py-20">
+        <div>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Trouvez le bon prestataire IA pour{" "}
+            <span className="text-forest">votre entreprise.</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+            Comparez des agences, consultants et formateurs en France. Besoin
+            d’aide pour choisir ? Décrivez votre projet.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link href="/prestataires-ia" className="btn-primary">
+              Explorer l’annuaire <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <Link href="/deposer-un-projet-ia" className="btn-secondary">
+              Parler de mon projet
+            </Link>
           </div>
         </div>
+        <div className="flex flex-col justify-center divide-y divide-line border-t border-line lg:border-l lg:border-t-0 lg:pl-8">
+          <Link href="/deposer-un-projet-ia" className="group py-6">
+            <h2 className="flex items-center justify-between gap-3 text-xl font-semibold">
+              Vous avez un projet ? <ArrowRight size={20} aria-hidden="true" />
+            </h2>
+            <p className="mt-3 leading-7 text-muted">
+              Expliquez votre besoin. Nous vous aidons à identifier les profils
+              adaptés, sans engagement.
+            </p>
+          </Link>
+          <Link href="/referencer-un-prestataire-ia" className="group py-6">
+            <h2 className="flex items-center justify-between gap-3 text-xl font-semibold">
+              Vous êtes prestataire ?{" "}
+              <ArrowRight size={20} aria-hidden="true" />
+            </h2>
+            <p className="mt-3 leading-7 text-muted">
+              Référencez gratuitement votre activité ou mettez à jour votre
+              fiche.
+            </p>
+          </Link>
+        </div>
       </section>
-
-      <section className="section">
+      <section className="section border-t border-line">
         <div className="section-heading">
-          <h2>Pourquoi Entreprise.ai</h2>
-          <p>
-            Le problème n'est pas de trouver une liste de prestataires. Le vrai sujet est de savoir quel type d'acteur choisir, avec quel budget, quel niveau technique et quelles questions poser avant de signer.
-          </p>
+          <h2>Quel est votre besoin ?</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          {[
+            [
+              "Automatisation",
+              "Réduire les tâches répétitives.",
+              "Automatisation",
+              Workflow,
+            ],
+            [
+              "Assistants IA",
+              "Aider vos équipes et vos clients.",
+              "Agents IA",
+              MessagesSquare,
+            ],
+            [
+              "Formation",
+              "Faire progresser vos équipes.",
+              "Formation IA",
+              GraduationCap,
+            ],
+            [
+              "Cadrage",
+              "Choisir par où commencer.",
+              "Audit et stratégie IA",
+              Compass,
+            ],
+          ].map(([title, text, specialty, Icon]) => {
+            const I = Icon as typeof Workflow;
+            return (
+              <Link
+                key={String(title)}
+                href={`/prestataires-ia?specialty=${encodeURIComponent(String(specialty))}`}
+                className="group py-2"
+              >
+                <I className="mb-4 h-8 w-8 text-forest" aria-hidden="true" />
+                <h3 className="text-lg font-semibold group-hover:underline">
+                  {String(title)}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  {String(text)}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+      <section className="section border-t border-line">
+        <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">
+              Des prestataires à découvrir
+            </h2>
+            <p className="mt-3 text-muted">
+              {providers.length} fiches documentées. Voici trois profils
+              récemment actualisés.
+            </p>
+          </div>
+          <Link
+            href="/prestataires-ia"
+            className="font-semibold text-forest underline"
+          >
+            Voir tout l’annuaire
+          </Link>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {[
-            ["Besoin clarifié", "Transformer une intention IA floue en périmètre, priorité, budget et niveau de risque."],
-            ["Prestataire adapté", "Choisir entre agence, consultant, intégrateur, formateur ou cabinet data selon le projet."],
-            ["Décision plus sûre", "Comparer les options avec critères, points de vigilance et questions à poser en rendez-vous."]
-          ].map(([title, text]) => (
-            <div key={title} className="rounded-md border border-line bg-white p-6">
-              <CheckCircle2 className="h-6 w-6 text-forest" aria-hidden="true" />
-              <h3 className="mt-4 text-lg font-semibold text-ink">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{text}</p>
-            </div>
+          {recent.map((p) => (
+            <ProviderCard key={p.slug} provider={p} />
           ))}
         </div>
+        <p className="mt-5 text-sm text-muted">
+          L’identité légale est vérifiée lorsque les données sont publiques.
+          Cela ne constitue pas une certification des prestations.{" "}
+          <Link className="underline" href="/methodologie">
+            Notre méthode
+          </Link>
+          .
+        </p>
       </section>
-
-      <section className="border-y border-line bg-soft">
+      <section className="bg-soft">
         <div className="section">
           <div className="section-heading">
-            <h2>Comment ça marche</h2>
+            <h2>Avancez en trois étapes</h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-5">
-            {processSteps.map(([title, StepIcon], index) => {
-              return (
-                <div key={String(title)} className="rounded-md border border-line bg-white p-5">
-                  <StepIcon className="h-5 w-5 text-forest" aria-hidden="true" />
-                  <p className="mt-4 text-xs font-semibold uppercase text-muted">Étape {index + 1}</p>
-                  <h3 className="mt-2 text-base font-semibold text-ink">{title}</h3>
-                </div>
-              );
-            })}
-          </div>
+          <ol className="grid gap-8 md:grid-cols-3">
+            {[
+              [
+                "Décrivez votre besoin",
+                "Le problème à résoudre, votre contexte et votre échéance suffisent pour commencer.",
+              ],
+              [
+                "Échangeons sur votre projet",
+                "Nous clarifions votre demande et recherchons les profils qui correspondent.",
+              ],
+              [
+                "Choisissez librement",
+                "Vous échangez avec les prestataires et comparez leurs propositions. Vous gardez la décision.",
+              ],
+            ].map(([title, text], i) => (
+              <li key={title}>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forest font-semibold text-white">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 text-xl font-semibold">{title}</h3>
+                <p className="mt-3 leading-7 text-muted">{text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
-
-      <HomeListSection title="Types de projets IA" items={projectTypes} />
-      <HomeListSection title="Pour quelles entreprises ?" items={companyTargets} muted />
-      <HomeListSection title="Types de prestataires mobilisables" items={providerCategories} />
-
       <section className="section">
-        <div className="section-heading">
-          <h2>Secteurs</h2>
-          <p>Chaque page sectorielle aide à comprendre les cas d'usage, budgets, risques et critères de choix avant de déposer un projet.</p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {sectors.slice(0, 10).map((sector) => (
-            <Link key={sector.slug} href={`/secteurs/${sector.slug}`} className="rounded-md border border-line bg-white p-4 text-sm font-semibold text-ink transition hover:border-forest">
-              {sector.title.replace("IA pour ", "")}
+        <div className="grid gap-6 border-b border-line pb-12 md:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-semibold">
+              Faites connaître votre activité IA.
+            </h2>
+            <p className="mt-4 leading-7 text-muted">
+              Agences, indépendants, intégrateurs et formateurs : présentez ce
+              que vous faites et les entreprises que vous accompagnez. Chaque
+              demande est relue avant publication.
+            </p>
+          </div>
+          <div className="flex flex-col items-start justify-center gap-4">
+            <Link href="/referencer-un-prestataire-ia" className="btn-primary">
+              Référencer gratuitement mon activité
             </Link>
-          ))}
+            <Link
+              href="/referencer-un-prestataire-ia?mode=correction"
+              className="font-semibold text-forest underline"
+            >
+              Mettre à jour ma fiche
+            </Link>
+          </div>
         </div>
       </section>
-
-      <section className="border-y border-line bg-soft">
-        <div className="section">
-          <div className="section-heading">
-            <h2>Guides</h2>
-            <p>Des contenus conçus pour aider les dirigeants et directions métier à cadrer un achat IA avant de solliciter des prestataires.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {guides.slice(0, 5).map((guide) => (
-              <Link key={guide.slug} href={`/guides/${guide.slug}`} className="rounded-md border border-line bg-white p-5 transition hover:border-forest">
-                <h3 className="text-lg font-semibold text-ink">{guide.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{guide.summary}</p>
+      <section className="section pt-0">
+        <div className="section-heading">
+          <h2>Préparez votre projet</h2>
+          <p>
+            Des repères pour cadrer un budget, choisir un prestataire et
+            comparer les devis.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {guides
+            .filter((g) => /cout|choisir|reussir/i.test(g.slug))
+            .slice(0, 3)
+            .map((g) => (
+              <Link
+                key={g.slug}
+                href={`/guides/${g.slug}`}
+                className="border-t-2 border-forest py-5"
+              >
+                <h3 className="text-xl font-semibold">{g.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{g.summary}</p>
+                <span className="mt-4 block font-semibold text-forest">
+                  Lire le guide →
+                </span>
               </Link>
             ))}
-          </div>
         </div>
       </section>
-
-      <section className="section">
-        <div className="section-heading">
-          <h2>Cas d'usage à cadrer</h2>
-          <p>Un bon matching commence par le bon diagnostic : type de projet, maturité interne, données disponibles, outils à intégrer et budget réaliste.</p>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {useCases.slice(0, 6).map((useCase) => (
-            <Link key={useCase.slug} href={`/cas-usages/${useCase.slug}`} className="rounded-md border border-line bg-white p-5 transition hover:border-forest">
-              <h3 className="text-lg font-semibold text-ink">{useCase.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{useCase.summary}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
+      <FAQ
+        items={[
+          {
+            question: "Est-ce gratuit ?",
+            answer:
+              "La consultation de l’annuaire, le dépôt d’une demande et le référencement de base sont gratuits. Les prestations réalisées par les professionnels font l’objet de leurs propres devis.",
+          },
+          {
+            question: "Qui lit ma demande ?",
+            answer:
+              "Jérémy Tripoli, qui anime Entreprise.ai, examine les demandes et prend contact pour clarifier le besoin. Les demandes ne sont pas diffusées automatiquement à tout l’annuaire.",
+          },
+          {
+            question: "Puis-je contacter directement un prestataire ?",
+            answer:
+              "Oui. Chaque fiche dispose d’un lien vers le site du prestataire lorsqu’il est renseigné. Vous pouvez aussi nous demander de vous aider à comparer les options.",
+          },
+        ]}
+      />
       <ProjectCTA />
     </>
-  );
-}
-
-function HomeListSection({ title, items, muted = false }: { title: string; items: string[]; muted?: boolean }) {
-  return (
-    <section className={muted ? "border-y border-line bg-soft" : ""}>
-      <div className="section">
-        <div className="section-heading">
-          <h2>{title}</h2>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {items.map((item) => (
-            <div key={item} className="rounded-md border border-line bg-white p-4 text-sm font-semibold text-ink">
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

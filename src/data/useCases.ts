@@ -1,36 +1,58 @@
 import type { ContentPage } from "@/data/types";
 
-function makeUseCasePage(input: Omit<ContentPage, "sections" | "faqs" | "relatedPages"> & Partial<Pick<ContentPage, "sections" | "faqs" | "relatedPages">>): ContentPage {
+function makeUseCasePage(
+  input: Omit<ContentPage, "sections" | "faqs" | "relatedPages"> &
+    Partial<Pick<ContentPage, "sections" | "faqs" | "relatedPages">>,
+): ContentPage {
   return {
     ...input,
     sections: input.sections ?? [
       {
         title: "À quoi sert ce projet IA ?",
-        body:
-          "Le projet doit viser un processus métier identifiable, avec des données disponibles, des utilisateurs définis et un résultat contrôlable."
+        body: "Le projet doit viser un processus métier identifiable, avec des données disponibles, des utilisateurs définis et un résultat contrôlable.",
       },
       {
         title: "Quel prestataire choisir ?",
-        body:
-          "Un consultant IA convient pour cadrer et prioriser. Une agence IA ou un intégrateur devient préférable dès que le projet touche aux outils métier, aux données sensibles ou à la maintenance."
+        body: "Un consultant IA convient pour cadrer et prioriser. Une agence IA ou un intégrateur devient préférable dès que le projet touche aux outils métier, aux données sensibles ou à la maintenance.",
       },
       {
         title: "Budget et complexité",
-        body:
-          "Le budget dépend du nombre d'outils à connecter, du niveau de contrôle humain, des exigences RGPD et de la qualité des données existantes."
-      }
+        body: "Le budget dépend du nombre d'outils à connecter, du niveau de contrôle humain, des exigences RGPD et de la qualité des données existantes.",
+      },
     ],
     faqs: input.faqs ?? [
-      { question: "Ce cas d'usage est-il adapté à une PME ?", answer: "Oui si le périmètre est clair, les données accessibles et les utilisateurs prêts à tester un premier workflow contrôlé." },
-      { question: "Faut-il un intégrateur ?", answer: "Un intégrateur est utile lorsque la solution doit se connecter au SI, gérer des droits ou fonctionner dans un environnement sécurisé." },
-      { question: "Quel est le principal risque ?", answer: "Le risque principal est de lancer un outil sans cadrage métier, sans données fiables ou sans validation humaine." },
-      { question: "Comment Entreprise.ai peut aider ?", answer: "La plateforme vise à qualifier le besoin puis à proposer une shortlist de prestataires adaptés au contexte." }
+      {
+        question: "Ce cas d'usage est-il adapté à une PME ?",
+        answer:
+          "Oui si le périmètre est clair, les données accessibles et les utilisateurs prêts à tester un premier workflow contrôlé.",
+      },
+      {
+        question: "Faut-il un intégrateur ?",
+        answer:
+          "Un intégrateur est utile lorsque la solution doit se connecter au SI, gérer des droits ou fonctionner dans un environnement sécurisé.",
+      },
+      {
+        question: "Quel est le principal risque ?",
+        answer:
+          "Le risque principal est de lancer un outil sans cadrage métier, sans données fiables ou sans validation humaine.",
+      },
+      {
+        question: "Comment Entreprise.ai peut aider ?",
+        answer:
+          "La plateforme vise à qualifier le besoin puis à proposer une sélection de prestataires adaptés au contexte.",
+      },
     ],
     relatedPages: input.relatedPages ?? [
       { label: "Déposer un projet IA", href: "/deposer-un-projet-ia" },
-      { label: "Comment choisir une agence IA", href: "/guides/comment-choisir-agence-ia" },
-      { label: "Combien coûte un projet IA", href: "/guides/combien-coute-projet-ia" }
-    ]
+      {
+        label: "Comment choisir une agence IA",
+        href: "/guides/comment-choisir-agence-ia",
+      },
+      {
+        label: "Combien coûte un projet IA",
+        href: "/guides/combien-coute-projet-ia",
+      },
+    ],
   };
 }
 
@@ -38,7 +60,9 @@ export const useCases: ContentPage[] = [
   makeUseCasePage({
     slug: "automatisation-ia",
     title: "Automatisation IA",
-    metaTitle: "Automatisation IA pour PME et ETI : usages, budget, prestataires",
+    updatedAt: "2026-09-21",
+    metaTitle:
+      "Automatisation IA pour PME et ETI : usages, budget, prestataires",
     metaDescription:
       "Comprendre les projets d'automatisation IA : cas concrets, budget indicatif, risques, prestataires adaptés et questions à poser.",
     h1: "Automatisation IA pour PME et ETI",
@@ -49,10 +73,11 @@ export const useCases: ContentPage[] = [
     quickFacts: {
       objective: "Gagner du temps sur un processus répétitif.",
       providers: "Agence IA, expert automatisation, intégrateur.",
-      budget: "8 000 à 25 000 € pour un premier workflow sérieux.",
+      budget: "À chiffrer selon les outils, les exceptions et la maintenance.",
       complexity: "Moyenne, plus élevée si plusieurs outils sont connectés.",
-      timeline: "4 à 10 semaines.",
-      vigilance: "Qualité des données, exceptions, droits d'accès, maintenance."
+      timeline: "À définir après un test sur vos données.",
+      vigilance:
+        "Qualité des données, exceptions, droits d'accès, maintenance.",
     },
     examples: [
       "préqualification de demandes entrantes",
@@ -62,21 +87,55 @@ export const useCases: ContentPage[] = [
       "enrichissement de fiches CRM",
       "suivi d'anomalies dans un tableau opérationnel",
       "préparation de réponses support à valider",
-      "alertes sur dossiers bloqués"
+      "alertes sur dossiers bloqués",
     ],
-    budgetRows: [
-      { label: "Workflow simple", budget: "8 000 à 15 000 €", complexity: "Moyenne", notes: "Un ou deux outils connectés." },
-      { label: "Workflow multi-outils", budget: "15 000 à 35 000 €", complexity: "Moyenne à élevée", notes: "CRM, emails, documents, validations." },
-      { label: "Automatisation critique", budget: "35 000 €+", complexity: "Élevée", notes: "Logs, supervision et maintenance renforcés." }
+    sections: [
+      {
+        title: "Commencer par un processus que vous pouvez mesurer",
+        body: "Choisissez une tâche fréquente dont vous connaissez les entrées, les sorties et les exceptions. Relevez le temps réellement consacré au travail avant le projet, puis comparez-le au temps restant après automatisation, contrôle humain inclus.",
+        bullets: [
+          "Exemple de pilote : classer des demandes entrantes puis proposer une affectation, avec validation par un collaborateur.",
+          "Autre exemple : préparer les champs d’une facture pour vérification, sans déclencher de paiement automatique.",
+          "Ces exemples sont des scénarios de cadrage, pas des résultats obtenus chez des clients.",
+        ],
+      },
+      {
+        title: "IA ou automatisation classique ?",
+        body: "Une règle suffit parfois : déplacer un fichier, recopier un champ ou envoyer une alerte sur un seuil connu. L’IA devient une option lorsque les informations sont variables ou non structurées. Demandez au prestataire de justifier chaque étape et de prévoir les cas où le système ne sait pas répondre.",
+      },
+      {
+        title: "Ce qui fait varier le devis",
+        body: "Le coût dépend du nombre d’outils à connecter, de la qualité des données, des droits à gérer, de la fréquence des traitements et du niveau de supervision. Il n’existe pas de tarif unique déductible du seul mot automatisation.",
+        bullets: [
+          "Séparer le cadrage, le prototype et la mise en production.",
+          "Chiffrer les abonnements, consommations, maintenance et temps de contrôle interne sur douze mois.",
+          "Préciser les critères d’acceptation, les reprises manuelles et ce qui reste hors périmètre.",
+        ],
+      },
+      {
+        title: "Un brief prêt à transmettre",
+        body: "Décrivez : la tâche actuelle ; le nombre de dossiers ; les outils utilisés ; un exemple anonymisé ; les erreurs à éviter ; la personne qui valide ; le plafond de budget ; l’échéance. Faites répondre deux ou trois prestataires sur ce même périmètre.",
+      },
     ],
-    risks: ["données mal structurées", "exceptions non prévues", "automatisation de décisions sensibles", "maintenance oubliée"],
-    questions: ["Quels cas doivent rester manuels ?", "Qui valide les sorties ?", "Quels outils doivent être connectés ?", "Comment mesurer le gain de temps ?"],
-    relatedProviders: ["hexa-automatisation", "opsia-france", "automatech-b2b"]
+    risks: [
+      "données mal structurées",
+      "exceptions non prévues",
+      "automatisation de décisions sensibles",
+      "maintenance oubliée",
+    ],
+    questions: [
+      "Quels cas doivent rester manuels ?",
+      "Qui valide les sorties ?",
+      "Quels outils doivent être connectés ?",
+      "Comment mesurer le gain de temps ?",
+    ],
+    relatedProviders: ["epickone", "stamina-solutions", "dl-consulting"],
   }),
   makeUseCasePage({
     slug: "agent-ia-entreprise",
     title: "Agent IA en entreprise",
-    metaTitle: "Agent IA pour entreprise : usages, budget et choix du prestataire",
+    metaTitle:
+      "Agent IA pour entreprise : usages, budget et choix du prestataire",
     metaDescription:
       "Guide B2B sur les agents IA internes : objectifs, complexité, sécurité, budget et types de prestataires à sélectionner.",
     h1: "Agent IA pour entreprise : usages, prestataires et budget",
@@ -90,17 +149,53 @@ export const useCases: ContentPage[] = [
       budget: "20 000 à 80 000 €+ selon intégration.",
       complexity: "Élevée.",
       timeline: "8 à 16 semaines.",
-      vigilance: "Droits, logs, hallucinations, sécurité, escalade humaine."
+      vigilance: "Droits, logs, hallucinations, sécurité, escalade humaine.",
     },
-    examples: ["assistant support interne", "agent de préparation de devis", "assistant RH documentaire", "agent de synthèse CRM", "agent de traitement de tickets", "agent d'analyse de dossiers"],
-    budgetRows: [
-      { label: "Agent prototype", budget: "15 000 à 30 000 €", complexity: "Moyenne", notes: "Périmètre étroit et supervision forte." },
-      { label: "Agent connecté", budget: "30 000 à 80 000 €", complexity: "Élevée", notes: "API, droits, logs et tests." },
-      { label: "Agent critique", budget: "80 000 €+", complexity: "Très élevée", notes: "Gouvernance SI et maintenance." }
+    examples: [
+      "assistant support interne",
+      "agent de préparation de devis",
+      "assistant RH documentaire",
+      "agent de synthèse CRM",
+      "agent de traitement de tickets",
+      "agent d'analyse de dossiers",
     ],
-    risks: ["actions non contrôlées", "droits trop larges", "absence de logs", "confusion entre assistant et décideur"],
-    questions: ["Quelles actions l'agent peut-il faire ?", "Quelles actions sont interdites ?", "Comment auditer son comportement ?", "Quel humain valide ?"],
-    relatedProviders: ["agentique-studio", "integria-solutions", "automatech-b2b"]
+    budgetRows: [
+      {
+        label: "Agent prototype",
+        budget: "15 000 à 30 000 €",
+        complexity: "Moyenne",
+        notes: "Périmètre étroit et supervision forte.",
+      },
+      {
+        label: "Agent connecté",
+        budget: "30 000 à 80 000 €",
+        complexity: "Élevée",
+        notes: "API, droits, logs et tests.",
+      },
+      {
+        label: "Agent critique",
+        budget: "80 000 €+",
+        complexity: "Très élevée",
+        notes: "Gouvernance SI et maintenance.",
+      },
+    ],
+    risks: [
+      "actions non contrôlées",
+      "droits trop larges",
+      "absence de logs",
+      "confusion entre assistant et décideur",
+    ],
+    questions: [
+      "Quelles actions l'agent peut-il faire ?",
+      "Quelles actions sont interdites ?",
+      "Comment auditer son comportement ?",
+      "Quel humain valide ?",
+    ],
+    relatedProviders: [
+      "agentique-studio",
+      "integria-solutions",
+      "automatech-b2b",
+    ],
   }),
   makeUseCasePage({
     slug: "chatbot-ia-entreprise",
@@ -114,22 +209,55 @@ export const useCases: ContentPage[] = [
     summary:
       "Le chatbot doit être conçu comme un canal de support contrôlé, pas comme une réponse automatique illimitée.",
     quickFacts: {
-      objective: "Réduire les demandes simples et améliorer le délai de réponse.",
+      objective:
+        "Réduire les demandes simples et améliorer le délai de réponse.",
       providers: "Agence IA, intégrateur, spécialiste support client.",
       budget: "12 000 à 40 000 €.",
       complexity: "Moyenne à élevée.",
       timeline: "6 à 12 semaines.",
-      vigilance: "Qualité de la base, escalade, RGPD, ton, mesure qualité."
+      vigilance: "Qualité de la base, escalade, RGPD, ton, mesure qualité.",
     },
-    examples: ["FAQ client", "support interne IT", "assistant SAV", "réponse produit", "tri de demandes", "préparation de tickets"],
-    budgetRows: [
-      { label: "FAQ contrôlée", budget: "8 000 à 18 000 €", complexity: "Moyenne", notes: "Base simple et validation humaine." },
-      { label: "Chatbot support connecté", budget: "18 000 à 45 000 €", complexity: "Élevée", notes: "CRM, tickets, historique." },
-      { label: "Support multi-pays", budget: "45 000 €+", complexity: "Élevée", notes: "Langues, conformité, analytics." }
+    examples: [
+      "FAQ client",
+      "support interne IT",
+      "assistant SAV",
+      "réponse produit",
+      "tri de demandes",
+      "préparation de tickets",
     ],
-    risks: ["réponses fausses", "absence d'escalade", "contenu obsolète", "données clients mal protégées"],
-    questions: ["Quelle base de connaissance est utilisée ?", "Quand le chatbot doit-il transférer à un humain ?", "Comment mesurer la qualité ?", "Qui met à jour les réponses ?"],
-    relatedProviders: ["agentique-studio", "opsia-france", "rag-conseil"]
+    budgetRows: [
+      {
+        label: "FAQ contrôlée",
+        budget: "8 000 à 18 000 €",
+        complexity: "Moyenne",
+        notes: "Base simple et validation humaine.",
+      },
+      {
+        label: "Chatbot support connecté",
+        budget: "18 000 à 45 000 €",
+        complexity: "Élevée",
+        notes: "CRM, tickets, historique.",
+      },
+      {
+        label: "Support multi-pays",
+        budget: "45 000 €+",
+        complexity: "Élevée",
+        notes: "Langues, conformité, analytics.",
+      },
+    ],
+    risks: [
+      "réponses fausses",
+      "absence d'escalade",
+      "contenu obsolète",
+      "données clients mal protégées",
+    ],
+    questions: [
+      "Quelle base de connaissance est utilisée ?",
+      "Quand le chatbot doit-il transférer à un humain ?",
+      "Comment mesurer la qualité ?",
+      "Qui met à jour les réponses ?",
+    ],
+    relatedProviders: ["agentique-studio", "opsia-france", "rag-conseil"],
   }),
   makeUseCasePage({
     slug: "rag-base-documentaire",
@@ -148,22 +276,56 @@ export const useCases: ContentPage[] = [
       budget: "18 000 à 70 000 €+.",
       complexity: "Élevée.",
       timeline: "8 à 16 semaines.",
-      vigilance: "Droits, sources, confidentialité, hallucinations, mise à jour."
+      vigilance:
+        "Droits, sources, confidentialité, hallucinations, mise à jour.",
     },
-    examples: ["base juridique interne", "documentation RH", "procédures qualité", "support technique", "contrats clients", "formation interne"],
-    budgetRows: [
-      { label: "RAG documentaire simple", budget: "18 000 à 35 000 €", complexity: "Moyenne à élevée", notes: "Corpus limité et utilisateurs restreints." },
-      { label: "RAG multi-sources", budget: "35 000 à 80 000 €", complexity: "Élevée", notes: "Droits, mises à jour, analytics." },
-      { label: "RAG sensible", budget: "80 000 €+", complexity: "Très élevée", notes: "Sécurité et gouvernance renforcées." }
+    examples: [
+      "base juridique interne",
+      "documentation RH",
+      "procédures qualité",
+      "support technique",
+      "contrats clients",
+      "formation interne",
     ],
-    risks: ["sources non citées", "droits d'accès mal gérés", "documents obsolètes", "réponses trop affirmatives"],
-    questions: ["Quelles sources sont prioritaires ?", "Les réponses affichent-elles leurs sources ?", "Comment gérer les droits ?", "Comment réindexer les documents ?"],
-    relatedProviders: ["rag-conseil", "integria-solutions", "dataops-pme"]
+    budgetRows: [
+      {
+        label: "RAG documentaire simple",
+        budget: "18 000 à 35 000 €",
+        complexity: "Moyenne à élevée",
+        notes: "Corpus limité et utilisateurs restreints.",
+      },
+      {
+        label: "RAG multi-sources",
+        budget: "35 000 à 80 000 €",
+        complexity: "Élevée",
+        notes: "Droits, mises à jour, analytics.",
+      },
+      {
+        label: "RAG sensible",
+        budget: "80 000 €+",
+        complexity: "Très élevée",
+        notes: "Sécurité et gouvernance renforcées.",
+      },
+    ],
+    risks: [
+      "sources non citées",
+      "droits d'accès mal gérés",
+      "documents obsolètes",
+      "réponses trop affirmatives",
+    ],
+    questions: [
+      "Quelles sources sont prioritaires ?",
+      "Les réponses affichent-elles leurs sources ?",
+      "Comment gérer les droits ?",
+      "Comment réindexer les documents ?",
+    ],
+    relatedProviders: ["rag-conseil", "integria-solutions", "dataops-pme"],
   }),
   makeUseCasePage({
     slug: "ia-service-client",
     title: "IA service client",
-    metaTitle: "IA pour service client : chatbot, tri de tickets, support augmenté",
+    metaTitle:
+      "IA pour service client : chatbot, tri de tickets, support augmenté",
     metaDescription:
       "Cas d'usage IA pour service client : tri, réponses assistées, FAQ, base documentaire, budget et risques.",
     h1: "IA pour service client : usages, prestataires et budget",
@@ -177,22 +339,55 @@ export const useCases: ContentPage[] = [
       budget: "12 000 à 50 000 €.",
       complexity: "Moyenne à élevée.",
       timeline: "6 à 12 semaines.",
-      vigilance: "Qualité des réponses, escalade, données clients."
+      vigilance: "Qualité des réponses, escalade, données clients.",
     },
-    examples: ["tri de tickets", "réponses assistées", "synthèse d'historique client", "détection d'urgence", "FAQ dynamique", "base interne support"],
-    budgetRows: [
-      { label: "Réponses assistées", budget: "10 000 à 25 000 €", complexity: "Moyenne", notes: "Validation humaine recommandée." },
-      { label: "Support connecté", budget: "25 000 à 60 000 €", complexity: "Élevée", notes: "Connexion ticketing et CRM." },
-      { label: "Support multi-canal", budget: "60 000 €+", complexity: "Élevée", notes: "Téléphone, email, chat, analytics." }
+    examples: [
+      "tri de tickets",
+      "réponses assistées",
+      "synthèse d'historique client",
+      "détection d'urgence",
+      "FAQ dynamique",
+      "base interne support",
     ],
-    risks: ["réponse erronée au client", "ton incohérent", "absence de mise à jour", "données personnelles exposées"],
-    questions: ["Quels cas restent humains ?", "Quelle base fait autorité ?", "Comment suivre la satisfaction ?", "Comment corriger une mauvaise réponse ?"],
-    relatedProviders: ["opsia-france", "agentique-studio", "rag-conseil"]
+    budgetRows: [
+      {
+        label: "Réponses assistées",
+        budget: "10 000 à 25 000 €",
+        complexity: "Moyenne",
+        notes: "Validation humaine recommandée.",
+      },
+      {
+        label: "Support connecté",
+        budget: "25 000 à 60 000 €",
+        complexity: "Élevée",
+        notes: "Connexion ticketing et CRM.",
+      },
+      {
+        label: "Support multi-canal",
+        budget: "60 000 €+",
+        complexity: "Élevée",
+        notes: "Téléphone, email, chat, analytics.",
+      },
+    ],
+    risks: [
+      "réponse erronée au client",
+      "ton incohérent",
+      "absence de mise à jour",
+      "données personnelles exposées",
+    ],
+    questions: [
+      "Quels cas restent humains ?",
+      "Quelle base fait autorité ?",
+      "Comment suivre la satisfaction ?",
+      "Comment corriger une mauvaise réponse ?",
+    ],
+    relatedProviders: ["opsia-france", "agentique-studio", "rag-conseil"],
   }),
   makeUseCasePage({
     slug: "ia-prospection-commerciale",
     title: "IA prospection commerciale",
-    metaTitle: "IA pour prospection commerciale B2B : qualification et workflows",
+    metaTitle:
+      "IA pour prospection commerciale B2B : qualification et workflows",
     metaDescription:
       "Utiliser l'IA pour la prospection B2B : qualification, enrichissement CRM, messages, scoring, risques et budget.",
     h1: "IA pour prospection commerciale B2B",
@@ -206,17 +401,49 @@ export const useCases: ContentPage[] = [
       budget: "8 000 à 30 000 €.",
       complexity: "Moyenne.",
       timeline: "4 à 10 semaines.",
-      vigilance: "Données personnelles, délivrabilité, qualité des signaux."
+      vigilance: "Données personnelles, délivrabilité, qualité des signaux.",
     },
-    examples: ["scoring de comptes", "enrichissement CRM", "préparation de messages", "priorisation de relances", "synthèse de comptes", "veille prospects"],
-    budgetRows: [
-      { label: "Workflow de qualification", budget: "8 000 à 18 000 €", complexity: "Moyenne", notes: "Sources et règles claires." },
-      { label: "Intégration CRM", budget: "18 000 à 40 000 €", complexity: "Moyenne à élevée", notes: "Droits, champs, synchronisation." },
-      { label: "Sales ops augmenté", budget: "40 000 €+", complexity: "Élevée", notes: "Multi-sources et pilotage." }
+    examples: [
+      "scoring de comptes",
+      "enrichissement CRM",
+      "préparation de messages",
+      "priorisation de relances",
+      "synthèse de comptes",
+      "veille prospects",
     ],
-    risks: ["messages trop génériques", "données non conformes", "automatisation excessive", "CRM pollué"],
-    questions: ["Quelles sources sont autorisées ?", "Qui valide les messages ?", "Quels champs CRM seront mis à jour ?", "Comment éviter le spam ?"],
-    relatedProviders: ["hexa-automatisation", "automatech-b2b", "dataops-pme"]
+    budgetRows: [
+      {
+        label: "Workflow de qualification",
+        budget: "8 000 à 18 000 €",
+        complexity: "Moyenne",
+        notes: "Sources et règles claires.",
+      },
+      {
+        label: "Intégration CRM",
+        budget: "18 000 à 40 000 €",
+        complexity: "Moyenne à élevée",
+        notes: "Droits, champs, synchronisation.",
+      },
+      {
+        label: "Sales ops augmenté",
+        budget: "40 000 €+",
+        complexity: "Élevée",
+        notes: "Multi-sources et pilotage.",
+      },
+    ],
+    risks: [
+      "messages trop génériques",
+      "données non conformes",
+      "automatisation excessive",
+      "CRM pollué",
+    ],
+    questions: [
+      "Quelles sources sont autorisées ?",
+      "Qui valide les messages ?",
+      "Quels champs CRM seront mis à jour ?",
+      "Comment éviter le spam ?",
+    ],
+    relatedProviders: ["hexa-automatisation", "automatech-b2b", "dataops-pme"],
   }),
   makeUseCasePage({
     slug: "ia-reporting",
@@ -230,27 +457,61 @@ export const useCases: ContentPage[] = [
     summary:
       "Le reporting IA devient utile quand les données sources sont fiables et que les indicateurs restent traçables.",
     quickFacts: {
-      objective: "Accélérer la lecture des données et la préparation des synthèses.",
+      objective:
+        "Accélérer la lecture des données et la préparation des synthèses.",
       providers: "Cabinet data, intégrateur, consultant IA.",
       budget: "10 000 à 45 000 €.",
       complexity: "Moyenne à élevée.",
       timeline: "6 à 12 semaines.",
-      vigilance: "Qualité des données, traçabilité, interprétation."
+      vigilance: "Qualité des données, traçabilité, interprétation.",
     },
-    examples: ["commentaire automatique de KPI", "alertes anomalies", "synthèse hebdomadaire", "analyse de ventes", "reporting financier", "priorisation opérationnelle"],
-    budgetRows: [
-      { label: "Synthèse reporting", budget: "10 000 à 20 000 €", complexity: "Moyenne", notes: "Données déjà propres." },
-      { label: "Data pipeline + IA", budget: "20 000 à 60 000 €", complexity: "Élevée", notes: "Préparation et gouvernance des données." },
-      { label: "Pilotage multi-entités", budget: "60 000 €+", complexity: "Élevée", notes: "Droits, qualité, supervision." }
+    examples: [
+      "commentaire automatique de KPI",
+      "alertes anomalies",
+      "synthèse hebdomadaire",
+      "analyse de ventes",
+      "reporting financier",
+      "priorisation opérationnelle",
     ],
-    risks: ["données incohérentes", "interprétation non vérifiée", "KPI mal définis", "conclusions non sourcées"],
-    questions: ["Quelle source fait autorité ?", "Quels KPI sont prioritaires ?", "Les calculs restent-ils auditables ?", "Qui valide les commentaires ?"],
-    relatedProviders: ["dataops-pme", "automatech-b2b", "integria-solutions"]
+    budgetRows: [
+      {
+        label: "Synthèse reporting",
+        budget: "10 000 à 20 000 €",
+        complexity: "Moyenne",
+        notes: "Données déjà propres.",
+      },
+      {
+        label: "Data pipeline + IA",
+        budget: "20 000 à 60 000 €",
+        complexity: "Élevée",
+        notes: "Préparation et gouvernance des données.",
+      },
+      {
+        label: "Pilotage multi-entités",
+        budget: "60 000 €+",
+        complexity: "Élevée",
+        notes: "Droits, qualité, supervision.",
+      },
+    ],
+    risks: [
+      "données incohérentes",
+      "interprétation non vérifiée",
+      "KPI mal définis",
+      "conclusions non sourcées",
+    ],
+    questions: [
+      "Quelle source fait autorité ?",
+      "Quels KPI sont prioritaires ?",
+      "Les calculs restent-ils auditables ?",
+      "Qui valide les commentaires ?",
+    ],
+    relatedProviders: ["dataops-pme", "automatech-b2b", "integria-solutions"],
   }),
   makeUseCasePage({
     slug: "formation-ia-entreprise",
     title: "Formation IA entreprise",
-    metaTitle: "Formation IA pour entreprise : directions, managers, équipes métier",
+    metaTitle:
+      "Formation IA pour entreprise : directions, managers, équipes métier",
     metaDescription:
       "Former une PME ou ETI à l'IA : formats, budgets, risques, prestataires et contenu utile pour directions et équipes métier.",
     h1: "Formation IA pour entreprise",
@@ -264,22 +525,59 @@ export const useCases: ContentPage[] = [
       budget: "3 000 à 15 000 €.",
       complexity: "Faible à moyenne.",
       timeline: "1 à 4 semaines.",
-      vigilance: "Exemples métier, règles internes, sécurité."
+      vigilance: "Exemples métier, règles internes, sécurité.",
     },
-    examples: ["formation CODIR", "atelier managers", "cas d'usage métier", "charte IA", "formation RH", "formation commerciale"],
-    budgetRows: [
-      { label: "Session direction", budget: "3 000 à 7 000 €", complexity: "Faible", notes: "Acculturation et cadrage." },
-      { label: "Parcours métier", budget: "7 000 à 15 000 €", complexity: "Moyenne", notes: "Ateliers par équipe." },
-      { label: "Programme interne", budget: "15 000 €+", complexity: "Moyenne", notes: "Supports, règles, ambassadeurs." }
+    examples: [
+      "formation CODIR",
+      "atelier managers",
+      "cas d'usage métier",
+      "charte IA",
+      "formation RH",
+      "formation commerciale",
     ],
-    risks: ["formation trop générique", "outils sans règles", "pas de suite opérationnelle", "promesses irréalistes"],
-    questions: ["Quels métiers sont concernés ?", "Quels outils sont autorisés ?", "Quels cas d'usage seront produits ?", "Comment mesurer l'adoption ?"],
-    relatedProviders: ["formation-ia-direction", "cabinet-synapse-ia", "atelier-ia-conseil"]
+    budgetRows: [
+      {
+        label: "Session direction",
+        budget: "3 000 à 7 000 €",
+        complexity: "Faible",
+        notes: "Acculturation et cadrage.",
+      },
+      {
+        label: "Parcours métier",
+        budget: "7 000 à 15 000 €",
+        complexity: "Moyenne",
+        notes: "Ateliers par équipe.",
+      },
+      {
+        label: "Programme interne",
+        budget: "15 000 €+",
+        complexity: "Moyenne",
+        notes: "Supports, règles, ambassadeurs.",
+      },
+    ],
+    risks: [
+      "formation trop générique",
+      "outils sans règles",
+      "pas de suite opérationnelle",
+      "promesses irréalistes",
+    ],
+    questions: [
+      "Quels métiers sont concernés ?",
+      "Quels outils sont autorisés ?",
+      "Quels cas d'usage seront produits ?",
+      "Comment mesurer l'adoption ?",
+    ],
+    relatedProviders: [
+      "formation-ia-direction",
+      "cabinet-synapse-ia",
+      "atelier-ia-conseil",
+    ],
   }),
   makeUseCasePage({
     slug: "ia-traitement-documentaire",
     title: "IA traitement documentaire",
-    metaTitle: "IA pour traitement documentaire : extraction, synthèse, contrôle",
+    metaTitle:
+      "IA pour traitement documentaire : extraction, synthèse, contrôle",
     metaDescription:
       "Automatiser le traitement documentaire avec l'IA : extraction, classification, synthèse, risques RGPD et prestataires adaptés.",
     h1: "IA pour traitement documentaire",
@@ -288,22 +586,55 @@ export const useCases: ContentPage[] = [
     summary:
       "Le traitement documentaire est un cas d'usage fort si les formats sont connus, les exceptions identifiées et les résultats vérifiés.",
     quickFacts: {
-      objective: "Réduire le temps de traitement et fiabiliser le tri documentaire.",
+      objective:
+        "Réduire le temps de traitement et fiabiliser le tri documentaire.",
       providers: "Intégrateur IA, cabinet data, agence automatisation.",
       budget: "12 000 à 50 000 €.",
       complexity: "Moyenne à élevée.",
       timeline: "6 à 12 semaines.",
-      vigilance: "Confidentialité, formats, taux d'erreur, validation."
+      vigilance: "Confidentialité, formats, taux d'erreur, validation.",
     },
-    examples: ["tri de factures", "synthèse de contrats", "extraction de champs", "contrôle de pièces", "classement de dossiers", "résumé de rapports"],
-    budgetRows: [
-      { label: "Extraction simple", budget: "10 000 à 22 000 €", complexity: "Moyenne", notes: "Formats réguliers." },
-      { label: "Workflow documentaire", budget: "22 000 à 55 000 €", complexity: "Élevée", notes: "Validation et intégration." },
-      { label: "Documents sensibles", budget: "55 000 €+", complexity: "Élevée", notes: "Sécurité et conformité." }
+    examples: [
+      "tri de factures",
+      "synthèse de contrats",
+      "extraction de champs",
+      "contrôle de pièces",
+      "classement de dossiers",
+      "résumé de rapports",
     ],
-    risks: ["erreurs d'extraction", "documents illisibles", "données sensibles", "absence d'échantillon de test"],
-    questions: ["Quels formats sont fréquents ?", "Quel taux d'erreur est acceptable ?", "Qui valide les extractions ?", "Où sont stockés les documents ?"],
-    relatedProviders: ["opsia-france", "rag-conseil", "dataops-pme"]
+    budgetRows: [
+      {
+        label: "Extraction simple",
+        budget: "10 000 à 22 000 €",
+        complexity: "Moyenne",
+        notes: "Formats réguliers.",
+      },
+      {
+        label: "Workflow documentaire",
+        budget: "22 000 à 55 000 €",
+        complexity: "Élevée",
+        notes: "Validation et intégration.",
+      },
+      {
+        label: "Documents sensibles",
+        budget: "55 000 €+",
+        complexity: "Élevée",
+        notes: "Sécurité et conformité.",
+      },
+    ],
+    risks: [
+      "erreurs d'extraction",
+      "documents illisibles",
+      "données sensibles",
+      "absence d'échantillon de test",
+    ],
+    questions: [
+      "Quels formats sont fréquents ?",
+      "Quel taux d'erreur est acceptable ?",
+      "Qui valide les extractions ?",
+      "Où sont stockés les documents ?",
+    ],
+    relatedProviders: ["opsia-france", "rag-conseil", "dataops-pme"],
   }),
   makeUseCasePage({
     slug: "integration-ia-outils-metier",
@@ -317,23 +648,61 @@ export const useCases: ContentPage[] = [
     summary:
       "Une intégration IA doit être traitée comme un projet SI : droits, logs, tests, environnements, maintenance et plan de retour arrière.",
     quickFacts: {
-      objective: "Connecter l'IA à un processus et aux données de l'entreprise.",
+      objective:
+        "Connecter l'IA à un processus et aux données de l'entreprise.",
       providers: "Intégrateur IA, agence technique, cabinet data.",
       budget: "20 000 à 100 000 €+.",
       complexity: "Élevée.",
       timeline: "8 à 20 semaines.",
-      vigilance: "API, sécurité, droits, monitoring, maintenance."
+      vigilance: "API, sécurité, droits, monitoring, maintenance.",
     },
-    examples: ["assistant CRM", "lecture ERP", "création de tickets", "mise à jour de dossiers", "recherche documentaire", "workflow de validation"],
-    budgetRows: [
-      { label: "Connexion simple", budget: "15 000 à 35 000 €", complexity: "Moyenne à élevée", notes: "Un outil principal." },
-      { label: "Process multi-outils", budget: "35 000 à 90 000 €", complexity: "Élevée", notes: "API, droits, tests." },
-      { label: "Déploiement ETI", budget: "90 000 €+", complexity: "Très élevée", notes: "Gouvernance SI complète." }
+    examples: [
+      "assistant CRM",
+      "lecture ERP",
+      "création de tickets",
+      "mise à jour de dossiers",
+      "recherche documentaire",
+      "workflow de validation",
     ],
-    risks: ["droits trop larges", "API instable", "pas de logs", "absence de maintenance", "dépendance à un outil"],
-    questions: ["Quels outils sont prioritaires ?", "Existe-t-il des API ?", "Comment gérer les droits ?", "Quel plan de retour arrière ?"],
-    relatedProviders: ["integria-solutions", "automatech-b2b", "agentique-studio"]
-  })
+    budgetRows: [
+      {
+        label: "Connexion simple",
+        budget: "15 000 à 35 000 €",
+        complexity: "Moyenne à élevée",
+        notes: "Un outil principal.",
+      },
+      {
+        label: "Process multi-outils",
+        budget: "35 000 à 90 000 €",
+        complexity: "Élevée",
+        notes: "API, droits, tests.",
+      },
+      {
+        label: "Déploiement ETI",
+        budget: "90 000 €+",
+        complexity: "Très élevée",
+        notes: "Gouvernance SI complète.",
+      },
+    ],
+    risks: [
+      "droits trop larges",
+      "API instable",
+      "pas de logs",
+      "absence de maintenance",
+      "dépendance à un outil",
+    ],
+    questions: [
+      "Quels outils sont prioritaires ?",
+      "Existe-t-il des API ?",
+      "Comment gérer les droits ?",
+      "Quel plan de retour arrière ?",
+    ],
+    relatedProviders: [
+      "integria-solutions",
+      "automatech-b2b",
+      "agentique-studio",
+    ],
+  }),
 ];
 
 export function getUseCaseBySlug(slug: string) {

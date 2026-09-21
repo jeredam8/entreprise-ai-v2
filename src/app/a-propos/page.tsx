@@ -1,42 +1,52 @@
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ProjectCTA } from "@/components/ProjectCTA";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-
 export const metadata = buildMetadata({
-  title: "À propos - Entreprise.ai",
-  description: "Positionnement d'Entreprise.ai : qualification de projets IA et shortlist de prestataires adaptés pour PME et ETI.",
-  path: "/a-propos"
+  title: "À propos : qui anime Entreprise.ai ?",
+  description:
+    "Entreprise.ai, un annuaire de prestataires IA animé par Jérémy Tripoli, pour aider les entreprises à choisir.",
+  path: "/a-propos",
 });
-
-export default function AboutPage() {
+export default function Page() {
   return (
-    <>
-      <div className="page-shell">
-        <Breadcrumbs items={[{ label: "À propos", href: "/a-propos" }]} />
-        <div className="mt-8 max-w-4xl">
-          <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">À propos d'Entreprise.ai</h1>
-          <p className="mt-5 text-lg leading-8 text-muted">
-            Entreprise.ai est conçu comme un point d'entrée de qualification pour les projets IA des PME et ETI : les entreprises décrivent leur besoin, Entreprise.ai qualifie le projet et prépare une shortlist manuelle de prestataires adaptés.
-          </p>
-        </div>
-      </div>
-      <section className="section">
-        <div className="grid gap-5 md:grid-cols-3">
-          <Card title="Ce que le site doit être" text="Un point d'entrée français pour transformer une intention IA floue en décision d'achat claire." />
-          <Card title="Ce que le site n'est pas" text="Ni une plateforme freelance self-service, ni une agence IA qui livre elle-même les missions, ni un comparateur d'outils." />
-          <Card title="Principe de sélection" text="Comprendre le besoin, qualifier le contexte et orienter vers une shortlist adaptée plutôt que multiplier les contacts inutiles." />
-        </div>
-      </section>
-      <ProjectCTA />
-    </>
-  );
-}
-
-function Card({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-md border border-line bg-white p-6">
-      <h2 className="text-xl font-semibold text-ink">{title}</h2>
-      <p className="mt-3 text-sm leading-6 text-muted">{text}</p>
+    <div className="page-shell content-prose max-w-4xl">
+      <h1 className="text-4xl font-semibold text-ink">
+        Un interlocuteur pour avancer dans votre projet IA
+      </h1>
+      <p>
+        Entreprise.ai est animé par Jérémy Tripoli et édité par TAC Digital
+        EURL. Son objectif : permettre aux entreprises de comprendre les offres
+        de prestations IA et de trouver les bons interlocuteurs.
+      </p>
+      <h2>Un annuaire et une aide au choix</h2>
+      <p>
+        Vous pouvez consulter librement les fiches et contacter les
+        professionnels via leur site. Si votre besoin demande à être précisé,
+        décrivez-le : Jérémy examine votre demande et vous recontacte pour
+        orienter la recherche. Le choix du prestataire et la contractualisation
+        vous appartiennent.
+      </p>
+      <h2>Des informations dont la portée est claire</h2>
+      <p>
+        Les fiches présentent les offres annoncées par les prestataires et leurs
+        sources. Le badge d’identité vérifiée porte sur l’identité légale
+        publique, pas sur la qualité des missions. Les fiches déclaratives sont
+        signalées. Aucun classement n’est vendu.
+      </p>
+      <h2>Un référencement gratuit</h2>
+      <p>
+        Les agences, indépendants, intégrateurs et formateurs peuvent demander
+        l’ajout ou la correction de leur fiche. Les demandes sont relues avant
+        publication.
+      </p>
+      <p>
+        <Link href="/methodologie" className="text-forest underline">
+          Lire notre méthode
+        </Link>{" "}
+        ·{" "}
+        <Link href="/contact" className="text-forest underline">
+          Contacter Jérémy
+        </Link>
+      </p>
     </div>
   );
 }

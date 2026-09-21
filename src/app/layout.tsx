@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Analytics } from "@vercel/analytics/next";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,34 +12,39 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: "Entreprise.ai - Prestataires IA pour PME et ETI",
-    template: "%s | Entreprise.ai"
+    template: "%s | Entreprise.ai",
   },
   description:
     "Plateforme française pour aider les PME et ETI à sélectionner un prestataire IA adapté à leur projet.",
   openGraph: {
     siteName: "Entreprise.ai",
     locale: "fr_FR",
-    type: "website"
+    type: "website",
   },
   // Propriété Search Console « https://entreprise.ai » (compte jertpl8@gmail.com),
   // créée le 26/07/2026. Ne pas retirer : la validation serait perdue.
   verification: {
-    google: "5f4stuYEE85Ebzm5f_f796MkYVjWCsht7r227dtUleE"
-  }
+    google: "5f4stuYEE85Ebzm5f_f796MkYVjWCsht7r227dtUleE",
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="fr">
       <body>
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
+        <a href="#contenu" className="skip-link">
+          Aller au contenu
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="contenu">{children}</main>
         <Footer />
         {/* Vercel Web Analytics : mesure sans cookie ni identifiant persistant,
             donc aucun bandeau de consentement requis (contrairement à GA4). */}
-        <Analytics />
+        <SiteAnalytics />
       </body>
     </html>
   );

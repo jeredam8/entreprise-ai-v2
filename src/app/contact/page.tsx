@@ -1,24 +1,51 @@
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import Link from "next/link";
+import { ContactForm } from "@/components/ProjectForm";
 import { buildMetadata } from "@/lib/seo";
-
 export const metadata = buildMetadata({
-  title: "Contact - Entreprise.ai",
-  description: "Contacter Entreprise.ai pour déposer un projet IA ou proposer un profil de prestataire IA.",
-  path: "/contact"
+  title: "Contactez Entreprise.ai",
+  description:
+    "Un projet, une demande de référencement ou une question ? Choisissez le bon contact.",
+  path: "/contact",
 });
-
-export default function ContactPage() {
+export default function Page() {
   return (
     <div className="page-shell">
-      <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
-      <div className="mt-8 max-w-3xl">
-        <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">Contact</h1>
-        <p className="mt-5 text-lg leading-8 text-muted">
-          Pour qualifier un projet IA, le plus efficace est de passer par le formulaire de dépôt de projet. Pour une demande générale, utilisez l'adresse ci-dessous.
-        </p>
-        <div className="mt-8 rounded-md border border-line bg-soft p-6 text-sm leading-6 text-muted">
-          Contact : jeremy@entreprise.ai
+      <h1 className="text-4xl font-semibold">
+        Comment pouvons-nous vous aider ?
+      </h1>
+      <div className="my-8 grid gap-5 md:grid-cols-2">
+        <Link
+          href="/deposer-un-projet-ia"
+          className="rounded-md border border-line p-6"
+        >
+          <h2 className="text-xl font-semibold text-forest">
+            Je suis une entreprise
+          </h2>
+          <p className="mt-3 text-muted">
+            Décrire un projet et être aidé dans le choix d’un prestataire →
+          </p>
+        </Link>
+        <Link
+          href="/referencer-un-prestataire-ia"
+          className="rounded-md border border-line p-6"
+        >
+          <h2 className="text-xl font-semibold text-forest">
+            Je suis prestataire
+          </h2>
+          <p className="mt-3 text-muted">
+            Créer ou mettre à jour ma fiche gratuite →
+          </p>
+        </Link>
+      </div>
+      <div className="grid items-start gap-8 lg:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-semibold">Une autre question ?</h2>
+          <p className="mt-4 leading-7 text-muted">
+            Jérémy Tripoli lit vos demandes. Ce formulaire permet d’envoyer une
+            question générale, un signalement ou une proposition de partenariat.
+          </p>
         </div>
+        <ContactForm />
       </div>
     </div>
   );

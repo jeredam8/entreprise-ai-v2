@@ -28,3 +28,11 @@ Depuis ce dossier seulement, après les contrôles : `vercel --prod --yes` avec 
 Variables serveur Vercel existantes : `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`. Elles restent chez Vercel et ne sont pas exportées dans le dépôt. Les formulaires passent par `/api/formulaire`, puis `demandes_site` et la notification serveur existante ; Formspree reste un secours côté client. Ne pas envoyer de formulaire réel pendant les tests sans demande autorisant son effet.
 
 La vérification Search Console présente dans layout.tsx et Vercel Analytics sont conservés. Rendu premium prévu au premier paiement, toujours non construit lors de la migration.
+
+## Parcours et réception — 21 septembre 2026
+
+Trois formulaires : projet, référencement/correction, contact. `/api/formulaire` conserve la demande Supabase avant toute notification Resend, avec identifiant unique. Aucun secours Formspree ni publication automatique. Variables serveur : `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `RESEND_API_KEY`, `RESEND_FROM`, `FORM_NOTIFICATION_TO`. Ne jamais exposer ces accès via NEXT_PUBLIC. L'adresse interne de notification est distincte de la future adresse de réponse de la marque.
+
+`/api/evenement` incrémente des compteurs journaliers dans la base existante : événements et catégories autorisés uniquement, pas de texte de visiteur ni d'identifiant persistant. Le forfait Vercel Hobby existant sert aux pages vues ; aucun abonnement supplémentaire créé. Requêtes d'exploitation : `scripts/conversion-report.sql`. Une action n'est pas un visiteur unique ; une demande reçue n'est pas encore qualifiée.
+
+Tests : `node --experimental-strip-types --test scripts/test-directory.mjs scripts/test-formulaire.mjs`, `npm run lint`, contrôle annuaire depuis le dossier parent (inclut build/SEO/MVP), puis contrôle navigateur desktop/mobile. Les tests des formulaires utilisent des services simulés. Pour une validation réelle autorisée, taguer la soumission `source=verification-technique`, vérifier la base, Resend et la boîte, puis marquer le test traité sans l'effacer.
