@@ -225,7 +225,12 @@ export function ProviderDirectory({
         </div>
       )}
       {compare.length > 0 && (
-        <div className="mb-6 rounded-md border border-forest/30 bg-soft p-4">
+        <a href="#comparaison" className="btn-primary fixed bottom-4 right-4 z-30 shadow-lg" aria-label={`Voir la comparaison de ${compare.length} prestataire${compare.length > 1 ? "s" : ""}`}>
+          Voir la comparaison ({compare.length}/3)
+        </a>
+      )}
+      {compare.length > 0 && (
+        <div id="comparaison" className="mb-6 scroll-mt-24 rounded-md border border-forest/30 bg-soft p-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-semibold">
               Votre comparaison ({compare.length}/3)
