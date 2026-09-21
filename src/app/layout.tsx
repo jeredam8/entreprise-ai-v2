@@ -42,8 +42,7 @@ export default function RootLayout({
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
-        {/* Vercel Web Analytics : mesure sans cookie ni identifiant persistant,
-            donc aucun bandeau de consentement requis (contrairement à GA4). */}
+        {/* Vercel mesure les pages vues ; SiteAnalytics retire les paramètres des URL. */}
         <SiteAnalytics />
       </body>
     </html>

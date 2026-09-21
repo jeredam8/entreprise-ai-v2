@@ -29,7 +29,7 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
         <div className="mt-8 max-w-4xl">
           <h1 className="text-4xl font-semibold tracking-normal text-ink md:text-5xl">{page.h1}</h1>
           <p className="mt-5 text-lg leading-8 text-muted">{page.intro}</p>
-          {page.updatedAt ? <p className="mt-3 text-sm text-muted">Par Entreprise.ai · Mis à jour le <time dateTime={page.updatedAt}>9 septembre 2026</time></p> : null}
+          {page.updatedAt ? <p className="mt-3 text-sm text-muted">Par Entreprise.ai · Mis à jour le <time dateTime={page.updatedAt}>{new Date(page.updatedAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></p> : null}
           <div className="mt-6 rounded-md border border-line bg-soft p-5 text-base leading-7 text-ink">
             {page.summary}
           </div>
