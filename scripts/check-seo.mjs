@@ -18,6 +18,26 @@ const erreurs = [];
 const avertissements = [];
 const titres = new Map();
 const decode = (s) => s.replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&nbsp;/g, " ");
+const origin = "https://entreprise.ai";
+const publicPaths = new Set(pages.map((p) => {
+  const path = "/" + relative(racine, p).replace(/\.html$/, "");
+  return path === "/index" ? "/" : path;
+}));
+function checkStructuredLinks(value, nom) {
+  if (!value || typeof value !== "object") return;
+  if (value["@type"] === "ListItem") {
+    const target = value.url ?? value.item;
+    try {
+      const url = new URL(target);
+      if (url.origin !== origin || !publicPaths.has(url.pathname)) {
+        erreurs.push(`${nom} : lien de liste/fil d'Ariane hors des pages publiques « ${target} »`);
+      }
+    } catch {
+      erreurs.push(`${nom} : URL de liste/fil d'Ariane invalide « ${target} »`);
+    }
+  }
+  for (const child of Object.values(value)) checkStructuredLinks(child, nom);
+}
 for (const p of pages) {
   const html = readFileSync(p, "utf8");
   const nom = relative(racine, p);
@@ -30,9 +50,15 @@ for (const p of pages) {
   if (h1 !== 1) erreurs.push(`${nom} : ${h1} balise(s) h1`);
   for (const mot of [/\bMVP\b/, /lorem ipsum/i, /\bTODO\b/]) if (mot.test(titre + " " + desc)) erreurs.push(`${nom} : mot de chantier dans le titre ou la description`);
   if (titres.has(titre)) erreurs.push(`${nom} : titre identique à ${titres.get(titre)}`); else titres.set(titre, nom);
+  let breadcrumbs = 0;
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    try { JSON.parse(m[1]); } catch { erreurs.push(`${nom} : JSON-LD invalide`); }
+    try {
+      const data = JSON.parse(m[1]);
+      checkStructuredLinks(data, nom);
+      if (data["@type"] === "BreadcrumbList") breadcrumbs++;
+    } catch { erreurs.push(`${nom} : JSON-LD invalide`); }
   }
+  if (breadcrumbs > 1) erreurs.push(`${nom} : plusieurs fils d'Ariane JSON-LD (${breadcrumbs})`);
 }
 if (!pages.length) { console.error("check-seo : aucune page HTML trouvée sous .next/server/app"); process.exit(1); }
 if (erreurs.length) {
@@ -41,4 +67,4 @@ if (erreurs.length) {
   process.exit(1);
 }
 if (avertissements.length) console.log(`check-seo : ${avertissements.length} titre(s) au-delà de 70 caractères (tolérés, suffixe compris)`);
-console.log(`check-seo OK : ${pages.length} pages, titres uniques, descriptions et h1 conformes, JSON-LD valides.`);
+console.log(`check-seo OK : ${pages.length} pages, titres uniques, descriptions et h1 conformes, JSON-LD valides, liens structurés vers des pages publiques et fils d'Ariane sans doublon.`);

@@ -41,5 +41,5 @@ export function getAllRoutes() {
 }
 
 export function absoluteUrl(pathname: string) {
-  return `${baseUrl}${pathname}`;
+  return new URL(pathname, baseUrl).href;
 }

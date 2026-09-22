@@ -12,7 +12,6 @@ import { providers } from "@/data/providers";
 import type { FaqItem, Provider } from "@/data/types";
 import { absoluteUrl } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -131,13 +130,6 @@ export default async function ProviderPage({ params }: PageProps) {
           mainEntityOfPage: absoluteUrl(`/prestataires-ia/${provider.slug}`),
         }}
       />
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { label: "Prestataires IA", href: "/prestataires-ia" },
-          { label: provider.name, href: `/prestataires-ia/${provider.slug}` },
-        ])}
-      />
-
       <div className="page-shell">
         <Breadcrumbs
           items={[
