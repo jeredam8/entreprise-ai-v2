@@ -68,6 +68,8 @@ export type ContentSection = {
   title: string;
   body: string;
   bullets?: string[];
+  links?: RelatedPage[];
+  table?: { caption: string; columns: string[]; rows: string[][] };
 };
 
 export type BudgetRow = {
@@ -78,6 +80,7 @@ export type BudgetRow = {
 };
 
 export type ContentPage = {
+  projectCta?: { title: string; description: string };
   updatedAt?: string;
   slug: string;
   title: string;

@@ -1,3 +1,5 @@
+import { BuyerNeeds } from "@/components/BuyerNeeds";
+import { buyerNeeds } from "@/data/buyerNeeds";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { HubGrid } from "@/components/HubGrid";
 import { ProjectCTA } from "@/components/ProjectCTA";
@@ -22,8 +24,10 @@ export default function GuidesHubPage() {
           </p>
         </div>
       </div>
+      <BuyerNeeds />
       <section className="section">
-        <HubGrid items={guides.map((guide) => ({ title: guide.title, href: `/guides/${guide.slug}`, description: guide.summary }))} />
+        <div className="section-heading"><h2>Approfondir le cadrage</h2></div>
+        <HubGrid items={guides.filter((guide) => !buyerNeeds.some((need) => need.href === `/guides/${guide.slug}`)).map((guide) => ({ title: guide.title, href: `/guides/${guide.slug}`, description: guide.summary }))} />
       </section>
       <ProjectCTA />
     </>

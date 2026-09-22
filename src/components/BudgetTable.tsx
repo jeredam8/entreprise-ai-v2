@@ -4,7 +4,7 @@ export function BudgetTable({ rows, illustrative = false }: { rows: BudgetRow[];
   if (!rows || rows.length === 0) return null;
 
   return (
-    <div className="overflow-hidden rounded-md border border-line bg-white">
+    <div className="overflow-x-auto rounded-md border border-line bg-white" tabIndex={0} role="region" aria-label="Tableau du budget">
       <table className="w-full min-w-[720px] text-left text-sm">
         <thead className="bg-soft text-ink">
           <tr>

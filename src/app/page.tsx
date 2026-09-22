@@ -1,16 +1,10 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Workflow,
-  MessagesSquare,
-  GraduationCap,
-  Compass,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ProviderCard } from "@/components/ProviderCard";
 import { ProjectCTA } from "@/components/ProjectCTA";
 import { FAQ } from "@/components/FAQ";
 import { providers } from "@/data/providers";
-import { guides } from "@/data/guides";
+import { BuyerNeeds } from "@/components/BuyerNeeds";
 import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Trouvez votre prestataire IA : agences, consultants et formateurs",
@@ -69,56 +63,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-      <section className="section border-t border-line">
-        <div className="section-heading">
-          <h2>Quel est votre besoin ?</h2>
-        </div>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          {[
-            [
-              "Automatisation",
-              "Réduire les tâches répétitives.",
-              "Automatisation",
-              Workflow,
-            ],
-            [
-              "Assistants IA",
-              "Aider vos équipes et vos clients.",
-              "Agents IA",
-              MessagesSquare,
-            ],
-            [
-              "Formation",
-              "Faire progresser vos équipes.",
-              "Formation IA",
-              GraduationCap,
-            ],
-            [
-              "Cadrage",
-              "Choisir par où commencer.",
-              "Audit et stratégie IA",
-              Compass,
-            ],
-          ].map(([title, text, specialty, Icon]) => {
-            const I = Icon as typeof Workflow;
-            return (
-              <Link
-                key={String(title)}
-                href={`/prestataires-ia?specialty=${encodeURIComponent(String(specialty))}`}
-                className="group py-2"
-              >
-                <I className="mb-4 h-8 w-8 text-forest" aria-hidden="true" />
-                <h3 className="text-lg font-semibold group-hover:underline">
-                  {String(title)}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-muted">
-                  {String(text)}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      <BuyerNeeds />
       <section className="section border-t border-line">
         <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -205,33 +150,6 @@ export default function HomePage() {
               Mettre à jour ma fiche
             </Link>
           </div>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="section-heading">
-          <h2>Préparez votre projet</h2>
-          <p>
-            Des repères pour cadrer un budget, choisir un prestataire et
-            comparer les devis.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {guides
-            .filter((g) => /cout|choisir|reussir/i.test(g.slug))
-            .slice(0, 3)
-            .map((g) => (
-              <Link
-                key={g.slug}
-                href={`/guides/${g.slug}`}
-                className="border-t-2 border-forest py-5"
-              >
-                <h3 className="text-xl font-semibold">{g.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{g.summary}</p>
-                <span className="mt-4 block font-semibold text-forest">
-                  Lire le guide →
-                </span>
-              </Link>
-            ))}
         </div>
       </section>
       <FAQ

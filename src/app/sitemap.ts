@@ -2,6 +2,9 @@ import { providerResearch, researchDate } from "@/data/providerResearch";
 import { useCaseProviders } from "@/data/editorialLinks";
 import type { MetadataRoute } from "next";
 import { providers } from "@/data/providers";
+import { guides } from "@/data/guides";
+import { useCases } from "@/data/useCases";
+import { buyerNeedsUpdatedAt } from "@/data/buyerNeeds";
 import { absoluteUrl, getAllRoutes } from "@/lib/routes";
 
 /** Date de dernière vérification de l'annuaire : c'est ce qui change réellement
@@ -24,11 +27,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route === "/" || route === "/prestataires-ia" || route.startsWith("/villes");
 
     const refreshed = route === "/agences-ia" || route === "/guides/comment-choisir-agence-ia" || route === "/guides/combien-coute-projet-ia" || Boolean(providerResearch[route.replace("/prestataires-ia/", "")]) || Boolean(useCaseProviders[route.replace("/cas-usages/", "")]);
+    const page = route.startsWith("/guides/")
+      ? guides.find((page) => route === `/guides/${page.slug}`)
+      : useCases.find((page) => route === `/cas-usages/${page.slug}`);
+    const hubDate = ["/", "/guides", "/cas-usages"].includes(route) ? buyerNeedsUpdatedAt : undefined;
+    const previousDate = refreshed ? new Date(researchDate) : estFiche || estAnnuaire ? annuaire : editorial;
+    const contentDate = page?.updatedAt ?? hubDate;
     return {
       url: absoluteUrl(route),
       // Les pages nourries par l'annuaire portent sa date de vérification ;
       // les pages éditoriales gardent leur date de publication.
-      lastModified: refreshed ? new Date(researchDate) : estFiche || estAnnuaire ? annuaire : editorial,
+      lastModified: contentDate ? new Date(Math.max(previousDate.getTime(), new Date(contentDate).getTime())) : previousDate,
       changeFrequency: estAnnuaire ? "weekly" : "monthly",
       priority:
         route === "/"

@@ -58,79 +58,171 @@ function makeUseCasePage(
 
 export const useCases: ContentPage[] = [
   makeUseCasePage({
-    slug: "automatisation-ia",
-    title: "Automatisation IA",
-    updatedAt: "2026-09-21",
-    metaTitle:
-      "Automatisation IA pour PME et ETI : usages, budget, prestataires",
-    metaDescription:
-      "Comprendre les projets d'automatisation IA : cas concrets, budget indicatif, risques, prestataires adaptés et questions à poser.",
-    h1: "Automatisation IA pour PME et ETI",
-    intro:
-      "L'automatisation IA sert à réduire les tâches répétitives qui mobilisent les équipes : traitement de demandes, enrichissement de données, relances, reporting ou préparation de documents.",
-    summary:
-      "Le bon projet automatise un flux régulier sans supprimer le contrôle humain sur les décisions sensibles.",
-    quickFacts: {
-      objective: "Gagner du temps sur un processus répétitif.",
-      providers: "Agence IA, expert automatisation, intégrateur.",
-      budget: "À chiffrer selon les outils, les exceptions et la maintenance.",
-      complexity: "Moyenne, plus élevée si plusieurs outils sont connectés.",
-      timeline: "À définir après un test sur vos données.",
-      vigilance:
-        "Qualité des données, exceptions, droits d'accès, maintenance.",
+  "slug": "automatisation-ia",
+  "title": "Automatisation IA",
+  "updatedAt": "2026-09-22",
+  "metaTitle": "Automatisation IA pour PME : cadrer un premier projet",
+  "metaDescription": "Choisissez une tâche à automatiser, préparez le brief et les tests du pilote. Comparez les coûts, les connecteurs et les prestataires IA pour votre PME.",
+  "h1": "Automatisation IA pour PME et ETI",
+  "intro": "L'automatisation IA sert à réduire les tâches répétitives qui mobilisent les équipes : traitement de demandes, enrichissement de données, relances, reporting ou préparation de documents.",
+  "summary": "Le bon projet automatise un flux régulier sans supprimer le contrôle humain sur les décisions sensibles.",
+  "quickFacts": {
+    "objective": "Gagner du temps sur un processus répétitif.",
+    "providers": "Agence IA, expert automatisation, intégrateur.",
+    "budget": "À chiffrer selon les outils, les exceptions et la maintenance.",
+    "complexity": "Moyenne, plus élevée si plusieurs outils sont connectés.",
+    "timeline": "À définir après un test sur vos données.",
+    "vigilance": "Qualité des données, exceptions, droits d'accès, maintenance."
+  },
+  "examples": [
+    "préqualification de demandes entrantes",
+    "relances commerciales semi-automatiques",
+    "génération de comptes rendus structurés",
+    "tri de documents et affectation aux bonnes équipes",
+    "enrichissement de fiches CRM",
+    "suivi d'anomalies dans un tableau opérationnel",
+    "préparation de réponses support à valider",
+    "alertes sur dossiers bloqués"
+  ],
+  "sections": [
+    {
+      "title": "Commencer par un processus que vous pouvez mesurer",
+      "body": "Choisissez une tâche fréquente dont vous connaissez les entrées, les sorties et les exceptions. Relevez le temps réellement consacré au travail avant le projet, puis comparez-le au temps restant après automatisation, contrôle humain inclus.",
+      "bullets": [
+        "Exemple de pilote : classer des demandes entrantes puis proposer une affectation, avec validation par un collaborateur.",
+        "Autre exemple : préparer les champs d’une facture pour vérification, sans déclencher de paiement automatique.",
+        "Ces exemples sont des scénarios de cadrage, pas des résultats obtenus chez des clients."
+      ]
     },
-    examples: [
-      "préqualification de demandes entrantes",
-      "relances commerciales semi-automatiques",
-      "génération de comptes rendus structurés",
-      "tri de documents et affectation aux bonnes équipes",
-      "enrichissement de fiches CRM",
-      "suivi d'anomalies dans un tableau opérationnel",
-      "préparation de réponses support à valider",
-      "alertes sur dossiers bloqués",
-    ],
-    sections: [
-      {
-        title: "Commencer par un processus que vous pouvez mesurer",
-        body: "Choisissez une tâche fréquente dont vous connaissez les entrées, les sorties et les exceptions. Relevez le temps réellement consacré au travail avant le projet, puis comparez-le au temps restant après automatisation, contrôle humain inclus.",
-        bullets: [
-          "Exemple de pilote : classer des demandes entrantes puis proposer une affectation, avec validation par un collaborateur.",
-          "Autre exemple : préparer les champs d’une facture pour vérification, sans déclencher de paiement automatique.",
-          "Ces exemples sont des scénarios de cadrage, pas des résultats obtenus chez des clients.",
+    {
+      "title": "IA ou automatisation classique ?",
+      "body": "Une règle suffit parfois : déplacer un fichier, recopier un champ ou envoyer une alerte sur un seuil connu. L’IA devient une option lorsque les informations sont variables ou non structurées. Demandez au prestataire de justifier chaque étape et de prévoir les cas où le système ne sait pas répondre.",
+      "links": [
+        {
+          "label": "Si votre besoin est de retrouver une information dans des documents",
+          "href": "/cas-usages/rag-base-documentaire"
+        }
+      ]
+    },
+    {
+      "title": "Choisir un flux et prévoir son contrôle",
+      "body": "Les situations suivantes sont des exemples de cadrage. Elles ne décrivent pas des missions client ni des gains mesurés.",
+      "table": {
+        "caption": "Exemples de tâches à cadrer avant consultation",
+        "columns": [
+          "Tâche",
+          "Place possible de l’IA",
+          "Contrôle à conserver"
         ],
-      },
-      {
-        title: "IA ou automatisation classique ?",
-        body: "Une règle suffit parfois : déplacer un fichier, recopier un champ ou envoyer une alerte sur un seuil connu. L’IA devient une option lorsque les informations sont variables ou non structurées. Demandez au prestataire de justifier chaque étape et de prévoir les cas où le système ne sait pas répondre.",
-      },
-      {
-        title: "Ce qui fait varier le devis",
-        body: "Le coût dépend du nombre d’outils à connecter, de la qualité des données, des droits à gérer, de la fréquence des traitements et du niveau de supervision. Il n’existe pas de tarif unique déductible du seul mot automatisation.",
-        bullets: [
-          "Séparer le cadrage, le prototype et la mise en production.",
-          "Chiffrer les abonnements, consommations, maintenance et temps de contrôle interne sur douze mois.",
-          "Préciser les critères d’acceptation, les reprises manuelles et ce qui reste hors périmètre.",
-        ],
-      },
-      {
-        title: "Un brief prêt à transmettre",
-        body: "Décrivez : la tâche actuelle ; le nombre de dossiers ; les outils utilisés ; un exemple anonymisé ; les erreurs à éviter ; la personne qui valide ; le plafond de budget ; l’échéance. Faites répondre deux ou trois prestataires sur ce même périmètre.",
-      },
-    ],
-    risks: [
-      "données mal structurées",
-      "exceptions non prévues",
-      "automatisation de décisions sensibles",
-      "maintenance oubliée",
-    ],
-    questions: [
-      "Quels cas doivent rester manuels ?",
-      "Qui valide les sorties ?",
-      "Quels outils doivent être connectés ?",
-      "Comment mesurer le gain de temps ?",
-    ],
-    relatedProviders: ["epickone", "stamina-solutions", "dl-consulting"],
-  }),
+        "rows": [
+          [
+            "Trier des demandes entrantes",
+            "Interpréter un message et proposer une catégorie",
+            "Relecture des cas incertains et destinataires vérifiés"
+          ],
+          [
+            "Préparer une saisie depuis un document",
+            "Extraire les champs puis appliquer des règles",
+            "Comparaison avec l’original avant validation"
+          ],
+          [
+            "Préparer une réponse support",
+            "Produire un brouillon depuis une base autorisée",
+            "Validation avant envoi et reprise humaine"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Ce qui fait varier le devis",
+      "body": "Le coût dépend du nombre d’outils à connecter, de la qualité des données, des droits à gérer, de la fréquence des traitements et du niveau de supervision. Il n’existe pas de tarif unique déductible du seul mot automatisation.",
+      "bullets": [
+        "Séparer le cadrage, le prototype et la mise en production.",
+        "Chiffrer les abonnements, consommations, maintenance et temps de contrôle interne sur douze mois.",
+        "Préciser les critères d’acceptation, les reprises manuelles et ce qui reste hors périmètre."
+      ],
+      "links": [
+        {
+          "label": "Construire le budget sur douze mois",
+          "href": "/guides/combien-coute-projet-ia"
+        }
+      ]
+    },
+    {
+      "title": "Un brief prêt à transmettre",
+      "body": "Décrivez : la tâche actuelle ; le nombre de dossiers ; les outils utilisés ; un exemple anonymisé ; les erreurs à éviter ; la personne qui valide ; le plafond de budget ; l’échéance. Faites répondre deux ou trois prestataires sur ce même périmètre."
+    },
+    {
+      "title": "Tester les exceptions avant la mise en production",
+      "body": "Constituez un échantillon représentatif du travail réel et réservez des cas pour le test final. Convenez des seuils d’acceptation avec le responsable métier ; il n’existe pas de seuil unique valable pour toutes les tâches.",
+      "bullets": [
+        "Un même dossier soumis deux fois ne doit pas créer deux actions non souhaitées.",
+        "Une panne de connexion doit laisser une trace et permettre une reprise contrôlée.",
+        "Un document incomplet doit être signalé, sans inventer les champs manquants.",
+        "Mesurer le temps total après relecture et correction, pas seulement le temps de génération."
+      ],
+      "links": [
+        {
+          "label": "Faire préciser ces engagements dans le devis",
+          "href": "/guides/questions-a-poser-prestataire-ia"
+        }
+      ]
+    }
+  ],
+  "risks": [
+    "données mal structurées",
+    "exceptions non prévues",
+    "automatisation de décisions sensibles",
+    "maintenance oubliée"
+  ],
+  "questions": [
+    "Quels cas doivent rester manuels ?",
+    "Qui valide les sorties ?",
+    "Quels outils doivent être connectés ?",
+    "Comment mesurer le gain de temps ?"
+  ],
+  "relatedProviders": [
+    "epickone",
+    "stamina-solutions",
+    "dl-consulting"
+  ],
+  "faqs": [
+    {
+      "question": "Faut-il de l’IA pour automatiser une tâche ?",
+      "answer": "Pas nécessairement. Des règles suffisent lorsque les entrées et les décisions sont prévisibles. L’IA peut aider à interpréter des textes ou documents variables ; demandez au prestataire de justifier ce choix."
+    },
+    {
+      "question": "Quel premier processus choisir dans une PME ?",
+      "answer": "Choisissez un flux fréquent, délimité, avec des exemples disponibles, un responsable et des erreurs contrôlables. Mesurez la situation initiale et le temps de correction après le pilote."
+    },
+    {
+      "question": "Comment obtenir un devis exploitable ?",
+      "answer": "Précisez les outils, les volumes, les données d’entrée, les sorties attendues, les exceptions et les validations. Demandez de séparer réalisation, abonnements, consommation et maintenance."
+    },
+    {
+      "question": "Quand arrêter ou revoir le pilote ?",
+      "answer": "Si les critères convenus ne sont pas atteints, si les erreurs restent difficiles à détecter ou si les corrections annulent le gain attendu, revoyez le périmètre avant de passer en production."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Choisir le profil de prestataire",
+      "href": "/guides/agence-ia-ou-consultant-ia"
+    },
+    {
+      "label": "Calculer le coût total",
+      "href": "/guides/combien-coute-projet-ia"
+    },
+    {
+      "label": "Comparer les devis IA",
+      "href": "/guides/questions-a-poser-prestataire-ia"
+    }
+  ],
+  "projectCta": {
+    "title": "Quelle tâche souhaitez-vous automatiser ?",
+    "description": "Décrivez une tâche répétitive, les outils utilisés et les exceptions à gérer. Nous examinons votre demande pour vous orienter vers des profils adaptés. Dépôt gratuit, sans engagement."
+  }
+}),
   makeUseCasePage({
     slug: "agent-ia-entreprise",
     title: "Agent IA en entreprise",
@@ -260,67 +352,175 @@ export const useCases: ContentPage[] = [
     relatedProviders: ["agentique-studio", "opsia-france", "rag-conseil"],
   }),
   makeUseCasePage({
-    slug: "rag-base-documentaire",
-    title: "RAG et base documentaire",
-    metaTitle: "RAG base documentaire : usages B2B, budget et prestataires",
-    metaDescription:
-      "Mettre en place un RAG sur une base documentaire : sources, sécurité, budget, risques et prestataires adaptés.",
-    h1: "RAG et base documentaire pour PME et ETI",
-    intro:
-      "Un système RAG permet d'interroger une base documentaire interne avec des réponses sourcées. Il est utile quand l'information existe mais reste difficile à retrouver.",
-    summary:
-      "La valeur dépend de la qualité des documents, des droits d'accès, des sources affichées et du contrôle des réponses.",
-    quickFacts: {
-      objective: "Rendre une documentation interne interrogeable et sourcée.",
-      providers: "Intégrateur IA, cabinet data, agence IA technique.",
-      budget: "18 000 à 70 000 €+.",
-      complexity: "Élevée.",
-      timeline: "8 à 16 semaines.",
-      vigilance:
-        "Droits, sources, confidentialité, hallucinations, mise à jour.",
+  "slug": "rag-base-documentaire",
+  "title": "Assistant IA sur vos documents (RAG)",
+  "metaTitle": "Assistant documentaire IA (RAG) : budget et prestataires",
+  "metaDescription": "Préparez un assistant IA sur vos documents : sources, droits d’accès, tests, budget et maintenance. Comparez les prestataires sur un pilote mesurable.",
+  "h1": "Assistant IA sur vos documents : cadrer un projet RAG",
+  "intro": "Vos équipes perdent du temps à retrouver une procédure ou une réponse dans des fichiers dispersés ? Un assistant documentaire peut rechercher les passages utiles et formuler une réponse. Le projet commence par les documents, les questions et les accès, avant le choix du modèle.",
+  "summary": "Un RAG relie la recherche dans une base documentaire à la génération d’une réponse. Exigez les sources consultables, le respect des droits et la capacité à dire que l’information manque. Une citation ne garantit pas que la réponse interprète correctement le document.",
+  "quickFacts": {
+    "objective": "Retrouver et expliquer une information avec sa source.",
+    "providers": "Équipe ayant une expérience documentaire et des droits d’accès.",
+    "budget": "À chiffrer selon le corpus, les connexions, les tests et le support.",
+    "complexity": "Dépend des formats, des mises à jour et des droits.",
+    "timeline": "À fixer après examen du corpus et du pilote.",
+    "vigilance": "Sources obsolètes, accès interdits et réponses non étayées."
+  },
+  "risks": [
+    "sources non citées",
+    "droits d'accès mal gérés",
+    "documents obsolètes",
+    "réponses trop affirmatives"
+  ],
+  "questions": [
+    "Quels documents et quelles versions seront indexés ?",
+    "Comment les droits de lecture sont-ils appliqués ?",
+    "Comment signalez-vous une réponse non étayée ?",
+    "Sous quel délai une suppression est-elle répercutée ?",
+    "Qui corrige une source et qui corrige un défaut du système ?"
+  ],
+  "relatedProviders": [
+    "rag-conseil",
+    "integria-solutions",
+    "dataops-pme"
+  ],
+  "sections": [
+    {
+      "title": "Quand un assistant documentaire est-il pertinent ?",
+      "body": "Il est à étudier si des questions reviennent et si les réponses existent dans des documents maintenus. Si les documents se contredisent ou ne sont pas à jour, commencez par clarifier les sources. Une recherche classique peut suffire pour retrouver un fichier ; le besoin de synthèse doit justifier la génération d’une réponse.",
+      "bullets": [
+        "Exemple de cadrage : retrouver la procédure applicable à une demande de support.",
+        "Exemple de cadrage : répondre à une question interne avec le passage du manuel et sa version.",
+        "Ces exemples sont des scénarios possibles, pas des résultats client documentés."
+      ]
     },
-    examples: [
-      "base juridique interne",
-      "documentation RH",
-      "procédures qualité",
-      "support technique",
-      "contrats clients",
-      "formation interne",
-    ],
-    budgetRows: [
-      {
-        label: "RAG documentaire simple",
-        budget: "18 000 à 35 000 €",
-        complexity: "Moyenne à élevée",
-        notes: "Corpus limité et utilisateurs restreints.",
+    {
+      "title": "Préparer le corpus et les accès",
+      "body": "Listez les dossiers, formats, versions, propriétaires et groupes autorisés. Identifiez les PDF scannés, les tableaux et les documents contradictoires qui devront être traités. Faites préciser la prise en compte des suppressions et des changements de droits.",
+      "bullets": [
+        "Nommer la source de référence lorsqu’il existe plusieurs versions.",
+        "Définir qui ajoute, corrige et retire un document.",
+        "Tester les accès avec plusieurs rôles, y compris un compte non autorisé."
+      ]
+    },
+    {
+      "title": "Ce qu’un pilote doit permettre de vérifier",
+      "body": "Préparez avec les utilisateurs des questions courantes et des cas difficiles. Conservez une réponse attendue et son document de référence. Convenez des critères avant la démonstration et réservez des exemples que le prestataire n’a pas préparés.",
+      "table": {
+        "caption": "Grille de test d’un assistant documentaire",
+        "columns": [
+          "Cas à tester",
+          "Comportement attendu",
+          "Preuve à examiner"
+        ],
+        "rows": [
+          [
+            "Information présente",
+            "Réponse fidèle et passage source accessible",
+            "Document, version et extrait correspondant"
+          ],
+          [
+            "Information absente",
+            "Absence signalée, sans réponse inventée",
+            "Question non couverte par le corpus"
+          ],
+          [
+            "Deux documents contradictoires",
+            "Conflit signalé ou règle de priorité explicitée",
+            "Sources et dates utilisées"
+          ],
+          [
+            "Document non autorisé",
+            "Aucune divulgation du contenu",
+            "Même question testée avec deux rôles"
+          ],
+          [
+            "Document modifié ou supprimé",
+            "Réponse actualisée dans le délai convenu",
+            "Test après modification de la source"
+          ]
+        ]
       },
-      {
-        label: "RAG multi-sources",
-        budget: "35 000 à 80 000 €",
-        complexity: "Élevée",
-        notes: "Droits, mises à jour, analytics.",
-      },
-      {
-        label: "RAG sensible",
-        budget: "80 000 €+",
-        complexity: "Très élevée",
-        notes: "Sécurité et gouvernance renforcées.",
-      },
-    ],
-    risks: [
-      "sources non citées",
-      "droits d'accès mal gérés",
-      "documents obsolètes",
-      "réponses trop affirmatives",
-    ],
-    questions: [
-      "Quelles sources sont prioritaires ?",
-      "Les réponses affichent-elles leurs sources ?",
-      "Comment gérer les droits ?",
-      "Comment réindexer les documents ?",
-    ],
-    relatedProviders: ["rag-conseil", "integria-solutions", "dataops-pme"],
-  }),
+      "links": [
+        {
+          "label": "CNIL : fonctionnement, limites et choix des systèmes d’IA générative",
+          "href": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative"
+        }
+      ]
+    },
+    {
+      "title": "Les postes à faire chiffrer",
+      "body": "Demandez de séparer l’inventaire et la préparation des documents, les connecteurs, la recherche, la génération, l’interface, les droits, la recette et la formation. Ajoutez l’hébergement, les consommations, la mise à jour de l’index et le support. Nous ne disposons pas d’un échantillon comparable permettant d’annoncer un prix moyen.",
+      "bullets": [
+        "Indiquer le volume du corpus et la fréquence des modifications.",
+        "Préciser les utilisateurs, leurs rôles et le nombre de questions prévu.",
+        "Faire chiffrer l’ajout d’une source et la reprise des données en fin de contrat."
+      ],
+      "links": [
+        {
+          "label": "Calculer le budget sur douze mois",
+          "href": "/guides/combien-coute-projet-ia"
+        },
+        {
+          "label": "Comparer les engagements des devis",
+          "href": "/guides/questions-a-poser-prestataire-ia"
+        }
+      ]
+    },
+    {
+      "title": "Choisir une équipe et préparer l’exploitation",
+      "body": "Demandez une démonstration sur des documents représentatifs, avec des droits distincts et une mise à jour de source. Identifiez le responsable du corpus dans votre entreprise et celui du support chez le prestataire. La maintenance doit couvrir les erreurs de recherche et de réponse, les connexions et les changements de documents.",
+      "links": [
+        {
+          "label": "Choisir entre agence, consultant et intégrateur",
+          "href": "/guides/agence-ia-ou-consultant-ia"
+        },
+        {
+          "label": "Si votre projet doit aussi exécuter des actions : cadrer l’automatisation",
+          "href": "/cas-usages/automatisation-ia"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Un RAG supprime-t-il les hallucinations ?",
+      "answer": "Non. La recherche de documents fournit du contexte, mais une réponse peut rester incorrecte ou mal interpréter un passage. Vérifiez la fidélité à la source et testez les questions auxquelles le corpus ne répond pas."
+    },
+    {
+      "question": "Faut-il entraîner un modèle sur nos documents ?",
+      "answer": "Un RAG apporte des passages de documents au moment de répondre ; il ne nécessite pas, à lui seul, de réentraîner le modèle. Demandez au prestataire de justifier séparément toute proposition d’entraînement."
+    },
+    {
+      "question": "Peut-on utiliser tous les documents de l’entreprise ?",
+      "answer": "Définissez un corpus utile, maintenu et autorisé pour les utilisateurs concernés. Les droits existants doivent être pris en compte ; ajouter tous les fichiers sans tri rend les tests et la maintenance plus difficiles."
+    },
+    {
+      "question": "Comment estimer le budget d’un assistant documentaire ?",
+      "answer": "Faites examiner un échantillon représentatif, les connecteurs, les droits et les mises à jour. Demandez un devis de pilote distinct de la production, puis un coût d’exploitation sur douze mois."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Choisir une agence IA",
+      "href": "/guides/comment-choisir-agence-ia"
+    },
+    {
+      "label": "Calculer le budget total",
+      "href": "/guides/combien-coute-projet-ia"
+    },
+    {
+      "label": "Comparer les devis",
+      "href": "/guides/questions-a-poser-prestataire-ia"
+    }
+  ],
+  "updatedAt": "2026-09-22",
+  "projectCta": {
+    "title": "Vous voulez retrouver plus facilement vos informations internes ?",
+    "description": "Décrivez vos documents, les questions des équipes et les outils concernés, sans transmettre de contenu confidentiel. Nous vous aidons à cadrer le besoin et les profils à consulter."
+  }
+}),
   makeUseCasePage({
     slug: "ia-service-client",
     title: "IA service client",

@@ -33,6 +33,7 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
           <div className="mt-6 rounded-md border border-line bg-soft p-5 text-base leading-7 text-ink">
             {page.summary}
           </div>
+          {page.projectCta ? <div className="mt-5 flex flex-wrap gap-4"><Link href="/deposer-un-projet-ia" className="btn-primary">Parler de mon besoin</Link><a href="#prestataires" className="btn-secondary">Voir les prestataires</a></div> : null}
         </div>
       </div>
 
@@ -45,10 +46,10 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
       <section className="section">
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="content-prose min-w-0">
-            {variant === "guide" ? (
+            {variant === "guide" || page.projectCta ? (
               <nav className="rounded-md border border-line bg-white p-5" aria-label="Sommaire">
                 <h2 className="mt-0 text-lg">Sommaire</h2>
-                <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm">
+                <ol className="mt-3 list-none space-y-2 text-sm">
                   {page.sections.map((section, index) => (
                     <li key={section.title}><a href={`#section-${index + 1}`} className="text-forest underline">{section.title}</a></li>
                   ))}
@@ -70,6 +71,14 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
                     ))}
                   </ul>
                 ) : null}
+                {section.table ? <><p className="text-xs text-muted lg:hidden">Faites défiler le tableau horizontalement pour lire toutes les colonnes.</p><div className="mt-5 overflow-x-auto rounded-md border border-line" tabIndex={0} role="region" aria-label={section.table.caption}>
+                  <table className="w-full min-w-[620px] text-left text-sm leading-6">
+                    <caption className="bg-soft p-4 text-left font-semibold text-ink">{section.table.caption}</caption>
+                    <thead className="bg-soft"><tr>{section.table.columns.map((column) => <th key={column} scope="col" className="px-4 py-3 text-ink">{column}</th>)}</tr></thead>
+                    <tbody className="divide-y divide-line">{section.table.rows.map((row) => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <th key={index} scope="row" className="px-4 py-4 font-medium text-ink">{cell}</th> : <td key={index} className="px-4 py-4 align-top">{cell}</td>)}</tr>)}</tbody>
+                  </table>
+                </div></> : null}
+                {section.links ? <div className="mt-4 flex flex-col items-start gap-3">{section.links.map((link) => <Link key={link.href} href={link.href} className="text-forest underline underline-offset-4">{link.label}</Link>)}</div> : null}
               </section>
             ))}
 
@@ -117,10 +126,10 @@ export function ContentPageRenderer({ page, parent, variant }: ContentPageRender
         </div>
       </section>
 
-      {related.length > 0 ? <section className="section pt-0"><div className="section-heading"><h2>Prestataires à étudier pour ce besoin</h2><p>Leurs offres publiques donnent des pistes de comparaison. Consultez les sources et les points à vérifier sur chaque fiche.</p></div><div className="grid gap-5 md:grid-cols-3">{related.map((provider) => <ProviderCard key={provider.slug} provider={provider} />)}</div><p className="mt-5"><Link href="/agences-ia" className="text-forest underline">Comparer les agences IA</Link></p></section> : null}
+      {related.length > 0 ? <section id="prestataires" className="section scroll-mt-24 pt-0"><div className="section-heading"><h2>Prestataires à étudier pour ce besoin</h2><p>Leurs offres publiques donnent des pistes de comparaison. Consultez les sources et les points à vérifier sur chaque fiche.</p></div><div className="grid gap-5 md:grid-cols-3">{related.map((provider) => <ProviderCard key={provider.slug} provider={provider} />)}</div><p className="mt-5"><Link href="/agences-ia" className="text-forest underline">Comparer les agences IA</Link></p></section> : null}
       <RelatedPages pages={page.relatedPages} />
       <FAQ items={page.faqs} />
-      <ProjectCTA />
+      <ProjectCTA {...page.projectCta} />
     </>
   );
 }

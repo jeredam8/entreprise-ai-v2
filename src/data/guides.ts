@@ -15,362 +15,454 @@ const commonRelated = [
 
 export const guides: ContentPage[] = [
   {
-    slug: "comment-choisir-agence-ia",
-    title: "Comment choisir une agence IA ?",
-    metaTitle: "Agence IA pour PME : comment choisir et comparer les devis ?",
-    metaDescription:
-      "Comparez les agences IA avec une grille en 6 critères : démonstration, données, devis, équipe, maintenance et réversibilité. Questions et livrables à demander.",
-    h1: "Comment choisir une agence IA pour son entreprise ?",
-    updatedAt: "2026-09-21",
-    intro:
-      "Pour comparer deux agences, donnez-leur le même problème, les mêmes contraintes et les mêmes critères de réussite. Une présentation commerciale ne permet pas, à elle seule, de savoir qui saura livrer votre projet.",
-    summary:
-      "Notre méthode : un brief commun, deux ou trois agences pertinentes, une démonstration sur des exemples représentatifs et une décision documentée. L’identité légale d’un prestataire est un premier contrôle ; elle ne prouve ni son expérience métier ni la qualité de ses livraisons.",
-    sections: [
-      {
-        title: "1. Rédiger un brief que chaque agence pourra chiffrer",
-        body: "Décrivez une tâche réelle avant de demander un chatbot ou un agent. Le même brief doit être envoyé à chaque candidat pour rendre les réponses comparables.",
-        bullets: [
-          "Processus actuel : étapes, fréquence et personnes concernées.",
-          "Résultat attendu : temps de traitement, erreurs acceptables et validation humaine.",
-          "Données : exemples anonymisés, formats, volumes et droits d’accès.",
-          "Outils à connecter, contraintes d’hébergement, responsable interne et plafond budgétaire.",
-        ],
-      },
-      {
-        title: "2. Choisir une spécialité adaptée au travail à livrer",
-        body: "Une automatisation entre deux outils, un assistant documentaire et un agent autorisé à modifier un ERP présentent des difficultés différentes. Demandez au candidat de justifier son approche et d’identifier ce qui peut fonctionner sans IA.",
-        bullets: [
-          "Automatisation : gérer les exceptions et la reprise après échec.",
-          "RAG documentaire : retrouver la bonne source et respecter les droits de lecture.",
-          "Agent connecté : limiter les actions et contrôler leurs conséquences.",
-        ],
-      },
-      {
-        title: "3. Comparer les candidats avec six critères communs",
-        body: "Attribuez à chaque critère une appréciation documentée : absent, partiel ou démontré. Conservez les pièces qui justifient votre choix. Une note totale ne doit pas compenser un refus de traiter un risque bloquant.",
-        bullets: [
-          "Compréhension métier : reformulation du problème et critères de succès mesurables.",
-          "Preuve de livraison : mission comparable, rôle exact du candidat et référence vérifiable.",
-          "Données et sécurité : flux, accès, conservation et responsabilités explicités.",
-          "Équipe : personnes qui réaliseront le travail, disponibilité et sous-traitance.",
-          "Devis : livrables, exclusions, recette, coûts récurrents et coût total sur douze mois.",
-          "Après livraison : supervision, délais d’intervention, documentation et réversibilité.",
-        ],
-      },
-      {
-        title: "4. Demander une démonstration qui peut aussi échouer",
-        body: "Préparez un petit jeu d’exemples représentatifs : cas courants, documents contradictoires, information absente et accès interdit. Convenez du résultat attendu avant la démonstration. Le candidat doit montrer comment la solution signale une incertitude et passe la main.",
-        bullets: [
-          "Faire citer le document ou l’enregistrement à l’origine d’une réponse.",
-          "Tester une demande qui dépasse les autorisations de l’utilisateur.",
-          "Observer le comportement lors d’une panne de connecteur.",
-          "Mesurer les corrections nécessaires, pas seulement la vitesse.",
-        ],
-      },
-      {
-        title:
-          "5. Séparer prototype, pilote et mise en production dans le devis",
-        body: "Un prototype teste une idée. Un pilote confronte la solution à des utilisateurs et données représentatifs. La production ajoute notamment les droits, le suivi, les sauvegardes et le support. Demandez un livrable et une condition d’arrêt pour chaque étape.",
-      },
-      {
-        title: "6. Préparer la sortie dès le début du projet",
-        body: "Faites préciser la remise du code ou des workflows, la propriété des comptes et la documentation. Demandez comment changer de prestataire et exporter les données. Les conditions d’accès et de reprise doivent être écrites, même si la maintenance est optionnelle.",
-      },
-    ],
-    risks: [
-      "Démonstration uniquement sur des exemples choisis par le vendeur.",
-      "Logo client sans description du travail réellement réalisé.",
-      "Tarif attractif qui exclut les connecteurs, la recette ou le support.",
-      "Absence de personne responsable après la livraison.",
-    ],
-    questions: [
-      "Qui réalise la mission et quelle mission comparable cette équipe a-t-elle livrée ?",
-      "Quel résultat déclenche la validation du pilote ?",
-      "Qui voit les données, où transitent-elles et combien de temps sont-elles conservées ?",
-      "Quel est le coût total sur douze mois, y compris notre travail interne ?",
-      "Comment récupérer les comptes, les workflows et les données si nous arrêtons ?",
-    ],
-    faqs: [
-      {
-        question: "Combien d’agences IA faut-il comparer ?",
-        answer:
-          "Deux ou trois candidats adaptés au besoin permettent une comparaison approfondie. Le point essentiel est de leur soumettre le même brief et d’obtenir des réponses documentées.",
-      },
-      {
-        question:
-          "Une identité vérifiée garantit-elle la qualité d’une agence ?",
-        answer:
-          "Non. Le contrôle d’identité relie la fiche à une entreprise réelle. Les compétences, les références et la qualité de livraison demandent des vérifications distinctes.",
-      },
-      {
-        question: "Faut-il payer un prototype avant de choisir ?",
-        answer:
-          "Ce peut être un test utile si le périmètre, les livrables et la condition d’arrêt sont explicites. Il ne remplace pas les vérifications de sécurité, de maintenance et d’intégration.",
-      },
-      {
-        question: "Quels documents demander avant de signer ?",
-        answer:
-          "Un devis détaillé, une description des flux de données, les critères de recette, les responsabilités de maintenance et les conditions de réversibilité.",
-      },
-    ],
-    relatedPages: [
-      {
-        label: "Comparer les agences IA",
-        href: "/agences-ia",
-      },
-      {
-        label: "Décrire mon projet IA",
-        href: "/deposer-un-projet-ia",
-      },
-      {
-        label: "Préparer un cahier des charges",
-        href: "/guides/cahier-des-charges-projet-ia",
-      },
-      {
-        label: "Calculer le coût total d’un projet IA",
-        href: "/guides/combien-coute-projet-ia",
-      },
-    ],
-    relatedProviders: ["betomorrow", "creme-de-code", "noxcod"],
-  },
+  "slug": "comment-choisir-agence-ia",
+  "title": "Comment choisir une agence IA ?",
+  "metaTitle": "Choisir une agence IA pour PME : critères et preuves",
+  "metaDescription": "Choisissez une agence IA pour votre PME : brief commun, spécialité, références, test du pilote et maintenance. Identifiez les preuves à demander.",
+  "h1": "Comment choisir une agence IA pour son entreprise ?",
+  "updatedAt": "2026-09-22",
+  "intro": "Pour comparer deux agences, donnez-leur le même problème, les mêmes contraintes et les mêmes critères de réussite. Une présentation commerciale ne permet pas, à elle seule, de savoir qui saura livrer votre projet.",
+  "summary": "Notre méthode : un brief commun, deux ou trois agences pertinentes, une démonstration sur des exemples représentatifs et une décision documentée. L’identité légale d’un prestataire est un premier contrôle ; elle ne prouve ni son expérience métier ni la qualité de ses livraisons.",
+  "sections": [
+    {
+      "title": "1. Rédiger un brief que chaque agence pourra chiffrer",
+      "body": "Décrivez une tâche réelle avant de demander un chatbot ou un agent. Le même brief doit être envoyé à chaque candidat pour rendre les réponses comparables.",
+      "bullets": [
+        "Processus actuel : étapes, fréquence et personnes concernées.",
+        "Résultat attendu : temps de traitement, erreurs acceptables et validation humaine.",
+        "Données : exemples anonymisés, formats, volumes et droits d’accès.",
+        "Outils à connecter, contraintes d’hébergement, responsable interne et plafond budgétaire."
+      ]
+    },
+    {
+      "title": "2. Choisir une spécialité adaptée au travail à livrer",
+      "body": "Une automatisation entre deux outils, un assistant documentaire et un agent autorisé à modifier un ERP présentent des difficultés différentes. Demandez au candidat de justifier son approche et d’identifier ce qui peut fonctionner sans IA.",
+      "bullets": [
+        "Automatisation : gérer les exceptions et la reprise après échec.",
+        "RAG documentaire : retrouver la bonne source et respecter les droits de lecture.",
+        "Agent connecté : limiter les actions et contrôler leurs conséquences."
+      ],
+      "links": [
+        {
+          "label": "Agence, consultant ou intégrateur : choisir le bon profil",
+          "href": "/guides/agence-ia-ou-consultant-ia"
+        },
+        {
+          "label": "Cadrer une automatisation métier",
+          "href": "/cas-usages/automatisation-ia"
+        },
+        {
+          "label": "Préparer un assistant sur vos documents",
+          "href": "/cas-usages/rag-base-documentaire"
+        }
+      ]
+    },
+    {
+      "title": "3. Comparer les candidats avec six critères communs",
+      "body": "Attribuez à chaque critère une appréciation documentée : absent, partiel ou démontré. Conservez les pièces qui justifient votre choix. Une note totale ne doit pas compenser un refus de traiter un risque bloquant.",
+      "bullets": [
+        "Compréhension métier : reformulation du problème et critères de succès mesurables.",
+        "Preuve de livraison : mission comparable, rôle exact du candidat et référence vérifiable.",
+        "Données et sécurité : flux, accès, conservation et responsabilités explicités.",
+        "Équipe : personnes qui réaliseront le travail, disponibilité et sous-traitance.",
+        "Devis : livrables, exclusions, recette, coûts récurrents et coût total sur douze mois.",
+        "Après livraison : supervision, délais d’intervention, documentation et réversibilité."
+      ]
+    },
+    {
+      "title": "4. Demander une démonstration qui peut aussi échouer",
+      "body": "Préparez un petit jeu d’exemples représentatifs : cas courants, documents contradictoires, information absente et accès interdit. Convenez du résultat attendu avant la démonstration. Le candidat doit montrer comment la solution signale une incertitude et passe la main.",
+      "bullets": [
+        "Faire citer le document ou l’enregistrement à l’origine d’une réponse.",
+        "Tester une demande qui dépasse les autorisations de l’utilisateur.",
+        "Observer le comportement lors d’une panne de connecteur.",
+        "Mesurer les corrections nécessaires, pas seulement la vitesse."
+      ]
+    },
+    {
+      "title": "5. Séparer prototype, pilote et mise en production dans le devis",
+      "body": "Un prototype teste une idée. Un pilote confronte la solution à des utilisateurs et données représentatifs. La production ajoute notamment les droits, le suivi, les sauvegardes et le support. Demandez un livrable et une condition d’arrêt pour chaque étape.",
+      "links": [
+        {
+          "label": "Comparer deux devis poste par poste",
+          "href": "/guides/questions-a-poser-prestataire-ia"
+        },
+        {
+          "label": "Calculer le coût sur douze mois",
+          "href": "/guides/combien-coute-projet-ia"
+        }
+      ]
+    },
+    {
+      "title": "6. Préparer la sortie dès le début du projet",
+      "body": "Faites préciser la remise du code ou des workflows, la propriété des comptes et la documentation. Demandez comment changer de prestataire et exporter les données. Les conditions d’accès et de reprise doivent être écrites, même si la maintenance est optionnelle."
+    }
+  ],
+  "risks": [
+    "Démonstration uniquement sur des exemples choisis par le vendeur.",
+    "Logo client sans description du travail réellement réalisé.",
+    "Tarif attractif qui exclut les connecteurs, la recette ou le support.",
+    "Absence de personne responsable après la livraison."
+  ],
+  "questions": [
+    "Qui réalise la mission et quelle mission comparable cette équipe a-t-elle livrée ?",
+    "Quel résultat déclenche la validation du pilote ?",
+    "Qui voit les données, où transitent-elles et combien de temps sont-elles conservées ?",
+    "Quel est le coût total sur douze mois, y compris notre travail interne ?",
+    "Comment récupérer les comptes, les workflows et les données si nous arrêtons ?"
+  ],
+  "faqs": [
+    {
+      "question": "Combien d’agences IA faut-il comparer ?",
+      "answer": "Deux ou trois candidats adaptés au besoin permettent une comparaison approfondie. Le point essentiel est de leur soumettre le même brief et d’obtenir des réponses documentées."
+    },
+    {
+      "question": "Une identité vérifiée garantit-elle la qualité d’une agence ?",
+      "answer": "Non. Le contrôle d’identité relie la fiche à une entreprise réelle. Les compétences, les références et la qualité de livraison demandent des vérifications distinctes."
+    },
+    {
+      "question": "Faut-il payer un prototype avant de choisir ?",
+      "answer": "Ce peut être un test utile si le périmètre, les livrables et la condition d’arrêt sont explicites. Il ne remplace pas les vérifications de sécurité, de maintenance et d’intégration."
+    },
+    {
+      "question": "Quels documents demander avant de signer ?",
+      "answer": "Un devis détaillé, une description des flux de données, les critères de recette, les responsabilités de maintenance et les conditions de réversibilité."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Agence, consultant ou intégrateur ?",
+      "href": "/guides/agence-ia-ou-consultant-ia"
+    },
+    {
+      "label": "Comparer les devis IA",
+      "href": "/guides/questions-a-poser-prestataire-ia"
+    },
+    {
+      "label": "Évaluer le budget total",
+      "href": "/guides/combien-coute-projet-ia"
+    }
+  ],
+  "relatedProviders": [
+    "betomorrow",
+    "creme-de-code",
+    "noxcod"
+  ],
+  "projectCta": {
+    "title": "Vous cherchez un prestataire pour un besoin précis ?",
+    "description": "Décrivez le processus, les outils et les contraintes. Jérémy examine votre demande pour vous aider à identifier des profils à comparer. Dépôt gratuit, sans engagement."
+  }
+},
   {
-    slug: "combien-coute-projet-ia",
-    title: "Combien coûte un projet IA en entreprise ?",
-    metaTitle: "Prix d’un projet IA : calcul du budget et exemple sur 12 mois",
-    metaDescription:
-      "Calculez le coût d’un projet IA : cadrage, données, intégration, licences et maintenance. Exemple de budget sur 12 mois et grille pour comparer les devis.",
-    h1: "Combien coûte un projet IA en entreprise ?",
-    updatedAt: "2026-09-21",
-    intro:
-      "Le nom de la solution ne suffit pas à donner son prix. Un chatbot de démonstration et un assistant relié à vos documents confidentiels n’ont pas le même périmètre. Pour obtenir un budget utile, chiffrez la construction, l’exploitation et le temps de vos équipes.",
-    summary:
-      "Budget sur 12 mois = prestation initiale + préparation interne + 12 × coûts mensuels + réserve explicitement choisie. Les montants de l’exemple ci-dessous sont des hypothèses de calcul, pas des tarifs observés ni une moyenne du marché.",
-    sections: [
-      {
-        title: "Avant de demander un prix : un périmètre commun",
-        body: "Pour comparer les devis, utilisez un tableau avec cinq colonnes : livrable ; quantité ou volume ; inclus dans le prix initial ; coût récurrent ; responsable après livraison. Faites expliciter les exclusions et demandez ce qui change si le volume double. Le montant d’une offre isolée ne permet pas de déduire un prix moyen du marché.",
-      },
-      {
-        title: "Les six postes à demander dans chaque devis",
-        body: "Demandez un montant et un périmètre pour chaque poste. Une ligne non chiffrée ne doit pas être considérée comme gratuite.",
-        bullets: [
-          "Cadrage : processus, faisabilité, choix de solution et critères de recette.",
-          "Données : collecte, nettoyage, classement et autorisations.",
-          "Réalisation : interfaces, connecteurs, workflows et logique IA.",
-          "Validation : cas de test, erreurs, sécurité et formation des utilisateurs.",
-          "Exploitation : modèles, licences, hébergement et supervision.",
-          "Maintenance : incidents, évolutions des API, support et mises à jour.",
+  "slug": "combien-coute-projet-ia",
+  "title": "Combien coûte un projet IA en entreprise ?",
+  "metaTitle": "Prix d’un projet IA : calcul du budget et exemple sur 12 mois",
+  "metaDescription": "Calculez le coût d’un projet IA : cadrage, données, intégration, licences et maintenance. Exemple de budget sur 12 mois et grille pour comparer les devis.",
+  "h1": "Combien coûte un projet IA en entreprise ?",
+  "updatedAt": "2026-09-22",
+  "intro": "Le nom de la solution ne suffit pas à donner son prix. Un chatbot de démonstration et un assistant relié à vos documents confidentiels n’ont pas le même périmètre. Pour obtenir un budget utile, chiffrez la construction, l’exploitation et le temps de vos équipes.",
+  "summary": "Budget sur 12 mois = prestation initiale + préparation interne + 12 × coûts mensuels + réserve explicitement choisie. Les montants de l’exemple ci-dessous sont des hypothèses de calcul, pas des tarifs observés ni une moyenne du marché.",
+  "sections": [
+    {
+      "title": "Avant de demander un prix : un périmètre commun",
+      "body": "Pour comparer les devis, utilisez un tableau avec cinq colonnes : livrable ; quantité ou volume ; inclus dans le prix initial ; coût récurrent ; responsable après livraison. Faites expliciter les exclusions et demandez ce qui change si le volume double. Le montant d’une offre isolée ne permet pas de déduire un prix moyen du marché.",
+      "links": [
+        {
+          "label": "Utiliser la grille de comparaison des devis",
+          "href": "/guides/questions-a-poser-prestataire-ia"
+        }
+      ]
+    },
+    {
+      "title": "Les six postes à demander dans chaque devis",
+      "body": "Demandez un montant et un périmètre pour chaque poste. Une ligne non chiffrée ne doit pas être considérée comme gratuite.",
+      "bullets": [
+        "Cadrage : processus, faisabilité, choix de solution et critères de recette.",
+        "Données : collecte, nettoyage, classement et autorisations.",
+        "Réalisation : interfaces, connecteurs, workflows et logique IA.",
+        "Validation : cas de test, erreurs, sécurité et formation des utilisateurs.",
+        "Exploitation : modèles, licences, hébergement et supervision.",
+        "Maintenance : incidents, évolutions des API, support et mises à jour."
+      ]
+    },
+    {
+      "title": "Exemple chiffré : un pilote à 17 020 € sur douze mois",
+      "body": "Exemple pédagogique, hors taxes : imaginons une prestation initiale de 8 000 €, huit jours internes valorisés à 400 € et 300 € par mois d’exploitation et de maintenance. Le sous-total atteint 14 800 €. Une réserve choisie de 15 %, soit 2 220 €, porte le total à 17 020 €. Ces hypothèses servent uniquement à montrer le calcul ; demandez un devis pour votre périmètre."
+    },
+    {
+      "title": "Ce qui fait varier le prix d’un assistant ou d’un agent",
+      "body": "La qualité des données, les connecteurs et les exigences de contrôle peuvent peser davantage que le coût du modèle. Un agent qui écrit dans vos outils demande aussi de définir ses autorisations et de gérer les actions incorrectes.",
+      "bullets": [
+        "Documents propres et centralisés ou fichiers dispersés à préparer.",
+        "Lecture seule ou modification de données dans un CRM ou un ERP.",
+        "Un outil et une équipe ou plusieurs systèmes et plusieurs rôles.",
+        "Faible volume prévisible ou pics d’usage à absorber.",
+        "Support aux heures ouvrées ou disponibilité renforcée."
+      ],
+      "links": [
+        {
+          "label": "Les postes d’un projet d’automatisation",
+          "href": "/cas-usages/automatisation-ia"
+        },
+        {
+          "label": "Les postes d’un assistant documentaire",
+          "href": "/cas-usages/rag-base-documentaire"
+        }
+      ]
+    },
+    {
+      "title": "Comparer forfait, temps passé et abonnement",
+      "body": "Un forfait doit décrire précisément ce qu’il inclut et comment sont traitées les demandes supplémentaires. Au temps passé, demandez les taux, les profils, une estimation et un plafond d’engagement. Pour un abonnement, vérifiez les limites d’usage, le support inclus et les conditions de sortie."
+    },
+    {
+      "title": "Tester le coût si le volume double",
+      "body": "Demandez deux scénarios au candidat : l’usage prévu et une montée en charge. Séparez ce qui reste fixe de ce qui varie avec les documents, utilisateurs, exécutions ou requêtes. Faites écrire la procédure d’alerte et d’autorisation avant un dépassement.",
+      "table": {
+        "caption": "Coûts fixes, variables et travail interne",
+        "columns": [
+          "Poste",
+          "Base de calcul à obtenir",
+          "Question à poser"
         ],
-      },
-      {
-        title: "Exemple chiffré : un pilote à 17 020 € sur douze mois",
-        body: "Exemple pédagogique, hors taxes : imaginons une prestation initiale de 8 000 €, huit jours internes valorisés à 400 € et 300 € par mois d’exploitation et de maintenance. Le sous-total atteint 14 800 €. Une réserve choisie de 15 %, soit 2 220 €, porte le total à 17 020 €. Ces hypothèses servent uniquement à montrer le calcul ; demandez un devis pour votre périmètre.",
-      },
-      {
-        title: "Ce qui fait varier le prix d’un assistant ou d’un agent",
-        body: "La qualité des données, les connecteurs et les exigences de contrôle peuvent peser davantage que le coût du modèle. Un agent qui écrit dans vos outils demande aussi de définir ses autorisations et de gérer les actions incorrectes.",
-        bullets: [
-          "Documents propres et centralisés ou fichiers dispersés à préparer.",
-          "Lecture seule ou modification de données dans un CRM ou un ERP.",
-          "Un outil et une équipe ou plusieurs systèmes et plusieurs rôles.",
-          "Faible volume prévisible ou pics d’usage à absorber.",
-          "Support aux heures ouvrées ou disponibilité renforcée.",
-        ],
-      },
-      {
-        title: "Comparer forfait, temps passé et abonnement",
-        body: "Un forfait doit décrire précisément ce qu’il inclut et comment sont traitées les demandes supplémentaires. Au temps passé, demandez les taux, les profils, une estimation et un plafond d’engagement. Pour un abonnement, vérifiez les limites d’usage, le support inclus et les conditions de sortie.",
-      },
-      {
-        title: "Estimer le gain avec des hypothèses prudentes",
-        body: "Mesurez le temps réellement récupéré après contrôle humain. Exemple hypothétique : 40 heures gagnées par mois valorisées à 30 € représentent 1 200 € de capacité libérée. Ce n’est une économie de trésorerie que si une dépense diminue réellement. Comparez ensuite ce gain aux coûts récurrents et à l’investissement initial.",
-      },
-      {
-        title: "Réduire le risque avec un périmètre limité",
-        body: "Commencez par un processus et un responsable métier. Mesurez la situation initiale, imposez une validation humaine adaptée et décidez après le pilote si les résultats justifient l’étape suivante. Réduire le périmètre est plus utile que supprimer les tests ou oublier la maintenance.",
-      },
-    ],
-    budgetRows: [
-      {
-        label: "Prestation initiale",
-        budget: "8 000 €",
-        complexity: "Hypothèse",
-        notes: "Cadrage, réalisation et recette inclus dans cet exemple.",
-      },
-      {
-        label: "Temps interne",
-        budget: "3 200 €",
-        complexity: "8 jours × 400 €",
-        notes:
-          "Valorisation du temps, à distinguer d’un décaissement supplémentaire.",
-      },
-      {
-        label: "Exploitation et maintenance",
-        budget: "3 600 € / an",
-        complexity: "12 × 300 €",
-        notes:
-          "Hypothèse à remplacer par les licences, usages et support du devis.",
-      },
-      {
-        label: "Réserve choisie de 15 %",
-        budget: "2 220 €",
-        complexity: "15 % × 14 800 €",
-        notes: "Hypothèse de prudence, pas une norme du marché.",
-      },
-      {
-        label: "Total de l’exemple sur 12 mois",
-        budget: "17 020 € HT",
-        complexity: "Coût économique",
-        notes: "Illustration arithmétique, pas une offre commerciale.",
-      },
-    ],
-    risks: [
-      "Confondre coût économique et sortie de trésorerie.",
-      "Présenter une capacité de travail libérée comme une économie déjà réalisée.",
-      "Oublier la préparation des données ou les abonnements.",
-      "Comparer un prototype à une solution maintenue en production.",
-    ],
-    questions: [
-      "Quels postes sont exclus du prix initial ?",
-      "Comment évolue le coût si le volume double ?",
-      "Quels comptes et licences seront à notre nom ?",
-      "Quel plafond peut-on fixer au pilote ?",
-      "Que coûte l’arrêt et l’export des données ?",
-    ],
-    faqs: [
-      {
-        question: "Quel est le prix moyen d’un projet IA ?",
-        answer:
-          "Nous ne disposons pas d’un échantillon de devis comparable permettant de donner une moyenne fiable. Le coût dépend du périmètre, des données, des intégrations et des exigences d’exploitation.",
-      },
-      {
-        question: "Peut-on commencer avec moins de 5 000 € ?",
-        answer:
-          "Un périmètre limité peut être étudié avec ce plafond, mais ce montant ne garantit aucun livrable précis. Faites chiffrer une première étape et distinguez-la d’une mise en production complète.",
-      },
-      {
-        question:
-          "Les montants du tableau sont-ils des tarifs de prestataires ?",
-        answer:
-          "Non. Ce sont des hypothèses pédagogiques pour illustrer un budget sur douze mois. Ils doivent être remplacés par les montants de vos devis et vos coûts internes.",
-      },
-      {
-        question: "Que faut-il prévoir après la livraison ?",
-        answer:
-          "Les licences et consommations, l’hébergement, la supervision, le support et les évolutions des outils connectés. Demandez qui prend en charge chaque poste et selon quelles limites.",
-      },
-    ],
-    relatedPages: [
-      {
-        label: "Comparer les agences IA",
-        href: "/agences-ia",
-      },
-      {
-        label: "Décrire mon projet IA",
-        href: "/deposer-un-projet-ia",
-      },
-      {
-        label: "Préparer un cahier des charges",
-        href: "/guides/cahier-des-charges-projet-ia",
-      },
-      {
-        label: "Choisir une agence et comparer les devis",
-        href: "/guides/comment-choisir-agence-ia",
-      },
-    ],
-    relatedProviders: ["bienfait", "eurelis", "eleven-labs"],
-  },
+        "rows": [
+          [
+            "Licences et hébergement",
+            "Forfait, utilisateurs et stockage inclus",
+            "Que se passe-t-il au-delà du forfait ?"
+          ],
+          [
+            "Consommation des modèles et automatisations",
+            "Volumes inclus et prix des dépassements",
+            "Un plafond et une alerte sont-ils possibles ?"
+          ],
+          [
+            "Support et maintenance",
+            "Heures, horaires et interventions incluses",
+            "Les changements de connecteurs sont-ils compris ?"
+          ],
+          [
+            "Travail interne",
+            "Préparation, validation et formation",
+            "Combien de temps reste à notre charge ?"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Estimer le gain avec des hypothèses prudentes",
+      "body": "Mesurez le temps réellement récupéré après contrôle humain. Exemple hypothétique : 40 heures gagnées par mois valorisées à 30 € représentent 1 200 € de capacité libérée. Ce n’est une économie de trésorerie que si une dépense diminue réellement. Comparez ensuite ce gain aux coûts récurrents et à l’investissement initial."
+    },
+    {
+      "title": "Réduire le risque avec un périmètre limité",
+      "body": "Commencez par un processus et un responsable métier. Mesurez la situation initiale, imposez une validation humaine adaptée et décidez après le pilote si les résultats justifient l’étape suivante. Réduire le périmètre est plus utile que supprimer les tests ou oublier la maintenance."
+    }
+  ],
+  "budgetRows": [
+    {
+      "label": "Prestation initiale",
+      "budget": "8 000 €",
+      "complexity": "Hypothèse",
+      "notes": "Cadrage, réalisation et recette inclus dans cet exemple."
+    },
+    {
+      "label": "Temps interne",
+      "budget": "3 200 €",
+      "complexity": "8 jours × 400 €",
+      "notes": "Valorisation du temps, à distinguer d’un décaissement supplémentaire."
+    },
+    {
+      "label": "Exploitation et maintenance",
+      "budget": "3 600 € / an",
+      "complexity": "12 × 300 €",
+      "notes": "Hypothèse à remplacer par les licences, usages et support du devis."
+    },
+    {
+      "label": "Réserve choisie de 15 %",
+      "budget": "2 220 €",
+      "complexity": "15 % × 14 800 €",
+      "notes": "Hypothèse de prudence, pas une norme du marché."
+    },
+    {
+      "label": "Total de l’exemple sur 12 mois",
+      "budget": "17 020 € HT",
+      "complexity": "Coût économique",
+      "notes": "Illustration arithmétique, pas une offre commerciale."
+    }
+  ],
+  "risks": [
+    "Confondre coût économique et sortie de trésorerie.",
+    "Présenter une capacité de travail libérée comme une économie déjà réalisée.",
+    "Oublier la préparation des données ou les abonnements.",
+    "Comparer un prototype à une solution maintenue en production."
+  ],
+  "questions": [
+    "Quels postes sont exclus du prix initial ?",
+    "Comment évolue le coût si le volume double ?",
+    "Quels comptes et licences seront à notre nom ?",
+    "Quel plafond peut-on fixer au pilote ?",
+    "Que coûte l’arrêt et l’export des données ?"
+  ],
+  "faqs": [
+    {
+      "question": "Quel est le prix moyen d’un projet IA ?",
+      "answer": "Nous ne disposons pas d’un échantillon de devis comparable permettant de donner une moyenne fiable. Le coût dépend du périmètre, des données, des intégrations et des exigences d’exploitation."
+    },
+    {
+      "question": "Peut-on commencer avec moins de 5 000 € ?",
+      "answer": "Un périmètre limité peut être étudié avec ce plafond, mais ce montant ne garantit aucun livrable précis. Faites chiffrer une première étape et distinguez-la d’une mise en production complète."
+    },
+    {
+      "question": "Les montants du tableau sont-ils des tarifs de prestataires ?",
+      "answer": "Non. Ce sont des hypothèses pédagogiques pour illustrer un budget sur douze mois. Ils doivent être remplacés par les montants de vos devis et vos coûts internes."
+    },
+    {
+      "question": "Que faut-il prévoir après la livraison ?",
+      "answer": "Les licences et consommations, l’hébergement, la supervision, le support et les évolutions des outils connectés. Demandez qui prend en charge chaque poste et selon quelles limites."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Comparer des devis sur le même périmètre",
+      "href": "/guides/questions-a-poser-prestataire-ia"
+    },
+    {
+      "label": "Préparer le cahier des charges",
+      "href": "/guides/cahier-des-charges-projet-ia"
+    },
+    {
+      "label": "Choisir les candidats à consulter",
+      "href": "/guides/comment-choisir-agence-ia"
+    }
+  ],
+  "relatedProviders": [
+    "bienfait",
+    "eurelis",
+    "eleven-labs"
+  ],
+  "projectCta": {
+    "title": "Quel périmètre faire chiffrer avec votre budget ?",
+    "description": "Décrivez la tâche, les outils et votre plafond si vous le connaissez. Nous vous aidons à clarifier le besoin avant de solliciter des prestataires. Le dépôt est gratuit ; les prestations font l’objet de leurs devis."
+  }
+},
   {
-    slug: "agence-ia-ou-consultant-ia",
-    title: "Agence IA ou consultant IA : que choisir ?",
-    metaTitle:
-      "Agence IA ou consultant IA : choisir selon budget et complexité",
-    metaDescription:
-      "Comparatif B2B entre agence IA, consultant IA et intégrateur pour sélectionner le bon prestataire selon le projet.",
-    h1: "Agence IA ou consultant IA : que choisir ?",
-    intro:
-      "Le bon choix dépend moins du titre du prestataire que du niveau de complexité : cadrage, formation, automatisation simple, intégration SI ou déploiement multi-équipes.",
-    summary:
-      "Un consultant convient souvent au cadrage et aux premiers usages. Une agence ou un intégrateur devient préférable quand plusieurs expertises, connecteurs ou garanties de maintenance sont nécessaires.",
-    sections: [
-      {
-        title: "Quand choisir un consultant IA",
-        body: "Pour clarifier une stratégie, former une direction, auditer les processus ou préparer un cahier des charges sans engager trop tôt un gros projet.",
-      },
-      {
-        title: "Quand choisir une agence IA",
-        body: "Pour livrer un workflow, un chatbot, un agent interne ou une automatisation nécessitant design de solution, développement, tests et accompagnement.",
-      },
-      {
-        title: "Quand choisir un intégrateur",
-        body: "Pour connecter l'IA à un SI existant, gérer des droits, des API, de la sécurité, des environnements et une maintenance structurée.",
-      },
-    ],
-    budgetRows: [
-      {
-        label: "Consultant IA",
-        budget: "5 000 à 20 000 €",
-        complexity: "Cadrage à moyen",
-        notes: "Souple, rapide, dépend fortement du profil.",
-      },
-      {
-        label: "Agence IA",
-        budget: "10 000 à 60 000 €",
-        complexity: "Moyen à élevé",
-        notes: "Plusieurs compétences et capacité de production.",
-      },
-      {
-        label: "Intégrateur IA",
-        budget: "20 000 à 100 000 €+",
-        complexity: "Élevé",
-        notes: "Adapté aux contraintes SI et ETI.",
-      },
-    ],
-    risks: [
-      "choisir une agence pour un simple cadrage",
-      "choisir un solo pour une intégration critique",
-      "ne pas prévoir la conduite du changement",
-    ],
-    questions: [
-      "Qui porte la responsabilité technique ?",
-      "Quelles compétences sont nécessaires ?",
-      "Le projet touche-t-il au SI ?",
-      "Combien d'équipes seront utilisatrices ?",
-    ],
-    faqs: [
-      {
-        question: "Un consultant IA peut-il livrer une automatisation ?",
-        answer:
-          "Oui si le périmètre est maîtrisé. Pour un système critique ou multi-outils, une équipe structurée peut être plus adaptée.",
-      },
-      {
-        question: "Une agence IA est-elle toujours plus chère ?",
-        answer:
-          "Pas toujours, mais elle porte souvent plus de coordination et de production. Il faut comparer les livrables.",
-      },
-      {
-        question: "Peut-on combiner consultant et intégrateur ?",
-        answer:
-          "Oui. Un consultant peut cadrer le besoin puis aider à sélectionner un intégrateur.",
-      },
-      {
-        question: "Comment éviter le mauvais choix ?",
-        answer:
-          "Décrire le projet, les contraintes, le budget et demander une sélection cohérente plutôt qu'un annuaire trop large.",
-      },
-    ],
-    relatedPages: [
-      ...commonRelated,
-      { label: "Consultants IA", href: "/consultants-ia" },
-      { label: "Intégrateurs IA", href: "/integrateurs-ia" },
-    ],
-    relatedProviders: [
-      "atelier-ia-conseil",
-      "hexa-automatisation",
-      "automatech-b2b",
-    ],
-  },
+  "slug": "agence-ia-ou-consultant-ia",
+  "title": "Agence, consultant ou intégrateur IA : que choisir ?",
+  "metaTitle": "Agence, consultant ou intégrateur IA : que choisir ?",
+  "metaDescription": "Comparatif B2B entre agence IA, consultant IA et intégrateur pour sélectionner le bon prestataire selon le projet.",
+  "h1": "Agence, consultant ou intégrateur IA : que choisir ?",
+  "intro": "Le bon choix dépend moins du titre du prestataire que du niveau de complexité : cadrage, formation, automatisation simple, intégration SI ou déploiement multi-équipes.",
+  "summary": "Choisissez selon le travail à confier : cadrage, réalisation ou connexion à vos outils. Le titre du prestataire ne garantit ni ses compétences ni sa capacité de support. Demandez qui fera le travail, avec quels livrables et quel relais après livraison.",
+  "sections": [
+    {
+      "title": "Le profil dépend du résultat attendu",
+      "body": "Cette grille sert à orienter la recherche. Les périmètres se recoupent : un consultant peut développer et une agence peut intégrer. Vérifiez les capacités réelles de l’équipe proposée.",
+      "table": {
+        "caption": "Trois profils à comparer selon votre besoin",
+        "columns": [
+          "Votre situation",
+          "Profil à étudier",
+          "Preuve à demander"
+        ],
+        "rows": [
+          [
+            "Vous devez prioriser et rédiger le brief",
+            "Consultant ou cabinet de conseil",
+            "Exemple de cadrage, livrables et indépendance du conseil"
+          ],
+          [
+            "Vous avez un périmètre à concevoir et livrer",
+            "Agence ou équipe spécialisée",
+            "Personnes affectées, réalisation comparable et protocole de test"
+          ],
+          [
+            "Vous devez connecter CRM, ERP et droits utilisateurs",
+            "Intégrateur ou équipe ayant cette expérience",
+            "Démonstration de connexion, gestion des incidents et reprise"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Quand un consultant peut suffire",
+      "body": "Un interlocuteur spécialisé peut cadrer le besoin, accompagner les utilisateurs ou réaliser un périmètre limité. Vérifiez sa disponibilité, les compétences manquantes et la solution de relais en cas d’absence. Ne choisissez pas une personne seule pour son prix sans examiner la continuité attendue."
+    },
+    {
+      "title": "Quand une équipe devient utile",
+      "body": "Plusieurs intervenants peuvent être nécessaires pour traiter à la fois le métier, les données, les interfaces et l’exploitation. Demandez les noms ou rôles des personnes affectées, leur disponibilité et la part sous-traitée. La taille annoncée de l’entreprise ne décrit pas l’équipe de votre projet."
+    },
+    {
+      "title": "Comparer les engagements plutôt que des tarifs par catégorie",
+      "body": "Un forfait de cadrage et un déploiement maintenu ne sont pas comparables. Demandez le même périmètre à chaque candidat, les exclusions et le coût sur douze mois. Nous ne disposons pas de tarifs comparables permettant de publier une fourchette fiable par type de prestataire.",
+      "links": [
+        {
+          "label": "Les critères de choix d’une agence",
+          "href": "/guides/comment-choisir-agence-ia"
+        },
+        {
+          "label": "Calculer le budget complet",
+          "href": "/guides/combien-coute-projet-ia"
+        },
+        {
+          "label": "Comparer les devis",
+          "href": "/guides/questions-a-poser-prestataire-ia"
+        }
+      ]
+    }
+  ],
+  "risks": [
+    "Choisir sur le seul intitulé agence ou consultant.",
+    "Confondre effectif de l’entreprise et équipe affectée.",
+    "Absence de relais ou de documentation après livraison."
+  ],
+  "questions": [
+    "Qui porte la responsabilité technique ?",
+    "Quelles compétences sont nécessaires ?",
+    "Le projet touche-t-il au SI ?",
+    "Combien d'équipes seront utilisatrices ?"
+  ],
+  "faqs": [
+    {
+      "question": "Un consultant IA peut-il livrer une automatisation ?",
+      "answer": "Oui si le périmètre est maîtrisé. Pour un système critique ou multi-outils, une équipe structurée peut être plus adaptée."
+    },
+    {
+      "question": "Une agence IA est-elle toujours plus chère ?",
+      "answer": "Pas toujours, mais elle porte souvent plus de coordination et de production. Il faut comparer les livrables."
+    },
+    {
+      "question": "Peut-on combiner consultant et intégrateur ?",
+      "answer": "Oui. Un consultant peut cadrer le besoin puis aider à sélectionner un intégrateur."
+    },
+    {
+      "question": "Comment éviter le mauvais choix ?",
+      "answer": "Décrire le projet, les contraintes, le budget et demander une sélection cohérente plutôt qu'un annuaire trop large."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Parcourir les consultants",
+      "href": "/consultants-ia"
+    },
+    {
+      "label": "Parcourir les agences",
+      "href": "/agences-ia"
+    },
+    {
+      "label": "Parcourir les intégrateurs",
+      "href": "/integrateurs-ia"
+    }
+  ],
+  "relatedProviders": [
+    "bienfait",
+    "eurelis",
+    "eleven-labs"
+  ],
+  "updatedAt": "2026-09-22",
+  "projectCta": {
+    "title": "Vous hésitez entre plusieurs types de prestataires ?",
+    "description": "Indiquez ce que vous avez déjà cadré, ce qui doit être livré et les outils concernés. Nous vous aidons à préciser le profil recherché, sans engagement."
+  }
+},
   {
     slug: "cahier-des-charges-projet-ia",
     title: "Cahier des charges projet IA",
@@ -631,88 +723,162 @@ export const guides: ContentPage[] = [
     ],
   },
   {
-    slug: "questions-a-poser-prestataire-ia",
-    title: "Questions à poser à un prestataire IA",
-    metaTitle: "Questions à poser à une agence IA avant de signer",
-    metaDescription:
-      "Checklist de questions pour évaluer un prestataire IA : cadrage, données, sécurité, budget, maintenance, références et responsabilité.",
-    h1: "Questions à poser à un prestataire IA avant de signer",
-    intro:
-      "Les bonnes questions évitent les devis vagues et les projets impossibles à maintenir. Elles permettent aussi de repérer les prestataires qui vendent une promesse plutôt qu'un système exploitable.",
-    summary:
-      "Interrogez le prestataire sur le problème métier, les données, la sécurité, les limites de l'IA, les livrables, la maintenance, les références et les responsabilités de chaque partie.",
-    sections: [
-      {
-        title: "Questions sur le besoin",
-        body: "Demandez au prestataire de reformuler le problème, les utilisateurs, le résultat attendu et les limites du périmètre.",
-      },
-      {
-        title: "Questions sur les données",
-        body: "Faites préciser les sources, droits d'accès, hébergement, anonymisation, conservation et suppression.",
-      },
-      {
-        title: "Questions sur la livraison",
-        body: "Clarifiez les jalons, tests, documentation, formation, transfert de compétence et support.",
-      },
-      {
-        title: "Questions sur le modèle économique",
-        body: "Comparez forfait, régie, maintenance, licences logicielles et coûts récurrents.",
-      },
-    ],
-    questions: [
-      "Quel problème métier pensez-vous résoudre ?",
-      "Quelles données sont nécessaires ?",
-      "Quels risques voyez-vous dans notre demande ?",
-      "Comment testez-vous la qualité des réponses ?",
-      "Que se passe-t-il si le modèle IA change ?",
-      "Quels coûts récurrents faut-il prévoir ?",
-      "Quels livrables aurons-nous en fin de mission ?",
-      "Qui sera responsable de la maintenance ?",
-    ],
-    risks: [
-      "réponse trop commerciale",
-      "absence de questions côté prestataire",
-      "délais irréalistes",
-      "promesse d'autonomie totale sans contrôle",
-    ],
-    faqs: [
-      {
-        question: "Un bon prestataire doit-il challenger le brief ?",
-        answer:
-          "Oui. Un prestataire sérieux signale les risques, les dépendances et les zones floues.",
-      },
-      {
-        question: "Faut-il demander des références ?",
-        answer:
-          "Oui, mais les références doivent être comparables au type de projet envisagé.",
-      },
-      {
-        question: "Que faire si les réponses sont trop techniques ?",
-        answer: "Demandez une reformulation métier et des livrables concrets.",
-      },
-      {
-        question: "Comment comparer deux réponses ?",
-        answer:
-          "Comparez périmètre, hypothèses, risques, maintenance, planning et critères de succès, pas seulement le tarif.",
-      },
-    ],
-    relatedPages: [
-      ...commonRelated,
-      {
-        label: "Comment choisir une agence IA",
-        href: "/guides/comment-choisir-agence-ia",
-      },
-      {
-        label: "Cahier des charges IA",
-        href: "/guides/cahier-des-charges-projet-ia",
-      },
-    ],
-    relatedProviders: [
-      "atelier-ia-conseil",
-      "integria-solutions",
-      "rag-conseil",
-    ],
-  },
+  "slug": "questions-a-poser-prestataire-ia",
+  "title": "Comparer les devis de prestataires IA",
+  "metaTitle": "Comparer des devis IA : grille et questions à poser",
+  "metaDescription": "Comparez des devis IA sur le même périmètre : livrables, données, recette, coût sur 12 mois, maintenance et sortie. Repérez les exclusions à clarifier.",
+  "h1": "Comparer des devis IA : les questions à poser avant de signer",
+  "intro": "Deux montants ne se comparent que si les offres couvrent le même travail. Avant de signer, faites préciser les livrables, les conditions de validation et ce qui restera à votre charge.",
+  "summary": "Reprenez chaque devis dans une grille commune. Marquez chaque point « inclus et décrit », « option chiffrée », « exclu » ou « à clarifier ». Une zone vide n’est pas un engagement : demandez une réponse écrite avant de choisir.",
+  "sections": [
+    {
+      "title": "1. Vérifier que les offres répondent au même besoin",
+      "body": "Figez une version du brief avec le processus, les outils, le volume, les utilisateurs et les résultats attendus. Si un candidat propose un autre périmètre, demandez une variante distincte. Un prototype ne se compare pas à une solution exploitée et maintenue.",
+      "links": [
+        {
+          "label": "Préparer le brief commun",
+          "href": "/guides/cahier-des-charges-projet-ia"
+        },
+        {
+          "label": "Sélectionner les candidats avant le devis",
+          "href": "/guides/comment-choisir-agence-ia"
+        }
+      ]
+    },
+    {
+      "title": "2. Remplir une grille pour chaque devis",
+      "body": "Pour chaque ligne, recopiez la réponse, la page du devis et le point restant à clarifier. Cette grille est une méthode de comparaison proposée par Entreprise.ai, pas une notation des prestataires.",
+      "table": {
+        "caption": "Grille de lecture d’un devis IA",
+        "columns": [
+          "À comparer",
+          "Ce qui doit être écrit",
+          "Question si cela manque"
+        ],
+        "rows": [
+          [
+            "Livrables et exclusions",
+            "Fonctions, connecteurs, volumes et limites",
+            "Que faut-il payer ou réaliser en complément ?"
+          ],
+          [
+            "Préparation des données",
+            "Sources, formats, nettoyage et responsable",
+            "Qui rend les données utilisables ?"
+          ],
+          [
+            "Recette du pilote",
+            "Jeu de tests, résultats attendus et décision de validation",
+            "Qu’est-ce qui permet d’accepter ou de refuser le pilote ?"
+          ],
+          [
+            "Accès et confidentialité",
+            "Comptes, droits, flux et conservation",
+            "Qui peut consulter les documents et les traces ?"
+          ],
+          [
+            "Coût sur douze mois",
+            "Initial, récurrent, variable et travail interne",
+            "Quel est le total avec l’usage prévu ?"
+          ],
+          [
+            "Support et incidents",
+            "Responsable, horaires, délai et limites",
+            "Qui intervient si le traitement s’arrête ?"
+          ],
+          [
+            "Sortie et reprise",
+            "Export, documentation, comptes et coût de transfert",
+            "Que récupérons-nous si nous changeons de prestataire ?"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "3. Rendre les prix comparables",
+      "body": "Additionnez le coût initial, les charges récurrentes sur douze mois et le travail interne. Distinguez les options indispensables des améliorations facultatives. Exemple fictif : une offre A à 8 000 € puis 500 € par mois représente 14 000 € la première année ; une offre B à 11 000 € puis 200 € par mois représente 13 400 €. Cette comparaison n’a de sens qu’à périmètre et durée identiques, avant les autres coûts éventuels.",
+      "links": [
+        {
+          "label": "Détailler le calcul du budget total",
+          "href": "/guides/combien-coute-projet-ia"
+        }
+      ]
+    },
+    {
+      "title": "4. Faire préciser les tests selon le projet",
+      "body": "Pour une automatisation, demandez comment sont traités les doublons, les pannes et les reprises. Pour un assistant documentaire, demandez une réponse sourcée, un cas sans réponse et un test d’accès interdit. Fixez les critères avec le responsable métier avant le pilote.",
+      "links": [
+        {
+          "label": "Préparer les tests d’une automatisation",
+          "href": "/cas-usages/automatisation-ia"
+        },
+        {
+          "label": "Évaluer un assistant documentaire",
+          "href": "/cas-usages/rag-base-documentaire"
+        }
+      ]
+    },
+    {
+      "title": "5. Traiter les points bloquants avant de noter les offres",
+      "body": "Une bonne note commerciale ne compense pas l’absence de droits sur les données, de responsable de maintenance ou de livrable vérifiable. Demandez une clarification écrite. Si le périmètre reste incertain, faites chiffrer un cadrage limité avec ses livrables et sa condition d’arrêt."
+    }
+  ],
+  "questions": [
+    "Quelle version du brief couvre ce prix ?",
+    "Quelles options sont nécessaires pour mettre réellement en production ?",
+    "Qui valide le pilote et sur quels exemples ?",
+    "Quel montant payons-nous si nous arrêtons après le pilote ?",
+    "Que récupérons-nous à la fin de la prestation ?"
+  ],
+  "risks": [
+    "Prix d’appel excluant les connecteurs nécessaires.",
+    "Maintenance sans périmètre ni interlocuteur.",
+    "Recette limitée à une démonstration préparée.",
+    "Comptes et documentation impossibles à reprendre."
+  ],
+  "faqs": [
+    {
+      "question": "Faut-il choisir le devis IA le moins cher ?",
+      "answer": "Comparez d’abord les livrables, les exclusions et le coût total sur la même durée. Un devis initial moins élevé peut demander davantage de travail interne ou de dépenses récurrentes."
+    },
+    {
+      "question": "Comment comparer un forfait et une prestation au temps passé ?",
+      "answer": "Demandez les livrables attendus dans les deux cas. Pour le temps passé, obtenez les profils, les taux, l’estimation et un plafond d’engagement ; pour le forfait, les exclusions et les conditions de modification."
+    },
+    {
+      "question": "Que faire si le prestataire ne chiffre pas la maintenance ?",
+      "answer": "Demandez son périmètre et son mode de facturation, ou identifiez qui l’assurera. Ne considérez pas une ligne absente comme un service gratuit."
+    },
+    {
+      "question": "Une grille remplace-t-elle la vérification des références ?",
+      "answer": "Non. Les références, le rôle de l’équipe et la capacité à livrer se vérifient séparément. La grille aide à comparer les engagements écrits."
+    }
+  ],
+  "relatedPages": [
+    {
+      "label": "Calculer le budget total",
+      "href": "/guides/combien-coute-projet-ia"
+    },
+    {
+      "label": "Choisir une agence IA",
+      "href": "/guides/comment-choisir-agence-ia"
+    },
+    {
+      "label": "Agence ou consultant ?",
+      "href": "/guides/agence-ia-ou-consultant-ia"
+    }
+  ],
+  "relatedProviders": [
+    "betomorrow",
+    "creme-de-code",
+    "noxcod"
+  ],
+  "updatedAt": "2026-09-22",
+  "projectCta": {
+    "title": "Vous avez des devis difficiles à comparer ?",
+    "description": "Expliquez votre besoin et les points qui restent flous, sans joindre de documents confidentiels. Nous pouvons vous aider à clarifier les critères et les profils à consulter. Demande gratuite, sans engagement."
+  }
+},
 ];
 
 export function getGuideBySlug(slug: string) {
